@@ -1,0 +1,7 @@
+rule "Evening Off Rule"
+when
+	Item EveningOff received command ON
+then
+	//Everything except fans, stairs
+	EveningOff.postUpdate(OFF)
+end

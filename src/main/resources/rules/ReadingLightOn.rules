@@ -1,0 +1,8 @@
+rule "Reading Light On Rule"
+when
+	Item ReadingLightOn received command ON
+then
+	MattsBedside.sendCommand(25)
+	MaureensBedside.sendCommand(25)
+	ReadingLightOn.postUpdate(OFF)
+end

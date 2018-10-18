@@ -1,2 +1,8 @@
 Switch SceneMorningOn "Morning On" (Scenes) [ "SwitchableTag" ]
 Switch SceneMorningOff "Morning Off" (Scenes) [ "SwitchableTag" ]
+Switch ReadingLightOn "Reading Light On" (Scenes) [ "SwitchableTag" ]
+Switch ReadingLightOff "Reading Light Off" (Scenes) [ "SwitchableTag" ]
+Switch BedtimeOn "Bedtime On" (Scenes) [ "SwitchableTag" ]
+Switch EveningOn "Evening On" (Scenes) [ "SwitchableTag" ]
+Switch EveningOff "Evening Off" (Scenes) [ "SwitchableTag" ]
+Switch EveningOffLate "Evening Off Late" (Scenes) [ "SwitchableTag" ]

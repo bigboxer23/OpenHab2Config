@@ -1,6 +1,6 @@
 //Basement
 Color BackBar "Back Bar" (Basement) {channel = "hue:0210:001788174d59:4:color"}
-Color BackBarAccent "Back Bar Accent" (Basement) {channel = "hue:0210:001788174d59:6:color"} 
+Color BackBarAccent "Back Bar Accent" (Basement) [ "UseMeForLevel", "Notify" ] {channel = "hue:0210:001788174d59:6:color"}
 
 //Basement Bathroom
 
