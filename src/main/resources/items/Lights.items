@@ -1,0 +1,48 @@
+//Basement
+Color BackBar "Back Bar" (Basement) {channel = "hue:0210:001788174d59:4:color"}
+Color BackBarAccent "Back Bar Accent" (Basement) {channel = "hue:0210:001788174d59:6:color"} 
+
+//Basement Bathroom
+
+//Utility
+Dimmer UtilityOverhead "Utility Overhead" (Utility) {channel = "zwave:device:17697a96:node2:switch_dimmer"}
+
+//Garage
+
+//Living Room
+Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom) {channel = "hue:0210:001788174d59:3:color"}
+
+//Kitchen
+
+//Dining Room
+
+//Front Porch
+
+//Great Room
+
+//Mud Room
+
+//Sun Room
+
+//Guest Bathroom
+
+//Climate
+
+//Upstairs Common
+
+//Upstairs Bathroom
+
+//Deane
+
+//Margaret
+Color  MaggieLamp "Maggie Lamp" (MargaretBedroom) {channel = "hue:0210:001788174d59:10:color"} 
+
+//Natalie
+Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom) {channel = "hue:0100:001788174d59:7:brightness"} 
+Color NatatalieLamp "Natalie Lamp" (NatalieBedroom) {channel = "hue:0210:001788174d59:5:color"} 
+                   
+//Master Bedroom
+Dimmer  MattsBedside "Matt's Bedside" (MasterBedroom) {channel = "hue:0100:001788174d59:9:brightness"} 
+Dimmer  MaureensBedside "Maureen's Bedside" (MasterBedroom) {channel = "hue:0100:001788174d59:8:brightness"} 
+
+//Master Bedroom

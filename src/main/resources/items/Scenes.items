@@ -1,0 +1,2 @@
+Switch SceneMorningOn "Morning On" (Scenes) [ "SwitchableTag" ]
+Switch SceneMorningOff "Morning Off" (Scenes) [ "SwitchableTag" ]
