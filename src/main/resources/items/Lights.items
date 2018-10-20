@@ -5,7 +5,7 @@ Color BackBarAccent "Back Bar Accent" (Basement) [ "UseMeForLevel", "Notify" ] {
 //Basement Bathroom
 
 //Utility
-Dimmer UtilityOverhead "Utility Overhead" (Utility) {channel = "zwave:device:17697a96:node2:switch_dimmer"}
+Dimmer UtilityOverhead "Utility Overhead" (Utility) {channel = "zwave:device:0fe6bcbb:node2:switch_dimmer"}
 
 //Garage
 
@@ -15,6 +15,11 @@ Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom) {channel = "hue:021
 //Kitchen
 
 //Dining Room
+Dimmer NorthAccent "North Accent" (DiningRoom) {channel = "zwave:device:0fe6bcbb:node7:switch_dimmer"}
+Dimmer Chandelier "Chandelier" (DiningRoom) {channel = "zwave:device:0fe6bcbb:node8:switch_dimmer"}
+Dimmer SouthAccent "South Accent" (DiningRoom) {channel = "zwave:device:0fe6bcbb:node10:switch_dimmer"}
+Dimmer DiningRoomAccy "Dining Room Accessory" ( DiningRoom) {channel = "zwave:device:0fe6bcbb:node9:switch_dimmer"}
+
 
 //Front Porch
 
