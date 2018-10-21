@@ -1,7 +1,7 @@
 Group BasementMotion (Basement)
 Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:e401e1d3:node5:sensor_door" }
 Contact BasementStairsMotionSensor "Basement Stairs Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node70:sensor_door" }
-Contact BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node71:sensor_binary" }
+Switch BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node71:sensor_binary" }
 Switch BasementMotionTimer ( BasementMotion) {expire="30m, command=OFF"}
 
 
@@ -14,8 +14,8 @@ Group MargaretBedroomMotion (MargaretBedroom)
 Contact MargaretBedroomMotionSensor "Margaret Bedroom Motion Sensor" (MargaretBedroomMotion) {channel = "zwave:device:0fe6bcbb:node30:sensor_door" }
 
 Group MudRoomMotion (MudRoom)
-Contact MudRoomMotionSensor "Mud Room Motion Sensor" (MudRoomMotion) {channel = "zwave:device:0fe6bcbb:node56:sensor_binary" }
-Switch MudRoomMotionTimer ( MudRoomMotion) {expire="15m, command=OFF"}
+Switch MudRoomMotionSensor "Mud Room Motion Sensor" (MudRoomMotion) {channel = "zwave:device:0fe6bcbb:node56:sensor_binary" }
+Switch MudRoomMotionTimer ( MudRoomMotion) {expire="1m, command=OFF"}
 
 Group LivingRoomMotion (LivingRoom)
 Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:0fe6bcbb:node59:sensor_door" }

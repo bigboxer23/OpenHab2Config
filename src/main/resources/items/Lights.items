@@ -18,9 +18,11 @@ Dimmer Playroom "Playroom" (BasementBathroom) {channel = "zwave:device:0fe6bcbb:
 
 //Utility
 Dimmer UtilityOverhead "Utility Overhead" (Utility) {channel = "zwave:device:0fe6bcbb:node2:switch_dimmer", expire="30m, command=0"}
+Switch FloodSensor "Flood Sensor" (Utility) {channel = "zwave:device:0fe6bcbb:node84:alarm_flood"}
+
 
 //Garage
-Dimmer Garage "Garage" (Garage) {channel = "zwave:device:0fe6bcbb:node58:switch_dimmer", expire="45m, command=0"}
+Dimmer GarageLights "Garage Lights" (Garage) {channel = "zwave:device:0fe6bcbb:node58:switch_dimmer", expire="45m, command=0"}
 
 //Living Room
 Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom) {channel = "hue:0210:001788174d59:3:color"}
@@ -44,7 +46,7 @@ Dimmer DiningRoomAccy "Dining Room Accessory" ( DiningRoom) {channel = "zwave:de
 
 
 //Front Porch
-Dimmer FrontPorch "Front Porch" (FrontPorch) {channel = "zwave:device:0fe6bcbb:node52:switch_dimmer"}
+Dimmer FrontPorchLights "Front Porch Lights" (FrontPorch) {channel = "zwave:device:0fe6bcbb:node52:switch_dimmer"}
 Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch) {channel = "zwave:device:0fe6bcbb:node69:switch_binary"}
 
 //Great Room

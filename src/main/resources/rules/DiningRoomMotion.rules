@@ -2,8 +2,8 @@ rule "Dining Motion ON"
 when
     Item DiningRoomMotionSensor received update OPEN
 then
-	logWarn("Bigboxer23", "Dining Room Motion Triggered " + NorthAccent.state)
-    if (DiningRoomMotionTimer.state === OFF && NorthAccent.state === 0){
+	logWarn("Bigboxer23", "Dining Room Motion Triggered " + NorthAccent.state + " " + DiningRoomMotionTimer.state)
+    if (NorthAccent.state == 0){
         logWarn("Bigboxer23", "Dining Room Motion timer is inactive, triggering lights")
         NorthAccent.sendCommand(100)
         Chandelier.sendCommand(100)

@@ -1,0 +1,35 @@
+rule "Mud Motion ON"
+when
+    Item MudRoomMotionSensor received update ON
+then
+	logWarn("Bigboxer23", "Mud Room Motion Triggered " + MudRoomLight.state + " " + MudRoomMotionTimer.state)
+    if (MudRoomMotionTimer.state === OFF && MudRoomLight.state == 0){
+        logWarn("Bigboxer23", "Mud Room Motion timer is inactive, triggering lights")
+        MudRoomLight.sendCommand(100)
+    }
+    MudRoomMotionTimer.sendCommand(OFF)
+end
+
+
+rule "Mud Motion OFF"
+when
+    Item MudRoomMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", "Mud Room Motion sensor Off, setting timer")
+    MudRoomMotionTimer.sendCommand(ON)
+end
+
+rule "Mud Motion OFF"
+when
+    Item MudRoomMotionTimer received update OFF
+then
+	if (MudRoomMotionSensor.state === OFF){
+		logWarn("Bigboxer23", "Mud Room Motion timer is inactive, triggering lights")
+	    MudRoomLight.sendCommand(0)
+	    GarageLights.sendCommand(0)
+	    logWarn("Bigboxer23", "MudRoomMotionTimer Off, Sensor Off, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "Mud Room Motion is ON, not shutting off lights")
+    }
+end
