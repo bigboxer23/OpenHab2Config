@@ -2,12 +2,21 @@ rule "Dining Motion ON"
 when
     Item DiningRoomMotionSensor received update OPEN
 then
-    if (DiningRoomMotionTimer.state === OFF){
+	logWarn("Bigboxer23", "Dining Room Motion Triggered " + NorthAccent.state)
+    if (DiningRoomMotionTimer.state === OFF && NorthAccent.state === 0){
         logWarn("Bigboxer23", "Dining Room Motion timer is inactive, triggering lights")
         NorthAccent.sendCommand(100)
         Chandelier.sendCommand(100)
         SouthAccent.sendCommand(100)
     }
+    DiningRoomMotionTimer.sendCommand(OFF)
+end
+
+rule "Dining Motion CLOSED"
+when
+    Item DiningRoomMotionSensor received update CLOSED
+then
+	logWarn("Bigboxer23", "Dining Room Motion sensor closed, setting timer")
     DiningRoomMotionTimer.sendCommand(ON)
 end
 
@@ -15,8 +24,14 @@ rule "Dining Motion OFF"
 when
     Item DiningRoomMotionTimer received update OFF
 then
-    NorthAccent.sendCommand(0)
-    Chandelier.sendCommand(0)
-    SouthAccent.sendCommand(0)
-    logWarn("Bigboxer23", "DiningRoomMotionTimer Off")
+	if (DiningRoomMotionSensor.state === CLOSED){
+		logWarn("Bigboxer23", "Dining Room Motion timer is inactive, triggering lights")
+	    NorthAccent.sendCommand(0)
+	    Chandelier.sendCommand(0)
+	    SouthAccent.sendCommand(0)
+	    logWarn("Bigboxer23", "DiningRoomMotionTimer Off, CLOSED, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "Dining Room Motion is OPEN, not shutting off lights")
+    }
 end
