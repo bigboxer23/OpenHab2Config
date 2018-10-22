@@ -1,10 +1,11 @@
-rule "Evening Off Late"
+rule "Morning Off"
 when
-	Time cron "0 30 01 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+	Time cron "0 0 9 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
 	Item TestSwitch received update ON
 then
 	logWarn("Bigboxer23", "Evening Off")
 	EveningOffOff.sendCommand(0)
 	EveningOffOff.sendCommand(OFF)
-	StairsAccent.sendCommand(0)
+	MorningOff.sendCommand(0)
+	MorningOff.sendCommand(OFF)
 end
