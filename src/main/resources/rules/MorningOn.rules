@@ -1,20 +1,13 @@
 rule "Morning On Rule"
 when
-	Item SceneMorningOn received command ON
+	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *"
 then
-	LivingRoomCornerLamp.sendCommand(100)
-	//poop closet 100
-	//accent 100
-	//master shower 100
-	//under cabinet 37
-	//entry accent 100
-	//living room back 66
-	//basement stairs 100
-	//entry way 80
-	//kitchen 100
-	//master bath 50
-	//upstairs 50
-	//guest accent 25
-	//stairs accent 35
-    SceneMorningOn.postUpdate(OFF)
+	MorningOn.sendCommand(100)
+	MorningOn.sendCommand(ON)
+	UnderCabinets.sendCommand(35)
+	LivingRoomBack.sendCommand(65)
+	EntryWay.sendCommand(80)
+	MasterBathMain.sendCommand(50)
+	Upstairs.sendCommand(50)
+	StairsAccent.sendCommand(35)
 end

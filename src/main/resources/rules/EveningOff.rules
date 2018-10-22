@@ -1,7 +1,13 @@
-rule "Evening Off Rule"
+rule "Evening Off"
 when
-	Item EveningOff received command ON
+	Time cron "0 30 22 ? * SUN,MON,TUE,WED,THU *" or
+	Time cron "0 30 23 ? * FRI,SAT *" or
+	Item TestSwitch received update ON
 then
-	//Everything except fans, stairs
-	EveningOff.postUpdate(OFF)
+	logWarn("Bigboxer23", "Evening Off")
+	EveningOffOff.sendCommand(0)
+	EveningOffOff.sendCommand(OFF)
+	EveningOffOn.sendCommand(25)
+	EveningOffOn.sendCommand(ON)
+
 end

@@ -1,7 +1,10 @@
 rule "Evening Off Late Rule"
 when
-	Item EveningOffLate received command ON
+	Time cron "0 30 01 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+	Item TestSwitch received update ON
 then
-	//Everything except fans
-	EveningOffLate.postUpdate(OFF)
+	logWarn("Bigboxer23", "Evening Off")
+	EveningOffOff.sendCommand(0)
+	EveningOffOff.sendCommand(OFF)
+	StairsAccent.sendCommand(0)
 end

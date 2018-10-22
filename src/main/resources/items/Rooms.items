@@ -1,20 +1,20 @@
-Group:Dimmer   Basement           "Basement"
-Group   BasementBathroom   "Basement Bathroom"
-Group   Utility            "Utility"                
-Group   Garage             "Garage"                 
-Group:Dimmer   DiningRoom         "Dining Room"
-Group   FrontPorch         "Front Porch"            
-Group   GreatRoom          "Great Room"             
-Group   Kitchen            "Kitchen"                
-Group   LivingRoom         "Living Room"            
-Group   MudRoom            "Mud Room"               
-Group   SunRoom            "Sun Room"               
-Group   GuestBathroom      "Guest Bathroom"         
-Group   Climate            "Climate"                
-Group   UpstairsCommon     "Upstairs Common"        
-Group   DeaneBedroom       "Deane Bedroom"
-Group   UpstairsBathroom   "Upstairs Bathroom"      
-Group   NatalieBedroom     "Natalie Bedroom"        
-Group   MargaretBedroom    "Margaret Bedroom"
-Group   MasterBathroom     "Master Bathroom"        
-Group	Scenes             "Scenes"
+Group:Dimmer   Basement           "Basement" ["Room"]
+Group:Dimmer   BasementBathroom   "Basement Bathroom" ["Room"]
+Group:Dimmer   Utility            "Utility" ["Room"]
+Group:Dimmer   Garage             "Garage" ["Room"]
+Group:Dimmer   DiningRoom         "Dining Room" ["Room"]
+Group:Dimmer   FrontPorch         "Front Porch" ["Room"]
+Group:Dimmer   GreatRoom          "Great Room" ["Room"]
+Group:Dimmer   Kitchen            "Kitchen" ["Room"]
+Group:Dimmer   LivingRoom         "Living Room" ["Room"]
+Group:Dimmer   MudRoom            "Mud Room" ["Room"]
+Group:Dimmer   SunRoom            "Sun Room" ["Room"]
+Group:Dimmer   GuestBathroom      "Guest Bathroom" ["Room"]
+Group:Dimmer   Climate            "Climate" ["Room"]
+Group:Dimmer   UpstairsCommon     "Upstairs Common" ["Room"]
+Group:Dimmer   DeaneBedroom       "Deane Bedroom" ["Room"]
+Group:Dimmer   UpstairsBathroom   "Upstairs Bathroom" ["Room"]
+Group:Dimmer   NatalieBedroom     "Natalie Bedroom" ["Room"]
+Group:Dimmer   MargaretBedroom    "Margaret Bedroom" ["Room"]
+Group:Dimmer   MasterBathroom     "Master Bathroom" ["Room"]
+Group	Scenes             "Scenes" ["Room"]

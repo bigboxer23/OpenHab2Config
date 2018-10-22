@@ -1,0 +1,7 @@
+Group:Dimmer   EveningOffOff
+Group:Dimmer   EveningOffOn
+
+Group:Dimmer   MorningOn
+Group:Dimmer   MorningOff
+
+Switch TestSwitch
