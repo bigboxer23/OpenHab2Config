@@ -4,4 +4,6 @@ Group:Dimmer   EveningOffOn
 Group:Dimmer   MorningOn
 Group:Dimmer   MorningOff
 
+Group:Dimmer    EveningOnOn
+
 Switch TestSwitch

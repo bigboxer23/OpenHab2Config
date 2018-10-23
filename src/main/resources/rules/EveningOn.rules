@@ -1,23 +1,15 @@
 rule "Evening On Rule"
 when
-	Item EveningOn received command ON
+	Item EveningOn received command ON or
+	Time cron "0 30 17 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	//accent
-	//upstairs bathroom 50
-	//outside front 30
-	//main accent
-	//under cabinet 35
-	//entry accent
-	//living room back
-	//basement stairs
-	//entry way
-	//kitchen
-	//tub 15
-	//upstairs 45
-	//hallway 20
-	//sink 20
-	//guest accent 25
-	LivingRoomCornerLamp.sendCommand(100)
-	//stairs accesnt
-	EveningOn.postUpdate(OFF)
+	EveningOnOn.sendCommand(100)
+	UpstairsBathroomLight.sendCommand(50)
+	FrontPorchLights.sendCommand(45)
+	UnderCabinets.sendCommand(50)
+	UpstairsBathroomTub.sendCommand(15)
+	Upstairs.sendCommand(45)
+	Hallway.sendCommand(20)
+	Sink.sendCommand(20)
+	MainAccent.sendCommand(75)
 end
