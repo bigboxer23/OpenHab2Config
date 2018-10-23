@@ -1,7 +1,6 @@
 rule "Morning Off"
 when
-	Time cron "0 0 9 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
-	Item TestSwitch received update ON
+	Time cron "0 0 9 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Evening Off")
 	EveningOffOff.sendCommand(0)
