@@ -1,13 +1,12 @@
 rule "Bedtime On Rule"
 when
+	Time cron "0 10 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
 	Item BedtimeOn received command ON
 then
-	MaggieLamp.sendCommand(10)
+	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(10))
+	MaggieLamp.sendCommand(aPurple)
 	NatalieReadingLamp.sendCommand(35)
-	NatatalieLamp.sendCommand(10)
-	//nat fan
-	//mag fan
-	//mag lamp color
-	//nat lamp color
-	BedtimeOn.postUpdate(OFF)
+	NatatalieLamp.sendCommand(aPurple)
+	NatalieFan.sendCommand(ON)
+	MargaretFan.sendCommand(ON)
 end
