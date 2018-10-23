@@ -1,0 +1,46 @@
+rule "Basement Motion ON"
+when
+    Item BasementScreenMotionSensor received update ON or
+    Item ArtAreaMotionSensor received update OPEN or
+	Item BasementStairsMotionSensor received update OPEN
+then
+	logWarn("Bigboxer23", "Basement Motion Triggered " + BackOverhead.state + " " + BasementMotionTimer.state)
+    if (BackOverhead.state == 0){
+        logWarn("Bigboxer23", "Basement Motion timer is inactive, triggering lights")
+		Basement.sendCommand(100)
+    }
+    BasementMotionTimer.sendCommand(OFF)
+end
+
+rule "Basement Motion OFF"
+when
+    Item BasementScreenMotionSensor received update OFF or
+    Item ArtAreaMotionSensor received update CLOSED or
+    Item BasementStairsMotionSensor received update CLOSED
+then
+	logWarn("Bigboxer23", "Basement Motion sensor Off, maybe timer cancel ")
+	logWarn("Bigboxer23", BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
+	logWarn("Bigboxer23", (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === CLOSED) + " " + (BasementStairsMotionSensor.state === CLOSED))
+	if (BasementScreenMotionSensor.state === OFF && ArtAreaMotionSensor.state === CLOSED && BasementStairsMotionSensor.state === CLOSED)
+	{
+		logWarn("Bigboxer23", "Basement Motion setting Timer")
+        BasementMotionTimer.sendCommand(ON)
+    }
+end
+
+rule "Basement Motion OFF"
+when
+    Item BasementMotionTimer received update OFF
+then
+	if (BasementScreenMotionSensor.state === OFF && ArtAreaMotionSensor.state === CLOSED && BasementStairsMotionSensor.state === CLOSED)
+	{
+		logWarn("Bigboxer23", "Basement Motion timer is inactive, triggering lights")
+	    Basement.sendCommand(0)
+	    logWarn("Bigboxer23", "BasementMotionTimer Off, Sensor Off, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "BasementMotion is ON, not shutting off lights")
+        logWarn("Bigboxer23", BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
+        logWarn("Bigboxer23", (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === CLOSED) + " " + (BasementStairsMotionSensor.state === CLOSED))
+    }
+end

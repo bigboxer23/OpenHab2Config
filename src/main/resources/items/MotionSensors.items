@@ -1,8 +1,8 @@
 Group BasementMotion (Basement)
-Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:e401e1d3:node5:sensor_door" }
+Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node5:sensor_door" }
 Contact BasementStairsMotionSensor "Basement Stairs Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node70:sensor_door" }
 Switch BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node71:sensor_binary" }
-Switch BasementMotionTimer ( BasementMotion) {expire="30m, command=OFF"}
+Switch BasementMotionTimer ( BasementMotion) {expire="25m, command=OFF"}
 
 
 Group DiningRoomMotion (DiningRoom)
