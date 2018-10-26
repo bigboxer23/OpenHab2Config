@@ -7,6 +7,8 @@ then
 	MaggieLamp.sendCommand(aPurple)
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
+	DeanesAccent.sendCommand(aPurple)
+	DeaneLamp.sendCommand(15)
 	NatalieFan.sendCommand(ON)
 	MargaretFan.sendCommand(ON)
 end

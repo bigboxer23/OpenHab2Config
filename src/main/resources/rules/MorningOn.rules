@@ -1,6 +1,7 @@
 rule "Morning On Rule"
 when
-	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *"
+	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *" or
+	Item SceneMorningOn received command ON
 then
 	MorningOn.sendCommand(100)
 	MorningOn.sendCommand(ON)
@@ -10,4 +11,5 @@ then
 	MasterBathMain.sendCommand(50)
 	Upstairs.sendCommand(50)
 	StairsAccent.sendCommand(35)
+
 end
