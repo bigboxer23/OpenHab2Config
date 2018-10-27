@@ -90,7 +90,7 @@ Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, Eveni
 //Deane
 Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {channel = "zwave:device:0fe6bcbb:node25:switch_dimmer"}
 Dimmer  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:12:brightness"}
-Color  DeanesAccent "Deane's Accent" (DeaneBedroom, EveningOffOff) {channel = "hue:0200:001788174d59:11:color"}
+Color  DeanesAccent "Deane's Accent" (DeaneBedroom) {channel = "hue:0200:001788174d59:11:color"}
 
 
 //Margaret
