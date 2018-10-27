@@ -1,0 +1,27 @@
+rule "Morning On Rule"
+when
+	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *" or
+	Item Morning received command ON
+then
+	logWarn("Bigboxer23", "Morning On")
+	MorningOn.sendCommand(100)
+	MorningOn.sendCommand(ON)
+	UnderCabinets.sendCommand(35)
+	LivingRoomBack.sendCommand(65)
+	EntryWay.sendCommand(80)
+	MasterBathMain.sendCommand(50)
+	Upstairs.sendCommand(50)
+	StairsAccent.sendCommand(35)
+end
+
+rule "Morning Off"
+when
+	Time cron "0 0 9 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+	Item Morning received command OFF
+then
+	logWarn("Bigboxer23", "Morning Off")
+	EveningOffOff.sendCommand(0)
+	EveningOffOff.sendCommand(OFF)
+	MorningOff.sendCommand(0)
+	MorningOff.sendCommand(OFF)
+end

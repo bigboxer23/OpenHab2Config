@@ -1,0 +1,17 @@
+rule "Reading Light On"
+when
+	Item ReadingLight received command ON
+then
+	logWarn("Bigboxer23", "Reading On")
+	MattsBedside.sendCommand(25)
+	MaureensBedside.sendCommand(25)
+end
+
+rule "Reading Light Off"
+when
+	Item ReadingLight received command OFF
+then
+	logWarn("Bigboxer23", "Reading Off")
+	MattsBedside.sendCommand(0)
+	MaureensBedside.sendCommand(0)
+end

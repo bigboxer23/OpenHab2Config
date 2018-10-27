@@ -1,8 +1,9 @@
-rule "Bedtime On Rule"
+rule "Bedtime"
 when
 	Time cron "0 10 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
-	Item BedtimeOn received command ON
+	Item Bedtime received command ON
 then
+	logWarn("Bigboxer23", "Bedtime On")
 	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(10))
 	MaggieLamp.sendCommand(aPurple)
 	NatalieReadingLamp.sendCommand(35)

@@ -1,8 +1,9 @@
-rule "Evening Off Late"
+rule "Evening Late"
 when
+	Item Evening received command OFF or
 	Time cron "0 30 01 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Evening Off")
+	logWarn("Bigboxer23", "Evening Late Off")
 	EveningOffOff.sendCommand(0)
 	EveningOffOff.sendCommand(OFF)
 	StairsAccent.sendCommand(0)
