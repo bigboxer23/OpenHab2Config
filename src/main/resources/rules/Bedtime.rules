@@ -5,6 +5,44 @@ when
 then
 	logWarn("Bigboxer23", "Bedtime On")
 	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(10))
+	switch now.getDayOfWeek
+	{
+		case 0:
+        {
+            logWarn("Bigboxer23", "Bedtime Sunday")
+			aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(10))
+        }
+		case 1:
+		{
+			logWarn("Bigboxer23", "Bedtime Monday")
+			aPurple = new HSBType(new DecimalType(328), new PercentType(61), new PercentType(10))
+		}
+		case 2:
+        {
+            logWarn("Bigboxer23", "Bedtime Tuesday")
+            aPurple = new HSBType(new DecimalType(254), new PercentType(98), new PercentType(10))
+        }
+		case 3:
+        {
+            logWarn("Bigboxer23", "Bedtime Wednesday")
+            aPurple = new HSBType(new DecimalType(221), new PercentType(99), new PercentType(10))
+        }
+        case 4:
+        {
+            logWarn("Bigboxer23", "Bedtime Thursday")
+            aPurple = new HSBType(new DecimalType(233), new PercentType(59), new PercentType(10))
+        }
+        case 5:
+        {
+            logWarn("Bigboxer23", "Bedtime Friday")
+            aPurple = new HSBType(new DecimalType(140), new PercentType(100), new PercentType(10))
+        }
+        case 6:
+        {
+            logWarn("Bigboxer23", "Bedtime Saturday")
+            aPurple = new HSBType(new DecimalType(267), new PercentType(73), new PercentType(10))
+        }
+	}
 	MaggieLamp.sendCommand(aPurple)
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
