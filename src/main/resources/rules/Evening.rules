@@ -12,6 +12,7 @@ then
 	Upstairs.sendCommand(45)
 	Hallway.sendCommand(20)
 	Sink.sendCommand(20)
+	EntryWay.sendCommand(80)
 	MainAccent.sendCommand(75)
 end
 

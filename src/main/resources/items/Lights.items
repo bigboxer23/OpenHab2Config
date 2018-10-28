@@ -73,6 +73,14 @@ Dimmer GuestBathroomAccent "Guest Bathroom Accent" (GuestBathroom, EveningOffOff
 Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOffOff) {channel = "zwave:device:0fe6bcbb:node18:switch_dimmer"}
 
 //Climate
+Number:Temperature OutsideTemperature "Outside Temperature" {channel = "weatherunderground:weather:local:current#temperature"}
+Number:Temperature LowTemperature "Low Temperature" {channel = "weatherunderground:weather:local:forecastToday#minTemperature"}
+Number:Temperature HighTemperature "High Temperature" {channel = "weatherunderground:weather:local:forecastToday#maxTemperature"}
+Number:Dimensionless OutsideHumidity "Outside Humidity" {channel = "weatherunderground:weather:local:forecastToday#relativeHumidity"}
+Number:Speed MaxWindspeed "Max Windspeed" {channel = "weatherunderground:weather:local:forecastToday#maxWindSpeed"}
+Number:Speed AvgWindspeed "Avg Windspeed" {channel = "weatherunderground:weather:local:forecastToday#averageWindSpeed"}
+Number:Length RainfallHour "Rainfall Per Hour" {channel = "weatherunderground:weather:local:current#precipitationHour"}
+
 
 //Upstairs Common
 Dimmer  Upstairs "Upstairs" (UpstairsCommon, EveningOffOff) {channel = "zwave:device:0fe6bcbb:node43:switch_dimmer"}
@@ -90,7 +98,7 @@ Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, Eveni
 //Deane
 Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {channel = "zwave:device:0fe6bcbb:node25:switch_dimmer"}
 Dimmer  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:12:brightness"}
-Color  DeanesAccent "Deane's Accent" (DeaneBedroom) {channel = "hue:0200:001788174d59:11:color"}
+Color  DeanesAccent "Deane's Accent" (DeaneBedroom, MorningOff) {channel = "hue:0200:001788174d59:11:color"}
 
 
 //Margaret
