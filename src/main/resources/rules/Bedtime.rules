@@ -3,15 +3,10 @@ when
 	Time cron "0 10 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
 	Item Bedtime received command ON
 then
-	logWarn("Bigboxer23", "Bedtime On")
+	logWarn("Bigboxer23", "Bedtime On " + now.getDayOfWeek)
 	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(10))
 	switch now.getDayOfWeek
 	{
-		case 0:
-        {
-            logWarn("Bigboxer23", "Bedtime Sunday")
-			aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(10))
-        }
 		case 1:
 		{
 			logWarn("Bigboxer23", "Bedtime Monday")
@@ -42,12 +37,17 @@ then
             logWarn("Bigboxer23", "Bedtime Saturday")
             aPurple = new HSBType(new DecimalType(267), new PercentType(73), new PercentType(10))
         }
+        case 7:
+        {
+            logWarn("Bigboxer23", "Bedtime Sunday")
+            aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(10))
+        }
 	}
 	MaggieLamp.sendCommand(aPurple)
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
 	DeanesAccent.sendCommand(aPurple)
-	DeaneLamp.sendCommand(15)
+	DeaneLamp.sendCommand(5)
 	NatalieFan.sendCommand(ON)
 	MargaretFan.sendCommand(ON)
 end
