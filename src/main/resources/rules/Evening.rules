@@ -1,7 +1,8 @@
 rule "Evening On"
 when
 	Item Evening received command ON or
-	Time cron "0 30 17 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+	Channel 'astro:sun:local:set#event' triggered START
+	//Time cron "0 30 17 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Evening On")
 	EveningOnOn.sendCommand(100)
