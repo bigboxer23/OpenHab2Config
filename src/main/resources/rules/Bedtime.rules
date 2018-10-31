@@ -1,4 +1,4 @@
-rule "Bedtime"
+rule "Bedtime On"
 when
 	Time cron "0 10 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
 	Item Bedtime received command ON
@@ -50,4 +50,16 @@ then
 	DeaneLamp.sendCommand(5)
 	NatalieFan.sendCommand(ON)
 	MargaretFan.sendCommand(ON)
+end
+
+rule "Bedtime Off"
+when
+	Channel 'astro:sun:local:rise#event' triggered START or
+	Item Bedtime received command OFF
+then
+	logWarn("Bigboxer23", "Bedtime Off " + now.getDayOfWeek)
+	MaggieLamp.sendCommand(0)
+	NatatalieLamp.sendCommand(0)
+	DeanesAccent.sendCommand(0)
+	DeaneLamp.sendCommand(0)
 end
