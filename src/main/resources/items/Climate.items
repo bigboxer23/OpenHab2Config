@@ -1,19 +1,19 @@
 //Thermostat
-Number InsideTemperature "Inside Temperature" {channel = "zwave:device:0fe6bcbb:node86:sensor_temperature"}
-Number InsideHumidity "Inside Humidity" {channel = "zwave:device:0fe6bcbb:node86:sensor_relhumidity2"}
-Number ThermostatMode "Thermostat Mode" {channel = "zwave:device:0fe6bcbb:node86:thermostat_mode"}
-Number ThermostatState "Thermostat State" {channel = "zwave:device:0fe6bcbb:node86:thermostat_state"}
-Number ThermostatFanMode "Thermostat Fan Mode" {channel = "zwave:device:0fe6bcbb:node86:thermostat_fanmode"}
-Number ThermostatFanState "Thermostat Fan State" {channel = "zwave:device:0fe6bcbb:node86:thermostat_fanstate"}
-Number HeatingSetpoint "Heating Setpoint" {channel = "zwave:device:0fe6bcbb:node86:thermostat_setpoint_heating"}
-Number CoolingSetpoint "Cooling Setpoint" {channel = "zwave:device:0fe6bcbb:node86:thermostat_setpoint_cooling"}
-Number ThermostatBattery "Thermostat Battery" {channel = "zwave:device:0fe6bcbb:node86:battery-level"}
+Number InsideTemperature "Inside Temperature" (Climate) {channel = "zwave:device:0fe6bcbb:node86:sensor_temperature"}
+Number InsideHumidity "Inside Humidity" (Climate) {channel = "zwave:device:0fe6bcbb:node86:sensor_relhumidity2"}
+Number ThermostatMode "Thermostat Mode" (Climate) {channel = "zwave:device:0fe6bcbb:node86:thermostat_mode"}
+Number ThermostatState "Thermostat State" (Climate) {channel = "zwave:device:0fe6bcbb:node86:thermostat_state"}
+Number ThermostatFanMode "Thermostat Fan Mode" (Climate) {channel = "zwave:device:0fe6bcbb:node86:thermostat_fanmode"}
+Number ThermostatFanState "Thermostat Fan State" (Climate) {channel = "zwave:device:0fe6bcbb:node86:thermostat_fanstate"}
+Number HeatingSetpoint "Heating Setpoint" (Climate) {channel = "zwave:device:0fe6bcbb:node86:thermostat_setpoint_heating"}
+Number CoolingSetpoint "Cooling Setpoint" (Climate) {channel = "zwave:device:0fe6bcbb:node86:thermostat_setpoint_cooling"}
+Number ThermostatBattery "Thermostat Battery" (Climate) {channel = "zwave:device:0fe6bcbb:node86:battery-level"}
 
 //WeatherBug
-Number:Temperature OutsideTemperature "Outside Temperature" {channel = "weatherunderground:weather:local:current#temperature"}
-Number:Temperature LowTemperature "Low Temperature" {channel = "weatherunderground:weather:local:forecastToday#minTemperature"}
-Number:Temperature HighTemperature "High Temperature" {channel = "weatherunderground:weather:local:forecastToday#maxTemperature"}
-Number:Dimensionless OutsideHumidity "Outside Humidity" {channel = "weatherunderground:weather:local:forecastToday#relativeHumidity"}
-Number:Speed MaxWindspeed "Max Windspeed" {channel = "weatherunderground:weather:local:forecastToday#maxWindSpeed"}
-Number:Speed AvgWindspeed "Avg Windspeed" {channel = "weatherunderground:weather:local:forecastToday#averageWindSpeed"}
-Number:Length RainfallHour "Rainfall Per Hour" {channel = "weatherunderground:weather:local:current#precipitationHour"}
+Number:Temperature OutsideTemperature "Outside Temperature" (Climate) {channel = "weatherunderground:weather:local:current#temperature"}
+Number:Temperature LowTemperature "Low Temperature" (Climate) {channel = "weatherunderground:weather:local:forecastToday#minTemperature"}
+Number:Temperature HighTemperature "High Temperature" (Climate) {channel = "weatherunderground:weather:local:forecastToday#maxTemperature"}
+Number:Dimensionless OutsideHumidity "Outside Humidity" (Climate) {channel = "weatherunderground:weather:local:forecastToday#relativeHumidity"}
+Number:Speed MaxWindspeed "Max Windspeed" (Climate) {channel = "weatherunderground:weather:local:forecastToday#maxWindSpeed"}
+Number:Speed AvgWindspeed "Avg Windspeed" (Climate) {channel = "weatherunderground:weather:local:forecastToday#averageWindSpeed"}
+Number:Length RainfallHour "Rainfall Per Hour" (Climate) {channel = "weatherunderground:weather:local:current#precipitationHour"}

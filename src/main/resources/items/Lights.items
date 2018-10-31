@@ -76,8 +76,7 @@ Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOf
 Dimmer  Upstairs "Upstairs" (UpstairsCommon, EveningOffOff) {channel = "zwave:device:0fe6bcbb:node43:switch_dimmer"}
 Dimmer  UpstairsAccessory "Upstairs Accessory" (UpstairsCommon) ["ignore"] {channel = "zwave:device:0fe6bcbb:node67:switch_dimmer"}
 Dimmer  StairsAccentAccessory "Stairs Accent Accessory" (UpstairsCommon) ["ignore"] {channel = "zwave:device:0fe6bcbb:node46:switch_dimmer"}
-Dimmer  StairsAccent "Stairs Accent" (UpstairsCommon, EveningOnOn) {channel = "zwave:device:0fe6bcbb:node47:switch_dimmer"}
-
+Dimmer  StairsAccent "Stairs Accent" (UpstairsCommon, EveningOnOn, MorningOff) {channel = "zwave:device:0fe6bcbb:node47:switch_dimmer"}
 
 //Upstairs Bathroom
 Dimmer  LaundryRoom "Laundry Room" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:0fe6bcbb:node35:switch_dimmer"}
