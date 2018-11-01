@@ -29,4 +29,6 @@ then
 	EveningOffOn.sendCommand(25)
 	EveningOffOn.sendCommand(ON)
 	StairsAccent.sendCommand(75)
+	HeatingSetpoint.sendCommand(68)
+	CoolingSetpoint.sendCommand(75)
 end

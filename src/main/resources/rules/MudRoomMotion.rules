@@ -3,7 +3,7 @@ when
     Item MudRoomMotionSensor received update ON
 then
 	logWarn("Bigboxer23", "Mud Room Motion Triggered " + MudRoomLight.state + " " + MudRoomMotionTimer.state)
-    if (MudRoomMotionTimer.state === OFF && MudRoomLight.state == 0){
+    if (MudRoomLight.state == 0){
         logWarn("Bigboxer23", "Mud Room Motion timer is inactive, triggering lights")
         MudRoomLight.sendCommand(100)
     }

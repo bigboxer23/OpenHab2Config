@@ -1,21 +1,29 @@
 Group BasementMotion "Basement Motion" (Basement)
-Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node5:sensor_door" }
-Contact BasementStairsMotionSensor "Basement Stairs Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node70:sensor_door" }
-Switch BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:0fe6bcbb:node71:sensor_binary" }
+Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node5:sensor_door" }
+Number ArtAreaMotionSensorBattery "Art Area Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node5:battery-level" }
+Contact BasementStairsMotionSensor "Basement Stairs Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node70:sensor_door" }
+Number BasementStairsMotionSensorBattery "Basement Stairs Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node70:battery-level" }
+Switch BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node71:sensor_binary" }
+Number BasementScreenMotionSensorBattery "Basement Screen Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node71:battery-level" }
 Switch BasementMotionTimer ( BasementMotion) {expire="25m, command=OFF"}
 
 
 Group DiningRoomMotion "Dining Room Motion" (DiningRoom)
-Contact DiningRoomMotionSensor "Dining Room Motion Sensor" (DiningRoomMotion) {channel = "zwave:device:0fe6bcbb:node6:sensor_door" }
+Contact DiningRoomMotionSensor "Dining Room Motion Sensor" (DiningRoomMotion) {channel = "zwave:device:512:node6:sensor_door" }
+Number DiningRoomMotionSensorBattery "Dining Room Motion Sensor Battery" (DiningRoomMotion, DiningRoom) {channel = "zwave:device:512:node6:battery-level" }
 Switch DiningRoomMotionTimer ( DiningRoomMotion) {expire="15m, command=OFF"}
 
 
 Group MargaretBedroomMotion "Margaret Bedroom Motion" (MargaretBedroom)
-Contact MargaretBedroomMotionSensor "Margaret Bedroom Motion Sensor" (MargaretBedroomMotion) {channel = "zwave:device:0fe6bcbb:node30:sensor_door" }
+Contact MargaretBedroomMotionSensor "Margaret Bedroom Motion Sensor" (MargaretBedroomMotion) {channel = "zwave:device:512:node30:sensor_door" }
+Number MargaretBedroomMotionSensorBattery "Margaret Bedroom Motion Sensor Battery" (MargaretBedroomMotion, MargaretBedroom) {channel = "zwave:device:512:node30:battery-level" }
+
 
 Group MudRoomMotion  "Mud Room Motion" (MudRoom)
-Switch MudRoomMotionSensor "Mud Room Motion Sensor" (MudRoomMotion) {channel = "zwave:device:0fe6bcbb:node56:sensor_binary" }
+Switch MudRoomMotionSensor "Mud Room Motion Sensor" (MudRoomMotion) {channel = "zwave:device:512:node56:sensor_binary" }
+Number MudRoomMotionSensorBattery "Mud Room Motion Sensor Battery" (MudRoomMotion, MudRoom) {channel = "zwave:device:512:node56:battery-level" }
 Switch MudRoomMotionTimer ( MudRoomMotion) {expire="1m, command=OFF"}
 
 Group LivingRoomMotion "Living Room Motion" (LivingRoom)
-Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:0fe6bcbb:node59:sensor_door" }
+Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:512:node59:sensor_door" }
+Number LivingRoomMotionSensorBattery "Living Room Motion Sensor Battery" (LivingRoomMotion, LivingRoom) {channel = "zwave:device:512:node56:battery-level" }

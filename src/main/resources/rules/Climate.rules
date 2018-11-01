@@ -1,0 +1,7 @@
+rule "Morning Heating Rule"
+when
+	Time cron "0 00 06 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Morning Heating On")
+	HeatingSetpoint.sendCommand(72)
+end

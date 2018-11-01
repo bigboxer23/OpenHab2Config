@@ -24,4 +24,5 @@ then
 	EveningOffOff.sendCommand(OFF)
 	MorningOff.sendCommand(0)
 	MorningOff.sendCommand(OFF)
+	CoolingSetpoint.sendCommand(73)
 end
