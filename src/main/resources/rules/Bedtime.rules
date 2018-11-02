@@ -43,7 +43,7 @@ then
             aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(10))
         }
 	}
-	MaggieLamp.sendCommand(aPurple)
+	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
 	DeanesAccent.sendCommand(aPurple)
