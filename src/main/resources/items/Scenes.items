@@ -1,6 +1,6 @@
 Switch Morning "Morning" (Scenes)
-Switch ReadingLight "Reading Light" (Scenes)
+Dimmer ReadingLight "Reading Light" (Scenes)
 Switch Bedtime "Bedtime" (Scenes)
 Switch Evening "Evening" (Scenes)
 Switch EveningLate "Evening Late" (Scenes)
-Switch DeaneLampScene "Deane Lamp" (Scenes)
+Dimmer DeaneLampScene "Deane Lamp" (Scenes)

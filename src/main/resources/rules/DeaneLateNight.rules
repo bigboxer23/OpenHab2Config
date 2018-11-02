@@ -1,15 +1,12 @@
 rule "Deane On"
 when
-	Item DeaneLampScene received command ON
+	Item DeaneLampScene received update
 then
+	var aCommand = 5;
+	if (DeaneLampScene.state != 100)
+	{
+		aCommand = DeaneLampScene.state;
+	}
 	logWarn("Bigboxer23", "Bedtime Deane Lamp On")
-	DeaneLamp.sendCommand(5)
-end
-
-rule "Deane Off"
-when
-	Item DeaneLampScene received command OFF
-then
-	logWarn("Bigboxer23", "Bedtime Deane Lamp Off")
-	DeaneLamp.sendCommand(0)
+	DeaneLamp.sendCommand(aCommand)
 end
