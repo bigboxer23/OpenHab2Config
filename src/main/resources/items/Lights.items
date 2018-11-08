@@ -16,7 +16,7 @@ Dimmer BasementBathroomLights "Basement Bathroom Lights" (BasementBathroom, Even
 Dimmer BasementBathroomAccent "Basement Bathroom Accent" (BasementBathroom, EveningOffOff) {channel = "zwave:device:512:node75:switch_dimmer", expire="60m, command=0"}
 
 //Utility
-Dimmer UtilityOverhead "Utility Overhead" (Utility, EveningOffOff) {channel = "zwave:device:512:node2:switch_dimmer", expire="30m, command=0"}
+Dimmer UtilityOverhead "Utility Overhead" (Utility, EveningOffOff) {channel = "zwave:device:512:node2:switch_dimmer"}
 Switch FloodSensor "Flood Sensor" (Utility) ["ignore"] {channel = "zwave:device:512:node84:alarm_flood"}
 Number FloodSensorBattery "Flood Sensor Battery" (Utility) ["ignore"] {channel = "zwave:device:512:node84:battery-level"}
 
@@ -81,8 +81,8 @@ Dimmer  StairsAccent "Stairs Accent" (UpstairsCommon, EveningOnOn, MorningOff) {
 
 //Upstairs Bathroom
 Dimmer  LaundryRoom "Laundry Room" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node35:switch_dimmer"}
-Dimmer  UpstairsBathroomFan "Upstairs Bathroom Fan" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node36:switch_binary", expire="30m, command=OFF"}
-Dimmer  UpstairsBathroomTub "Upstairs Bathroom Tub" (UpstairsBathroom, EveningOffOff) {channel = "zzwave:device:512:node37:switch_dimmer", expire="45m, command=OFF"}
+Switch  UpstairsBathroomFan "Upstairs Bathroom Fan" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node36:switch_binary", expire="30m, command=OFF"}
+Dimmer  UpstairsBathroomTub "Upstairs Bathroom Tub" (UpstairsBathroom, EveningOffOff) {channel = "zzwave:device:512:node37:switch_dimmer", expire="45m, command=0"}
 Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node38:switch_dimmer"}
 
 //Deane

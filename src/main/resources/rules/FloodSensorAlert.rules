@@ -1,0 +1,8 @@
+rule "Flood Detected"
+when
+    Item FloodSensor received update ON
+then
+	logWarn("Bigboxer23", "Flood detected " + FloodSensor.state)
+	sendMail("bigboxer23@gmail.com", "Water Leak", "Flood Sensor Triggered")
+end
+

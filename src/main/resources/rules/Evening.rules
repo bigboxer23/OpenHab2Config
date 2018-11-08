@@ -9,7 +9,7 @@ then
 	UpstairsBathroomLight.sendCommand(50)
 	FrontPorchLights.sendCommand(45)
 	UnderCabinets.sendCommand(50)
-	UpstairsBathroomTub.sendCommand(15)
+	MasterBathTub.sendCommand(25)
 	Upstairs.sendCommand(45)
 	Hallway.sendCommand(20)
 	Sink.sendCommand(20)

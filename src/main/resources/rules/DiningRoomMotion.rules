@@ -2,8 +2,12 @@ rule "Dining Motion ON"
 when
     Item DiningRoomMotionSensor received update OPEN
 then
-	logWarn("Bigboxer23", "Dining Room Motion Triggered " + NorthAccent.state + " " + DiningRoomMotionTimer.state)
-    if (NorthAccent.state == 0)
+	val aSunsetHourMinusOne = new DateTime(vSunset_Time.state.toString).getHourOfDay - 1
+	val aSunriseHourPlusOne = new DateTime(vSunrise_Time.state.toString).getHourOfDay + 1
+    val anEveningTime = (now.getHourOfDay >= aSunsetHourMinusOne) && (now.getHourOfDay <= 23)
+    val aMorningTime = (now.getHourOfDay >= 6) && (now.getHourOfDay <= aSunriseHourPlusOne)
+   	logWarn("Bigboxer23", "Dining Room Motion Triggered " + NorthAccent.state + " " + DiningRoomMotionTimer.state + " " + aSunsetHourMinusOne + " " + now.getHourOfDay + " " + aSunriseHourPlusOne)
+    if (NorthAccent.state == 0 && (anEveningTime || aMorningTime))
     {
         logWarn("Bigboxer23", "Dining Room Motion timer is inactive, triggering lights " + (NorthAccent.state == 0) + " " + (NorthAccent.state === 0) + (NorthAccent.state == "0"))
         NorthAccent.sendCommand(100)

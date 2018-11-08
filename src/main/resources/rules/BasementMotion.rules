@@ -36,6 +36,7 @@ then
 	{
 		logWarn("Bigboxer23", "Basement Motion timer is inactive, triggering lights")
 	    Basement.sendCommand(0)
+	    UtilityOverhead.sendCommand(0)
 	    logWarn("Bigboxer23", "BasementMotionTimer Off, Sensor Off, shutting off lights")
     } else
     {
