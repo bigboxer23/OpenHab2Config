@@ -5,8 +5,8 @@ Number ThermostatMode "Thermostat Mode" (Climate) {channel = "zwave:device:512:n
 Number ThermostatState "Thermostat State" (Climate) {channel = "zwave:device:512:node86:thermostat_state"}
 Number ThermostatFanMode "Thermostat Fan Mode" (Climate) {channel = "zwave:device:512:node86:thermostat_fanmode"}
 Number ThermostatFanState "Thermostat Fan State" (Climate) {channel = "zwave:device:512:node86:thermostat_fanstate"}
-Number HeatingSetpoint "Heating Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_heating"}
-Number CoolingSetpoint "Cooling Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_cooling"}
+Number:Temperature HeatingSetpoint "Heating Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_heating"}
+Number:Temperature CoolingSetpoint "Cooling Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_cooling"}
 Number ThermostatBattery "Thermostat Battery" (Climate) {channel = "zwave:device:512:node86:battery-level"}
 
 //WeatherBug

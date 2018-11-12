@@ -5,12 +5,12 @@ when
 then
 	logWarn("Bigboxer23", "Morning On")
 	MorningOn.sendCommand(100)
-	MorningOn.sendCommand(ON)
+	//MorningOn.sendCommand(ON)
 	UnderCabinets.sendCommand(35)
 	LivingRoomBack.sendCommand(65)
-	EntryWay.sendCommand(80)
-	MasterBathMain.sendCommand(50)
-	Upstairs.sendCommand(50)
+	EntryWay.sendCommand(100)
+	//MasterBathMain.sendCommand(50)
+	//Upstairs.sendCommand(50)
 	StairsAccent.sendCommand(35)
 end
 
@@ -24,5 +24,5 @@ then
 	EveningOffOff.sendCommand(OFF)
 	MorningOff.sendCommand(0)
 	MorningOff.sendCommand(OFF)
-	CoolingSetpoint.sendCommand(73)
+	CoolingSetpoint.sendCommand(73|°F)
 end

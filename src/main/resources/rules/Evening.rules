@@ -13,7 +13,7 @@ then
 	Upstairs.sendCommand(45)
 	Hallway.sendCommand(20)
 	Sink.sendCommand(20)
-	EntryWay.sendCommand(80)
+	EntryWay.sendCommand(100)
 	MainAccent.sendCommand(75)
 end
 
@@ -29,6 +29,6 @@ then
 	EveningOffOn.sendCommand(25)
 	EveningOffOn.sendCommand(ON)
 	StairsAccent.sendCommand(75)
-	HeatingSetpoint.sendCommand(68)
-	CoolingSetpoint.sendCommand(75)
+	HeatingSetpoint.sendCommand(68|°F)
+	CoolingSetpoint.sendCommand(75|°F)
 end
