@@ -46,7 +46,7 @@ then
 	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
-	DeanesAccent.sendCommand(aPurple)
+	DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(10)))
 	DeaneLamp.sendCommand(5)
 	NatalieFan.sendCommand(ON)
 	MargaretFan.sendCommand(ON)

@@ -1,0 +1,20 @@
+rule "Master Bath turned on"
+when
+    Item MasterBathMain changed or
+    Item MasterBathShower changed or
+    Item MasterBathFan received update ON
+then
+	logWarn("Bigboxer23", "Master Bath Timer set " + MasterBathMain.state + " " + MasterBathShower.state + " " + MasterBathFan.state)
+    BasementMotionTimer.sendCommand(ON)
+end
+
+
+rule "Master Bath Timer OFF"
+when
+    Item MasterBathroomTimer received update OFF
+then
+    MasterBathMain.sendCommand(0)
+    MasterBathShower.sendCommand(0)
+    MasterBathFan.sendCommand(OFF)
+    logWarn("Bigboxer23", "Master Bath Timer shutting off lights")
+end
