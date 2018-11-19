@@ -4,8 +4,14 @@ when
     Item MasterBathShower changed or
     Item MasterBathFan received update ON
 then
-	logWarn("Bigboxer23", "Master Bath Timer set " + MasterBathMain.state + " " + MasterBathShower.state + " " + MasterBathFan.state)
-    BasementMotionTimer.sendCommand(ON)
+	if (MasterBathroomTimer.state == OFF)
+	{
+		logWarn("Bigboxer23", "Master Bath Timer set " + MasterBathMain.state + " " + MasterBathShower.state + " " + MasterBathFan.state)
+        MasterBathroomTimer.sendCommand(ON)
+    } else
+    {
+        logWarn("Bigboxer23", "Master Bath Timer not set, " + MasterBathMain.state + " " + MasterBathShower.state + " " + MasterBathFan.state + " " + MasterBathroomTimer.state)
+    }
 end
 
 
