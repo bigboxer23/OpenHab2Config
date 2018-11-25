@@ -7,4 +7,5 @@ then
 	EveningOffOff.sendCommand(0)
 	EveningOffOff.sendCommand(OFF)
 	StairsAccent.sendCommand(0)
+	MotionOverrides.sendCommand(OFF)
 end

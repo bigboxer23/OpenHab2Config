@@ -1,3 +1,5 @@
+Group:Dimmer   MotionOverrides
+
 Group BasementMotion "Basement Motion" (Basement)
 Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node5:sensor_door" }
 Number ArtAreaMotionSensorBattery "Art Area Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node5:battery-level" }
@@ -6,12 +8,13 @@ Number BasementStairsMotionSensorBattery "Basement Stairs Motion Sensor Battery"
 Switch BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node71:sensor_binary" }
 Number BasementScreenMotionSensorBattery "Basement Screen Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node71:battery-level" }
 Switch BasementMotionTimer ( BasementMotion) {expire="25m, command=OFF"}
-
+Switch BasementMotionOverride "Basement Motion Override" ( BasementMotion, Basement, MotionOverrides)
 
 Group DiningRoomMotion "Dining Room Motion" (DiningRoom)
 Contact DiningRoomMotionSensor "Dining Room Motion Sensor" (DiningRoomMotion) {channel = "zwave:device:512:node6:sensor_door" }
 Number DiningRoomMotionSensorBattery "Dining Room Motion Sensor Battery" (DiningRoomMotion, DiningRoom) {channel = "zwave:device:512:node6:battery-level" }
 Switch DiningRoomMotionTimer ( DiningRoomMotion) {expire="15m, command=OFF"}
+Switch DiningRoomMotionOverride "Dining Room Motion Override" ( DiningRoomMotion, DiningRoom, MotionOverrides)
 
 
 Group MargaretBedroomMotion "Margaret Bedroom Motion" (MargaretBedroom)

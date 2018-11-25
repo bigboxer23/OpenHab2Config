@@ -7,7 +7,7 @@ then
     val anEveningTime = (now.getHourOfDay >= aSunsetHourMinusOne) && (now.getHourOfDay <= 23)
     val aMorningTime = (now.getHourOfDay >= 6) && (now.getHourOfDay <= aSunriseHourPlusOne)
    	logWarn("Bigboxer23", "Dining Room Motion Triggered " + NorthAccent.state + " " + DiningRoomMotionTimer.state + " " + aSunsetHourMinusOne + " " + now.getHourOfDay + " " + aSunriseHourPlusOne)
-    if (NorthAccent.state == 0 && (anEveningTime || aMorningTime))
+    if (NorthAccent.state == 0 && (anEveningTime || aMorningTime) && DiningRoomMotionOverride.state != ON)
     {
         logWarn("Bigboxer23", "Dining Room Motion timer is inactive, triggering lights " + (NorthAccent.state == 0) + " " + (NorthAccent.state === 0) + (NorthAccent.state == "0"))
         NorthAccent.sendCommand(100)
@@ -29,7 +29,7 @@ rule "Dining Motion OFF"
 when
     Item DiningRoomMotionTimer received update OFF
 then
-	if (DiningRoomMotionSensor.state === CLOSED)
+	if (DiningRoomMotionSensor.state === CLOSED && DiningRoomMotionOverride.state != ON)
 	{
 	    logWarn("Bigboxer23", "DiningRoomMotionTimer Off, CLOSED, shutting off lights")
 	    NorthAccent.sendCommand(0)
@@ -37,6 +37,6 @@ then
 	    SouthAccent.sendCommand(0)
     } else
     {
-        logWarn("Bigboxer23", "Dining Room Motion is OPEN, not shutting off lights")
+        logWarn("Bigboxer23", "Dining Room Motion is OPEN, not shutting off lights " + DiningRoomMotionOverride.state + " " + DiningRoomMotionSensor.state)
     }
 end

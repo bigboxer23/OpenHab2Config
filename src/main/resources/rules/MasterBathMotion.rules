@@ -4,7 +4,7 @@ when
     Item MasterBathShower changed or
     Item MasterBathFan received update ON
 then
-	if (MasterBathroomTimer.state == OFF)
+	if (MasterBathroomTimer.state == OFF || MasterBathroomTimer.state == NULL)
 	{
 		logWarn("Bigboxer23", "Master Bath Timer set " + MasterBathMain.state + " " + MasterBathShower.state + " " + MasterBathFan.state)
         MasterBathroomTimer.sendCommand(ON)
