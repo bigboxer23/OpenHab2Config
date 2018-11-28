@@ -63,3 +63,12 @@ then
 	DeanesAccent.sendCommand(0)
 	DeaneLamp.sendCommand(0)
 end
+
+
+rule "Nat Reading Light Off"
+when
+	Time cron "0 20 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+then
+	logWarn("Bigboxer23", "Nat Reading Lamp off")
+	NatalieReadingLamp.sendCommand(0)
+end

@@ -1,16 +1,16 @@
 rule "Morning On Rule"
 when
-	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *" or
+	Time cron "0 55 06 ? * MON,TUE,WED,THU *" or
 	Item Morning received command ON
 then
 	logWarn("Bigboxer23", "Morning On")
 	MorningOn.sendCommand(100)
-	//MorningOn.sendCommand(ON)
+	MorningOn.sendCommand(ON)
 	UnderCabinets.sendCommand(35)
 	LivingRoomBack.sendCommand(65)
 	EntryWay.sendCommand(100)
-	//MasterBathMain.sendCommand(50)
-	//Upstairs.sendCommand(50)
+	MasterBathMain.sendCommand(50)
+	Upstairs.sendCommand(50)
 	StairsAccent.sendCommand(35)
 end
 
