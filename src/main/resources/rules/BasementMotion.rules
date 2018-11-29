@@ -4,7 +4,7 @@ when
     Item ArtAreaMotionSensor received update OPEN or
 	Item BasementStairsMotionSensor received update OPEN
 then
-	val aNightTime = (now.getHourOfDay <= 7) && (now.getHourOfDay >= 0)
+	val aNightTime = (now.getHourOfDay < 7) && (now.getHourOfDay >= 0)
 	logWarn("Bigboxer23", "Basement Motion Triggered " + BackOverhead.state + " " + BasementMotionTimer.state + " " + aNightTime)
     if (BackOverhead.state == 0 && !aNightTime && BasementMotionOverride.state != ON)
     {
