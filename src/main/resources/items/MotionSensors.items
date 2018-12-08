@@ -32,3 +32,9 @@ Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {c
 Number LivingRoomMotionSensorBattery "Living Room Motion Sensor Battery" (LivingRoomMotion, LivingRoom) {channel = "zwave:device:512:node59:battery-level" }
 
 Switch MasterBathroomTimer {expire="45m, command=OFF"}
+
+
+Group GuestBathroomMotion  "Guest Bathroom Motion" (GuestBathroom)
+Switch GuestBathroomMotionSensor "Guest Bathroom Motion Sensor" (GuestBathroomMotion) {channel = "zwave:device:512:node89:sensor_binary" }
+Number GuestBathroomMotionSensorBattery "Guest Bathroom Motion Sensor Battery" (GuestBathroomMotion, GuestBathroom) {channel = "zwave:device:512:node89:battery-level" }
+Switch GuestBathroomMotionTimer ( GuestBathroomMotion) {expire="5m, command=OFF"}

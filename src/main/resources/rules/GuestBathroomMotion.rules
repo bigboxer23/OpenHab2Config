@@ -1,0 +1,37 @@
+rule "Guest Bathroom Motion ON"
+when
+    Item GuestBathroomMotionSensor received update ON
+then
+	logWarn("Bigboxer23", "Guest Bathroom Motion Triggered " + GuestBathroomAccent.state + " " + GuestBathroomMotionTimer.state)
+    if (GuestBathroomAccent.state == 0){
+        logWarn("Bigboxer23", "Guest Bathroom Motion timer is inactive, triggering lights")
+        GuestBathroomAccent.sendCommand(100)
+        GuestBathroomOverhead.sendCommand(100)
+    }
+    GuestBathroomMotionTimer.sendCommand(OFF)
+end
+
+
+rule "Guest Bathroom Motion OFF"
+when
+    Item GuestBathroomMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", "Guest Bathroom Motion sensor Off, setting timer")
+    GuestBathroomMotionTimer.sendCommand(ON)
+end
+
+rule "Guest Bathroom Motion OFF"
+when
+    Item GuestBathroomMotionTimer received update OFF
+then
+	if (GuestBathroomMotionSensor.state === OFF){
+		logWarn("Bigboxer23", "Guest Bathroom Motion timer is inactive, triggering lights")
+	    GuestBathroomAccent.sendCommand(0)
+        GuestBathroomOverhead.sendCommand(0)
+        GuestFan.sendCommand(OFF)
+	    logWarn("Bigboxer23", "GuestBathroomMotionTimer Off, Sensor Off, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "Guest Bathroom Motion is ON, not shutting off lights")
+    }
+end
