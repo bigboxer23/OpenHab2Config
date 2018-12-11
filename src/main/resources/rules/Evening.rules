@@ -6,7 +6,6 @@ when
 then
 	logWarn("Bigboxer23", "Evening On")
 	EveningOnOn.sendCommand(100)
-	UpstairsBathroomLight.sendCommand(50)
 	FrontPorchLights.sendCommand(45)
 	UnderCabinets.sendCommand(50)
 	MasterBathTub.sendCommand(25)

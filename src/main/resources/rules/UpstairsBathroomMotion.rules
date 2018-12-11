@@ -1,0 +1,40 @@
+rule "Upstairs Bathroom Motion ON"
+when
+    Item LaundryRoomMotionSensor received update ON or
+    Item UpstairsBathroomMotionSensor received update ON
+then
+	logWarn("Bigboxer23", "Upstairs Bathroom Motion Triggered " + LaundryRoom.state + " " + UpstairsBathroomMotionTimer.state)
+    if (LaundryRoom.state == 0){
+        logWarn("Bigboxer23", "Upstairs Bathroom Motion timer is inactive, triggering lights")
+        LaundryRoom.sendCommand(100)
+        UpstairsBathroomLight.sendCommand(100)
+    }
+    UpstairsBathroomMotionTimer.sendCommand(OFF)
+end
+
+
+rule "Upstairs Bathroom Motion OFF"
+when
+    Item LaundryRoomMotionSensor received update OFF or
+    Item UpstairsBathroomMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", "Upstairs Bathroom Motion sensor Off, setting timer")
+    UpstairsBathroomMotionTimer.sendCommand(ON)
+end
+
+rule "Upstairs Bathroom Motion OFF"
+when
+    Item UpstairsBathroomMotionTimer received update OFF
+then
+	if (LaundryRoomMotionSensor.state === OFF && UpstairsBathroomMotionSensor === OFF){
+		logWarn("Bigboxer23", "Upstairs Bathroom Motion timer is inactive, triggering lights")
+	    LaundryRoom.sendCommand(0)
+        UpstairsBathroomLight.sendCommand(0)
+        UpstairsBathroomTub.sendCommand(0)
+        UpstairsBathroomFan.sendCommand(OFF)
+	    logWarn("Bigboxer23", "UpstairsBathroomMotionTimer Off, Sensor Off, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "Upstairs Bathroom Motion is ON, not shutting off lights")
+    }
+end
