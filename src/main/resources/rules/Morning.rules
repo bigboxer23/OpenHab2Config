@@ -12,6 +12,7 @@ then
 	MasterBathMain.sendCommand(50)
 	Upstairs.sendCommand(50)
 	StairsAccent.sendCommand(35)
+	SunRoomOutlet.sendCommand(ON)
 end
 
 rule "Morning Off"
@@ -25,4 +26,6 @@ then
 	MorningOff.sendCommand(0)
 	MorningOff.sendCommand(OFF)
 	CoolingSetpoint.sendCommand(73|°F)
+	SunRoomOutlet.sendCommand(OFF)
+
 end

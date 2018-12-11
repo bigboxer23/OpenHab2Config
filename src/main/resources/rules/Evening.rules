@@ -14,6 +14,7 @@ then
 	Sink.sendCommand(20)
 	EntryWay.sendCommand(100)
 	MainAccent.sendCommand(75)
+	SunRoomOutlet.sendCommand(ON)
 end
 
 rule "Evening Off"
@@ -30,4 +31,5 @@ then
 	StairsAccent.sendCommand(75)
 	HeatingSetpoint.sendCommand(68|°F)
 	CoolingSetpoint.sendCommand(75|°F)
+	SunRoomOutlet.sendCommand(OFF)
 end
