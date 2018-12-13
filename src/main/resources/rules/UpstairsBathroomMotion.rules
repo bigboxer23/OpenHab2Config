@@ -4,7 +4,7 @@ when
     Item UpstairsBathroomMotionSensor received update ON
 then
 	logWarn("Bigboxer23", "Upstairs Bathroom Motion Triggered " + LaundryRoom.state + " " + UpstairsBathroomMotionTimer.state)
-    if (LaundryRoom.state == 0){
+    if (LaundryRoom.state == 0 || UpstairsBathroomLight.state == 0){
         logWarn("Bigboxer23", "Upstairs Bathroom Motion timer is inactive, triggering lights")
         LaundryRoom.sendCommand(100)
         UpstairsBathroomLight.sendCommand(100)
@@ -26,7 +26,7 @@ rule "Upstairs Bathroom Motion OFF"
 when
     Item UpstairsBathroomMotionTimer received update OFF
 then
-	if (LaundryRoomMotionSensor.state === OFF && UpstairsBathroomMotionSensor === OFF){
+	if (LaundryRoomMotionSensor.state === OFF && UpstairsBathroomMotionSensor.state === OFF){
 		logWarn("Bigboxer23", "Upstairs Bathroom Motion timer is inactive, triggering lights")
 	    LaundryRoom.sendCommand(0)
         UpstairsBathroomLight.sendCommand(0)
@@ -35,6 +35,6 @@ then
 	    logWarn("Bigboxer23", "UpstairsBathroomMotionTimer Off, Sensor Off, shutting off lights")
     } else
     {
-        logWarn("Bigboxer23", "Upstairs Bathroom Motion is ON, not shutting off lights")
+        logWarn("Bigboxer23", "Upstairs Bathroom Motion is ON, not shutting off lights " + LaundryRoomMotionSensor.state + " " + UpstairsBathroomMotionSensor.state)
     }
 end
