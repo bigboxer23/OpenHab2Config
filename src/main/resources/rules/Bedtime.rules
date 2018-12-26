@@ -44,7 +44,7 @@ then
         }
 	}
 	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
-	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
+	MargaretsAccent.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
 	NataliesAccent.sendCommand(aPurple)
