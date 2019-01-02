@@ -124,4 +124,6 @@ Dimmer  MasterBathTub "Master Bath Tub" (MasterBathroom, EveningOffOff) {channel
 Switch  MasterBathFan "Master Bath Fan" (MasterBathroom, EveningOffOff, MorningOn) {channel = "zwave:device:512:node20:switch_binary"}
 Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom, EveningOffOff, MorningOn) {channel = "zwave:device:512:node23:switch_binary", expire="15m, command=OFF"}
 
-Switch TeslaHorn "Tesla Horn" (MasterBathroom) {channel = "tesla:models:e0983279:honkhorn"}
+//Switch TeslaHorn "Tesla Horn" (MasterBathroom) {channel = "tesla:models:e0983279:honkhorn"}
+Switch TestSwitch "TestSwitch"
+Switch VacationMode "Vacation Mode"

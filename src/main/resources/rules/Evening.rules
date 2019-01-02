@@ -2,7 +2,6 @@ rule "Evening On"
 when
 	Item Evening received command ON or
 	Channel 'astro:sun:local:set#event' triggered START
-	//Time cron "0 30 17 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Evening On")
 	EveningOnOn.sendCommand(100)
@@ -14,7 +13,10 @@ then
 	Sink.sendCommand(20)
 	EntryWay.sendCommand(100)
 	MainAccent.sendCommand(75)
-	SunRoomOutlet.sendCommand(ON)
+	if (now.getMonthOfYear == 12)
+	{
+		SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
+	}
 end
 
 rule "Evening Off"
@@ -31,5 +33,8 @@ then
 	StairsAccent.sendCommand(75)
 	HeatingSetpoint.sendCommand(68|°F)
 	CoolingSetpoint.sendCommand(75|°F)
-	SunRoomOutlet.sendCommand(OFF)
+	if (now.getMonthOfYear == 12)
+	{
+		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
+	}
 end

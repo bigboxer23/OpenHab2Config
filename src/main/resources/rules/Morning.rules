@@ -3,16 +3,25 @@ when
 	Time cron "0 55 06 ? * MON,TUE,WED,THU *" or
 	Item Morning received command ON
 then
-	logWarn("Bigboxer23", "Morning On")
-	MorningOn.sendCommand(100)
-	MorningOn.sendCommand(ON)
-	UnderCabinets.sendCommand(35)
-	LivingRoomBack.sendCommand(65)
-	EntryWay.sendCommand(100)
-	MasterBathMain.sendCommand(50)
-	Upstairs.sendCommand(50)
-	StairsAccent.sendCommand(35)
-	SunRoomOutlet.sendCommand(ON)
+	logWarn("Bigboxer23", "Morning On " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		MorningOn.sendCommand(100)
+		MorningOn.sendCommand(ON)
+		UnderCabinets.sendCommand(35)
+		LivingRoomBack.sendCommand(65)
+		EntryWay.sendCommand(100)
+		MasterBathMain.sendCommand(50)
+		Upstairs.sendCommand(50)
+		StairsAccent.sendCommand(35)
+	} else
+	{
+		logWarn("Bigboxer23", "Vacation Mode Enabled, not triggering")
+	}
+	if (now.getMonthOfYear == 12)
+	{
+		SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
+	}
 end
 
 rule "Morning Off"
@@ -26,6 +35,8 @@ then
 	MorningOff.sendCommand(0)
 	MorningOff.sendCommand(OFF)
 	CoolingSetpoint.sendCommand(73|°F)
-	SunRoomOutlet.sendCommand(OFF)
-
+	if (now.getMonthOfYear == 12)
+	{
+		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
+	}
 end
