@@ -4,6 +4,19 @@ when
 	Item Bedtime received command ON
 then
 	logWarn("Bigboxer23", "Bedtime On " + now.getDayOfWeek)
+	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
+	MargaretsAccent.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
+	DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(10)))
+	DeaneLamp.sendCommand(5)
+	MargaretFan.sendCommand(ON)
+end
+
+rule "Nat Bedtime On"
+when
+	Time cron "0 20 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+	Item Bedtime received command ON
+then
+	logWarn("Bigboxer23", "Nat Bedtime On " + now.getDayOfWeek)
 	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(10))
 	switch now.getDayOfWeek
 	{
@@ -43,15 +56,10 @@ then
             aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(10))
         }
 	}
-	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
-	MargaretsAccent.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
 	NatalieReadingLamp.sendCommand(35)
 	NatatalieLamp.sendCommand(aPurple)
 	NataliesAccent.sendCommand(aPurple)
-	DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(10)))
-	DeaneLamp.sendCommand(5)
 	NatalieFan.sendCommand(ON)
-	MargaretFan.sendCommand(ON)
 end
 
 rule "Bedtime Off"
@@ -71,7 +79,7 @@ end
 
 rule "Nat Reading Light Off"
 when
-	Time cron "0 20 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+	Time cron "0 30 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Nat Reading Lamp off")
 	NatalieReadingLamp.sendCommand(0)

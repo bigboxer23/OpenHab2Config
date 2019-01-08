@@ -1,6 +1,6 @@
 rule "Morning On Rule"
 when
-	Time cron "0 55 06 ? * MON,TUE,WED,THU *" or
+	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *" or
 	Item Morning received command ON
 then
 	logWarn("Bigboxer23", "Morning On " + VacationMode.state + now.getMonthOfYear)
