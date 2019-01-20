@@ -1,5 +1,3 @@
-Group:Dimmer   MotionOverrides
-
 Group BasementMotion "Basement Motion" (Basement)
 Contact ArtAreaMotionSensor "Art Area Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node5:sensor_door" }
 Number ArtAreaMotionSensorBattery "Art Area Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node5:battery-level" }
@@ -8,13 +6,13 @@ Number BasementStairsMotionSensorBattery "Basement Stairs Motion Sensor Battery"
 Switch BasementScreenMotionSensor "Basement Screen Motion Sensor" (BasementMotion) {channel = "zwave:device:512:node71:sensor_binary" }
 Number BasementScreenMotionSensorBattery "Basement Screen Motion Sensor Battery" (BasementMotion, Basement) {channel = "zwave:device:512:node71:battery-level" }
 Switch BasementMotionTimer ( BasementMotion) {expire="25m, command=OFF"}
-Switch BasementMotionOverride "Basement Motion Override" ( BasementMotion, Basement, MotionOverrides)
+Switch BasementMotionOverride "Basement Motion Override" ( BasementMotion, MotionOverrides)
 
 Group DiningRoomMotion "Dining Room Motion" (DiningRoom)
 Contact DiningRoomMotionSensor "Dining Room Motion Sensor" (DiningRoomMotion) {channel = "zwave:device:512:node6:sensor_door" }
 Number DiningRoomMotionSensorBattery "Dining Room Motion Sensor Battery" (DiningRoomMotion, DiningRoom) {channel = "zwave:device:512:node6:battery-level" }
 Switch DiningRoomMotionTimer ( DiningRoomMotion) {expire="15m, command=OFF"}
-Switch DiningRoomMotionOverride "Dining Room Motion Override" ( DiningRoomMotion, DiningRoom, MotionOverrides)
+Switch DiningRoomMotionOverride "Dining Room Motion Override" ( DiningRoomMotion, MotionOverrides)
 
 
 Group MargaretBedroomMotion "Margaret Bedroom Motion" (MargaretBedroom)
@@ -31,8 +29,6 @@ Group LivingRoomMotion "Living Room Motion" (LivingRoom)
 Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:512:node59:sensor_door" }
 Number LivingRoomMotionSensorBattery "Living Room Motion Sensor Battery" (LivingRoomMotion, LivingRoom) {channel = "zwave:device:512:node59:battery-level" }
 
-Switch MasterBathroomTimer {expire="45m, command=OFF"}
-
 Group GuestBathroomMotion  "Guest Bathroom Motion" (GuestBathroom)
 Switch GuestBathroomMotionSensor "Guest Bathroom Motion Sensor" (GuestBathroomMotion) {channel = "zwave:device:512:node89:sensor_binary" }
 Number GuestBathroomMotionSensorBattery "Guest Bathroom Motion Sensor Battery" (GuestBathroomMotion, GuestBathroom) {channel = "zwave:device:512:node89:battery-level" }
@@ -44,3 +40,7 @@ Number LaundryRoomSensorBattery "Laundry Room Motion Sensor Battery" (UpstairsBa
 Switch UpstairsBathroomMotionSensor "Upstairs Bathroom Motion Sensor" (UpstairsBathroomMotion) {channel = "zwave:device:512:node91:sensor_binary" }
 Number UpstairsBathroomSensorBattery "Upstairs Bathroom Motion Sensor Battery" (UpstairsBathroomMotion, UpstairsBathroom) {channel = "zwave:device:512:node91:battery-level" }
 Switch UpstairsBathroomMotionTimer ( UpstairsBathroomMotion) {expire="10m, command=OFF"}
+
+//Bathroom timers
+Switch MasterBathroomTimer {expire="45m, command=OFF"}
+Switch PoopClosetTimer {expire="15m, command=OFF"}
