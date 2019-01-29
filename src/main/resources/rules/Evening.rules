@@ -10,7 +10,7 @@ then
 	MasterBathTub.sendCommand(25)
 	Upstairs.sendCommand(45)
 	Hallway.sendCommand(20)
-	Sink.sendCommand(20)
+	Sink.sendCommand(50)
 	EntryWay.sendCommand(100)
 	MainAccent.sendCommand(75)
 	if (now.getMonthOfYear == 12)

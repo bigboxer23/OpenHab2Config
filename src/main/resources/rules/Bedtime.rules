@@ -6,9 +6,16 @@ then
 	logWarn("Bigboxer23", "Bedtime On " + now.getDayOfWeek)
 	MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
 	MargaretsAccent.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(10)))
-	DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(10)))
-	DeaneLamp.sendCommand(5)
 	MargaretFan.sendCommand(ON)
+end
+
+rule "Deane Bedtime On"
+when
+	Time cron "0 40 18 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+	Item Bedtime received command ON
+then
+	logWarn("Bigboxer23", "Deane Bedtime On " + now.getDayOfWeek)
+	DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(10)))
 end
 
 rule "Nat Bedtime On"
