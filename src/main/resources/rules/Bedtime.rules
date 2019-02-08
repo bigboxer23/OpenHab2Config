@@ -3,7 +3,7 @@ when
 	Time cron "0 10 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
 	Item Bedtime received command ON
 then
-	val aShouldTrigger = now.getHourOfDay < 19
+	val aShouldTrigger = now.getHourOfDay <= 19
 	logWarn("Bigboxer23", "Mag Bedtime On " + now.getDayOfWeek + " " + aShouldTrigger)
 	if (!aShouldTrigger)
 	{
@@ -30,8 +30,8 @@ when
 	Time cron "0 20 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
 	Item Bedtime received command ON
 then
-	val aShouldTrigger = now.getHourOfDay < 20
-	logWarn("Bigboxer23", "Nat Bedtime On " + now.getDayOfWeek + " " + aShouldTrigger)
+	val aShouldTrigger = now.getHourOfDay <= 20
+	logWarn("Bigboxer23", "Nat Bedtime On " + now.getDayOfWeek + " " + aShouldTrigger + " " + now.getHourOfDay)
 	if (!aShouldTrigger)
 	{
 		logWarn("Bigboxer23", "Nat Bedtime Not Triggering")
