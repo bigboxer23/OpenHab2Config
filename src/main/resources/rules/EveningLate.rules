@@ -8,4 +8,6 @@ then
 	EveningOffOff.sendCommand(OFF)
 	StairsAccent.sendCommand(0)
 	MotionOverrides.sendCommand(OFF)
+	HeatingSetpoint.sendCommand(68|°F)
+	CoolingSetpoint.sendCommand(75|°F)
 end

@@ -14,6 +14,7 @@ then
 		MasterBathMain.sendCommand(50)
 		Upstairs.sendCommand(50)
 		StairsAccent.sendCommand(35)
+		MaggieLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5)))
 	} else
 	{
 		logWarn("Bigboxer23", "Vacation Mode Enabled, not triggering")
