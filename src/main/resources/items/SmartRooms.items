@@ -1,0 +1,3 @@
+//Group:Dimmer   SmartMasterBedroom     "Smart Master Bedroom" ["SmartRoom"]
+Group:Dimmer   SmartDeaneBedroom       "Smart Deane Bedroom" ["SmartRoom"]
+Group:Dimmer   SmartLivingRoom         "Smart Living Room" ["SmartRoom"]

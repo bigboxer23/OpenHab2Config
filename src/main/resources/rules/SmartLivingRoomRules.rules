@@ -1,0 +1,11 @@
+rule "Smart Living Room Rule"
+when
+	Item SmartLivingRoom received command
+then
+	LivingRoomCornerLamp.sendCommand(receivedCommand);
+	LivingRoomBack.sendCommand(receivedCommand);
+	if (receivedCommand == OFF)
+	{
+		LivingRoomFront.sendCommand(receivedCommand);
+	}
+end

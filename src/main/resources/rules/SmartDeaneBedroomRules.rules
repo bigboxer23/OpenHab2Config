@@ -1,0 +1,26 @@
+rule "Smart Deane Room Rule"
+when
+	Item SmartDeaneBedroom received command
+then
+	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand)
+	if (receivedCommand == OFF)
+	{
+		DeaneRoomOverhead.sendCommand(receivedCommand);
+		DeaneLamp.sendCommand(receivedCommand);
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
+		{
+			DeanesAccent.sendCommand(receivedCommand);
+		}
+	} else
+	{
+		DeaneLamp.sendCommand(receivedCommand);
+		if (now.getHourOfDay >= 18 || now.getHourOfDay <= 6)
+		{
+			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5)))
+		}
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
+		{
+			DeaneRoomOverhead.sendCommand(receivedCommand);
+		}
+	}
+end
