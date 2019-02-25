@@ -2,7 +2,7 @@ rule "Smart Deane Room Rule"
 when
 	Item SmartDeaneBedroom received command
 then
-	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand)
+	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand + " " + now.getHourOfDay)
 	if (receivedCommand == OFF)
 	{
 		DeaneRoomOverhead.sendCommand(receivedCommand);
@@ -11,16 +11,30 @@ then
 		{
 			DeanesAccent.sendCommand(receivedCommand);
 		}
+		if (now.getHourOfDay >= 18)
+		{
+			Hallway.sendCommand(receivedCommand);
+			Upstairs.sendCommand(receivedCommand);
+		}
 	} else
 	{
-		DeaneLamp.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 18 || now.getHourOfDay <= 6)
 		{
+			logWarn("Bigboxer23", "Smart Deane Accent")
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5)))
 		}
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
 			DeaneRoomOverhead.sendCommand(receivedCommand);
+		} else
+		{
+			if (aLampCommand == ON)
+			{
+				DeaneLamp.sendCommand(5);
+			} else
+			{
+				DeaneLamp.sendCommand(receivedCommand);
+			}
 		}
 	}
 end

@@ -1,0 +1,37 @@
+rule "Smart Natalie Room Rule"
+when
+	Item SmartNatalieBedroom received command
+then
+	logWarn("Bigboxer23", "Smart Natalie: " + receivedCommand + " " + now.getHourOfDay)
+	if (receivedCommand == OFF)
+	{
+		NatalieRoomLight.sendCommand(receivedCommand);
+		NatalieRoomWindow.sendCommand(receivedCommand);
+		NatalieReadingLamp.sendCommand(receivedCommand);
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 20)
+		{
+			NatalieFan.sendCommand(receivedCommand);
+			NatatalieLamp.sendCommand(receivedCommand);
+			NataliesAccent.sendCommand(receivedCommand);
+		}
+	} else
+	{
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
+		{
+			NatalieRoomLight.sendCommand(receivedCommand);
+			NatalieRoomWindow.sendCommand(receivedCommand);
+		} else
+		{
+			if (receivedCommand == ON)
+			{
+				NatatalieLamp.sendCommand(receivedCommand);
+				NataliesAccent.sendCommand(receivedCommand);
+				NatalieFan.sendCommand(receivedCommand);
+				NatalieReadingLamp.sendCommand(40);
+			} else
+			{
+				NatalieReadingLamp.sendCommand(receivedCommand);
+			}
+		}
+	}
+end
