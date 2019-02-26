@@ -1,0 +1,44 @@
+rule "Smart Margaret Room Rule"
+when
+	Item SmartMargaretBedroom received command
+then
+	logWarn("Bigboxer23", "Smart Margaret: " + receivedCommand + " " + now.getHourOfDay + " " + MargaretLight.state)
+	if (receivedCommand == OFF)
+	{
+		if (MargaretLight.state == 0)
+		{
+			//NatalieReadingLamp.sendCommand(receivedCommand);
+		}
+		MargaretLight.sendCommand(receivedCommand);
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
+		{
+			MargaretFan.sendCommand(receivedCommand);
+			MaggieLamp.sendCommand(receivedCommand);
+			MargaretsAccent.sendCommand(receivedCommand);
+		}
+	} else
+	{
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
+		{
+			if (receivedCommand == ON)
+			{
+				MargaretLight.sendCommand(100);
+			} else
+			{
+				MargaretLight.sendCommand(receivedCommand);
+			}
+		} else
+		{
+			if (receivedCommand == ON)
+			{
+				MaggieLamp.sendCommand(receivedCommand);
+				MargaretsAccent.sendCommand(receivedCommand);
+				MargaretFan.sendCommand(receivedCommand);
+				//NatalieReadingLamp.sendCommand(40);
+			} else
+			{
+				//NatalieReadingLamp.sendCommand(receivedCommand);
+			}
+		}
+	}
+end
