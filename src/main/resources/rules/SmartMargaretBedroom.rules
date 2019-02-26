@@ -5,16 +5,16 @@ then
 	logWarn("Bigboxer23", "Smart Margaret: " + receivedCommand + " " + now.getHourOfDay + " " + MargaretLight.state)
 	if (receivedCommand == OFF)
 	{
-		if (MargaretLight.state == 0)
-		{
-			//NatalieReadingLamp.sendCommand(receivedCommand);
-		}
 		MargaretLight.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
 			MargaretFan.sendCommand(receivedCommand);
 			MaggieLamp.sendCommand(receivedCommand);
 			MargaretsAccent.sendCommand(receivedCommand);
+		} else
+		{
+			MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(5)))
+			MargaretsAccent.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(5)))
 		}
 	} else
 	{
@@ -31,13 +31,13 @@ then
 		{
 			if (receivedCommand == ON)
 			{
-				MaggieLamp.sendCommand(receivedCommand);
-				MargaretsAccent.sendCommand(receivedCommand);
 				MargaretFan.sendCommand(receivedCommand);
-				//NatalieReadingLamp.sendCommand(40);
+				MaggieLamp.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(100)))
+				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(100)))
 			} else
 			{
-				//NatalieReadingLamp.sendCommand(receivedCommand);
+				MaggieLamp.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(receivedCommand.toString)))
+				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(receivedCommand.toString)))
 			}
 		}
 	}
