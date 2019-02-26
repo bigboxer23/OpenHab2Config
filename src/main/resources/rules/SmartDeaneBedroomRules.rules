@@ -28,7 +28,7 @@ then
 			DeaneRoomOverhead.sendCommand(receivedCommand);
 		} else
 		{
-			if (aLampCommand == ON)
+			if (receivedCommand == ON)
 			{
 				DeaneLamp.sendCommand(5);
 			} else

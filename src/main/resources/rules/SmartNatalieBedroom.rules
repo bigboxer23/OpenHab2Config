@@ -2,12 +2,15 @@ rule "Smart Natalie Room Rule"
 when
 	Item SmartNatalieBedroom received command
 then
-	logWarn("Bigboxer23", "Smart Natalie: " + receivedCommand + " " + now.getHourOfDay)
+	logWarn("Bigboxer23", "Smart Natalie: " + receivedCommand + " " + now.getHourOfDay + " " + NatalieRoomLight.state)
 	if (receivedCommand == OFF)
 	{
+		if (NatalieRoomLight.state == 0)
+		{
+			NatalieReadingLamp.sendCommand(receivedCommand);
+		}
 		NatalieRoomLight.sendCommand(receivedCommand);
 		NatalieRoomWindow.sendCommand(receivedCommand);
-		NatalieReadingLamp.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 20)
 		{
 			NatalieFan.sendCommand(receivedCommand);
@@ -16,10 +19,17 @@ then
 		}
 	} else
 	{
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 20)
 		{
-			NatalieRoomLight.sendCommand(receivedCommand);
-			NatalieRoomWindow.sendCommand(receivedCommand);
+			if (receivedCommand == ON)
+			{
+				NatalieRoomLight.sendCommand(100);
+				NatalieRoomWindow.sendCommand(100);
+			} else
+			{
+				NatalieRoomLight.sendCommand(receivedCommand);
+				NatalieRoomWindow.sendCommand(receivedCommand);
+			}
 		} else
 		{
 			if (receivedCommand == ON)
