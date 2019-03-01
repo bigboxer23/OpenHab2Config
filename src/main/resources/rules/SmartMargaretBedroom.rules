@@ -29,15 +29,16 @@ then
 			}
 		} else
 		{
+			MargaretLight.sendCommand(10);
 			if (receivedCommand == ON)
 			{
-				MargaretFan.sendCommand(receivedCommand);
-				MaggieLamp.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(100)))
-				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(100)))
+				MargaretLight.sendCommand(receivedCommand);
+				MaggieLamp.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(100)))
+				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(42),new PercentType(100)))
 			} else
 			{
-				MaggieLamp.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(receivedCommand.toString)))
-				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(56),new PercentType(receivedCommand.toString)))
+				MaggieLamp.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(receivedCommand.toString)))
+				MargaretsAccent.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(receivedCommand.toString)))
 			}
 		}
 	}
