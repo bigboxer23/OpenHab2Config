@@ -31,8 +31,7 @@ then
 		{
 			if (receivedCommand == ON)
 			{
-				MargaretLight.sendCommand(10);
-				MargaretLight.sendCommand(receivedCommand);
+				MargaretLight.sendCommand(20);
 				MaggieLamp.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(100)))
 				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(42),new PercentType(100)))
 				MargaretFan.sendCommand(receivedCommand);

@@ -19,7 +19,7 @@ then
 		}
 	} else
 	{
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 20)
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
 			if (receivedCommand == ON)
 			{
