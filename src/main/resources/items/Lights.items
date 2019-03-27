@@ -1,7 +1,7 @@
 //Basement
 Color BackBar "Back Bar" (Basement, EveningOffOff) ["Notify"] {channel = "hue:0210:001788174d59:4:color"}
 Color BackBarAccent "Back Bar Accent" (Basement, EveningOffOff) ["Notify"] {channel = "hue:0210:001788174d59:6:color"}
-//Dimmer  MaureensBedside "Maureen's Bedside" (MasterBedroom, EveningOffOn, MorningOff) {channel = "hue:0100:001788174d59:8:brightness"}
+//Dimmer  MaureensBedside "Maureen's Bedside" (Basement, EveningOffOn, MorningOff) {channel = "hue:0100:001788174d59:8:brightness"}
 Dimmer  BarLamp "Bar Lamp" (Basement, EveningOffOff) {channel = "hue:0100:001788174d59:9:brightness"}
 Dimmer ArtAccent "Art Accent" (Basement, EveningOffOff) {channel = "zwave:device:512:node78:switch_dimmer"}
 Dimmer MiddleOverhead "Middle Overhead" (Basement, EveningOffOff) {channel = "zwave:device:512:node79:switch_dimmer"}

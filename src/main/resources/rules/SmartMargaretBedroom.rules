@@ -27,6 +27,7 @@ then
 			{
 				MargaretLight.sendCommand(receivedCommand);
 			}
+			MargaretFan.sendCommand(OFF);
 		} else
 		{
 			if (receivedCommand == ON)
