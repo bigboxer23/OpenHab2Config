@@ -1,23 +1,14 @@
 rule "Margaret Bedtime On"
 when
-	Time cron "0 15 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
-	Item Bedtime received command ON
+	Time cron "0 15 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	val aShouldTrigger = now.getHourOfDay >= 19
-	logWarn("Bigboxer23", "Mag Bedtime On " + now.getDayOfWeek + " " + aShouldTrigger)
-	if (!aShouldTrigger)
-	{
-		logWarn("Bigboxer23", "Mag Bedtime Not Triggering")
-		return;
-	}
 	logWarn("Bigboxer23", "Bedtime On " + now.getDayOfWeek)
 	SmartMargaretBedroom.sendCommand(ON);
 end
 
 rule "Deane Bedtime On"
 when
-	Time cron "0 40 18 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
-	Item Bedtime received command ON
+	Time cron "0 40 18 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Deane Bedtime On " + now.getDayOfWeek)
 	SmartDeaneBedroom.sendCommand(ON)
@@ -25,59 +16,9 @@ end
 
 rule "Nat Bedtime On"
 when
-	Time cron "0 20 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
-	Item Bedtime received command ON
+	Time cron "0 20 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	val aShouldTrigger = now.getHourOfDay >= 20
-	logWarn("Bigboxer23", "Nat Bedtime On " + now.getDayOfWeek + " " + aShouldTrigger + " " + now.getHourOfDay)
-	if (!aShouldTrigger)
-	{
-		logWarn("Bigboxer23", "Nat Bedtime Not Triggering")
-		return;
-	}
-	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(5))
-	switch now.getDayOfWeek
-	{
-		case 1:
-		{
-			logWarn("Bigboxer23", "Bedtime Monday")
-			aPurple = new HSBType(new DecimalType(328), new PercentType(61), new PercentType(5))
-		}
-		case 2:
-        {
-            logWarn("Bigboxer23", "Bedtime Tuesday")
-            aPurple = new HSBType(new DecimalType(254), new PercentType(98), new PercentType(5))
-        }
-		case 3:
-        {
-            logWarn("Bigboxer23", "Bedtime Wednesday")
-            aPurple = new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5))
-        }
-        case 4:
-        {
-            logWarn("Bigboxer23", "Bedtime Thursday")
-            aPurple = new HSBType(new DecimalType(233), new PercentType(59), new PercentType(5))
-        }
-        case 5:
-        {
-            logWarn("Bigboxer23", "Bedtime Friday")
-            aPurple = new HSBType(new DecimalType(140), new PercentType(100), new PercentType(5))
-        }
-        case 6:
-        {
-            logWarn("Bigboxer23", "Bedtime Saturday")
-            aPurple = new HSBType(new DecimalType(267), new PercentType(73), new PercentType(5))
-        }
-        case 7:
-        {
-            logWarn("Bigboxer23", "Bedtime Sunday")
-            aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(5))
-        }
-	}
-	NatalieReadingLamp.sendCommand(35)
-	NatatalieLamp.sendCommand(aPurple)
-	NataliesAccent.sendCommand(aPurple)
-	NatalieFan.sendCommand(ON)
+	SmartNatalieBedroom.sendCommand(ON)
 end
 
 rule "Bedtime Off"
