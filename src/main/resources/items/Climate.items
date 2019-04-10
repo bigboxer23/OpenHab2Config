@@ -1,13 +1,13 @@
 //Thermostat
-Number InsideTemperature "Inside Temperature" (Climate) {channel = "zwave:device:512:node86:sensor_temperature"}
-Number InsideHumidity "Inside Humidity" (Climate) {channel = "zwave:device:512:node86:sensor_relhumidity2"}
-Number ThermostatMode "Thermostat Mode" (Climate) {channel = "zwave:device:512:node86:thermostat_mode"}
-Number ThermostatState "Thermostat State" (Climate) {channel = "zwave:device:512:node86:thermostat_state"}
-Number ThermostatFanMode "Thermostat Fan Mode" (Climate) {channel = "zwave:device:512:node86:thermostat_fanmode"}
-Number ThermostatFanState "Thermostat Fan State" (Climate) {channel = "zwave:device:512:node86:thermostat_fanstate"}
-Number:Temperature HeatingSetpoint "Heating Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_heating"}
-Number:Temperature CoolingSetpoint "Cooling Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_cooling"}
-Number ThermostatBattery "Thermostat Battery" (Climate) {channel = "zwave:device:512:node86:battery-level"}
+//Number InsideTemperature "Inside Temperature" (Climate) {channel = "zwave:device:512:node86:sensor_temperature"}
+//Number InsideHumidity "Inside Humidity" (Climate) {channel = "zwave:device:512:node86:sensor_relhumidity2"}
+//Number ThermostatMode "Thermostat Mode" (Climate) {channel = "zwave:device:512:node86:thermostat_mode"}
+//Number ThermostatState "Thermostat State" (Climate) {channel = "zwave:device:512:node86:thermostat_state"}
+//Number ThermostatFanMode "Thermostat Fan Mode" (Climate) {channel = "zwave:device:512:node86:thermostat_fanmode"}
+//Number ThermostatFanState "Thermostat Fan State" (Climate) {channel = "zwave:device:512:node86:thermostat_fanstate"}
+//Number:Temperature HeatingSetpoint "Heating Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_heating"}
+//Number:Temperature CoolingSetpoint "Cooling Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_cooling"}
+//Number ThermostatBattery "Thermostat Battery" (Climate) {channel = "zwave:device:512:node86:battery-level"}
 
 //WeatherBug
 Number:Temperature OutsideTemperature "Outside Temperature" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:current#temperature"}

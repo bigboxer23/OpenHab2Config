@@ -31,8 +31,8 @@ then
 	EveningOffOn.sendCommand(25)
 	EveningOffOn.sendCommand(ON)
 	StairsAccent.sendCommand(75)
-	HeatingSetpoint.sendCommand(68|°F)
-	CoolingSetpoint.sendCommand(75|°F)
+	//HeatingSetpoint.sendCommand(68|°F)
+	//CoolingSetpoint.sendCommand(75|°F)
 	if (now.getMonthOfYear == 12)
 	{
 		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
