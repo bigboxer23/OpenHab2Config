@@ -1,0 +1,15 @@
+rule "Smart Smart Master Bathroom Rule"
+when
+	Item SmartMasterBathroom received command
+then
+	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay)
+	if (receivedCommand == OFF)
+	{
+		MasterBathroom.sendCommand(receivedCommand)
+	} else
+	{
+		MasterBathShower.sendCommand(100)
+		MasterBathFan.sendCommand(ON)
+		MasterBathMain.sendCommand(50)
+	}
+end
