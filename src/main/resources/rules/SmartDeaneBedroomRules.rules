@@ -16,13 +16,14 @@ then
 			Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
+			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 		}
 	} else
 	{
 		if (now.getHourOfDay >= 18 || now.getHourOfDay <= 6)
 		{
 			logWarn("Bigboxer23", "Smart Deane Accent")
-			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(3)))
+			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 		}
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{

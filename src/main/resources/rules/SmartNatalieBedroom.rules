@@ -3,6 +3,45 @@ when
 	Item SmartNatalieBedroom received command
 then
 	logWarn("Bigboxer23", "Smart Natalie: " + receivedCommand + " " + now.getHourOfDay + " " + NatalieRoomLight.state)
+	var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(5))
+    switch now.getDayOfWeek
+    {
+        case 1:
+        {
+            logWarn("Bigboxer23", "Bedtime Monday")
+            aPurple = new HSBType(new DecimalType(328), new PercentType(61), new PercentType(1))
+        }
+        case 2:
+        {
+            logWarn("Bigboxer23", "Bedtime Tuesday")
+            aPurple = new HSBType(new DecimalType(254), new PercentType(98), new PercentType(1))
+        }
+        case 3:
+        {
+            logWarn("Bigboxer23", "Bedtime Wednesday")
+            aPurple = new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1))
+        }
+        case 4:
+        {
+            logWarn("Bigboxer23", "Bedtime Thursday")
+            aPurple = new HSBType(new DecimalType(233), new PercentType(59), new PercentType(1))
+        }
+        case 5:
+        {
+            logWarn("Bigboxer23", "Bedtime Friday")
+            aPurple = new HSBType(new DecimalType(140), new PercentType(100), new PercentType(1))
+        }
+        case 6:
+        {
+            logWarn("Bigboxer23", "Bedtime Saturday")
+            aPurple = new HSBType(new DecimalType(267), new PercentType(73), new PercentType(1))
+        }
+        case 7:
+        {
+            logWarn("Bigboxer23", "Bedtime Sunday")
+            aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(1))
+        }
+    }
 	if (receivedCommand == OFF)
 	{
 		if (NatalieRoomLight.state == 0)
@@ -16,6 +55,13 @@ then
 			NatalieFan.sendCommand(receivedCommand);
 			NatatalieLamp.sendCommand(receivedCommand);
 			NataliesAccent.sendCommand(receivedCommand);
+		} else
+		{
+			NatatalieLamp.sendCommand(aPurple)
+            NataliesAccent.sendCommand(aPurple)
+            Hallway.sendCommand(receivedCommand);
+			Upstairs.sendCommand(receivedCommand);
+			EntryWay.sendCommand(receivedCommand);
 		}
 	} else
 	{
@@ -35,45 +81,6 @@ then
 		{
 			if (receivedCommand == ON)
 			{
-				var aPurple = new HSBType(new DecimalType(265),new PercentType(89),new PercentType(5))
-                switch now.getDayOfWeek
-                {
-                    case 1:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Monday")
-                        aPurple = new HSBType(new DecimalType(328), new PercentType(61), new PercentType(5))
-                    }
-                    case 2:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Tuesday")
-                        aPurple = new HSBType(new DecimalType(254), new PercentType(98), new PercentType(5))
-                    }
-                    case 3:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Wednesday")
-                        aPurple = new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5))
-                    }
-                    case 4:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Thursday")
-                        aPurple = new HSBType(new DecimalType(233), new PercentType(59), new PercentType(5))
-                    }
-                    case 5:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Friday")
-                        aPurple = new HSBType(new DecimalType(140), new PercentType(100), new PercentType(5))
-                    }
-                    case 6:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Saturday")
-                        aPurple = new HSBType(new DecimalType(267), new PercentType(73), new PercentType(5))
-                    }
-                    case 7:
-                    {
-                        logWarn("Bigboxer23", "Bedtime Sunday")
-                        aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(5))
-                    }
-                }
                 NatalieReadingLamp.sendCommand(40)
                 NatatalieLamp.sendCommand(aPurple)
                 NataliesAccent.sendCommand(aPurple)

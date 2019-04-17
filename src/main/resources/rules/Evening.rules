@@ -19,7 +19,7 @@ then
 	}
 end
 
-rule "Evening Off"
+rule "Evening Off First Call"
 when
 	Item Evening received command OFF or
 	Time cron "0 30 22 ? * SUN,MON,TUE,WED,THU *" or
@@ -31,10 +31,24 @@ then
 	EveningOffOn.sendCommand(25)
 	EveningOffOn.sendCommand(ON)
 	StairsAccent.sendCommand(75)
+	LivingRoomCornerLamp.sendCommand(50)
+	LivingRoomBack.sendCommand(50)
 	//HeatingSetpoint.sendCommand(68|°F)
 	//CoolingSetpoint.sendCommand(75|°F)
 	if (now.getMonthOfYear == 12)
 	{
 		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
 	}
+end
+
+rule "Evening Off Second Call"
+when
+	Item Evening received command OFF or
+	Time cron "0 30 23 ? * SUN,MON,TUE,WED,THU *" or
+	Time cron "0 55 23 ? * FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Evening Off Second")
+	LivingRoomCornerLamp.sendCommand(0)
+	LivingRoomBack.sendCommand(0)
+	//TODO:use the darn motion sensor
 end
