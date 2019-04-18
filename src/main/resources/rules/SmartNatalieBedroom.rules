@@ -42,7 +42,7 @@ then
             aPurple = new HSBType(new DecimalType(263), new PercentType(72), new PercentType(1))
         }
     }
-	if (receivedCommand == OFF)
+	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		if (NatalieRoomLight.state == 0)
 		{
@@ -62,6 +62,7 @@ then
             Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
+			NatalieFan.sendCommand(ON);
 		}
 	} else
 	{

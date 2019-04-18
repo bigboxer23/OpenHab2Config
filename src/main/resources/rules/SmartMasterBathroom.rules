@@ -3,7 +3,7 @@ when
 	Item SmartMasterBathroom received command
 then
 	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay)
-	if (receivedCommand == OFF)
+	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		MasterBathroom.sendCommand(receivedCommand)
 	} else

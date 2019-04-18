@@ -4,7 +4,7 @@ when
 then
 	LivingRoomCornerLamp.sendCommand(receivedCommand);
 	LivingRoomBack.sendCommand(receivedCommand);
-	if (receivedCommand == OFF)
+	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		LivingRoomFront.sendCommand(receivedCommand);
 	}
