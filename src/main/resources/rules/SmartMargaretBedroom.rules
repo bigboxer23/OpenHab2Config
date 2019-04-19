@@ -3,7 +3,7 @@ when
 	Item SmartMargaretBedroom received command
 then
 	logWarn("Bigboxer23", "Smart Margaret: " + receivedCommand + " " + now.getHourOfDay + " " + MargaretLight.state)
-	if (receivedCommand == OFF)
+	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		MargaretLight.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)

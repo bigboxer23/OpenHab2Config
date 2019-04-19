@@ -3,7 +3,7 @@ when
 	Item SmartDeaneBedroom received command
 then
 	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand + " " + now.getHourOfDay)
-	if (receivedCommand == OFF)
+	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		DeaneRoomOverhead.sendCommand(receivedCommand);
 		DeaneLamp.sendCommand(receivedCommand);

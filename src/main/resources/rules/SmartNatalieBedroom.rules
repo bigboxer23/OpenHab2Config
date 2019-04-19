@@ -55,6 +55,7 @@ then
 			NatalieFan.sendCommand(receivedCommand);
 			NatatalieLamp.sendCommand(receivedCommand);
 			NataliesAccent.sendCommand(receivedCommand);
+			NatalieFan.sendCommand(OFF);
 		} else
 		{
 			NatatalieLamp.sendCommand(aPurple)
