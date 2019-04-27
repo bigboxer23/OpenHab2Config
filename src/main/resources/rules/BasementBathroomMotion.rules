@@ -1,0 +1,41 @@
+rule "Basement Bathroom Motion ON"
+when
+    Item BasementBathroomMotionSensor received update ON
+then
+	logWarn("Bigboxer23", "Basement Bathroom Motion Triggered " + BasementBathroomLights.state + " " + BasementBathroomMotionTimer.state)
+    if (BasementBathroomLights.state == 0){
+        logWarn("Bigboxer23", "Basement Bathroom Motion timer is inactive, triggering lights")
+        BasementBathroomLights.sendCommand(100)
+        BasementBathroomAccent.sendCommand(100)
+    }
+    BasementBathroomMotionTimer.sendCommand(OFF)
+end
+
+
+rule "Basement Bathroom Motion OFF"
+when
+    Item BasementBathroomMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", "Basement Bathroom Motion sensor Off, setting timer")
+    BasementBathroomMotionTimer.sendCommand(ON)
+end
+
+rule "Basement Motion Timer OFF"
+when
+    Item BasementBathroomMotionTimer received update OFF
+then
+	if (BasementBathroomMotionSensor.state === OFF){
+		logWarn("Bigboxer23", "Basement Bathroom Motion timer is inactive, triggering lights")
+	    if (BasementBathroomShower.state != 0)
+	    {
+	        BasementBathroomShower.sendCommand(50)
+	    }
+	    BasementBathroomLights.sendCommand(0)
+	    BasementBathroomAccent.sendCommand(0)
+	    BasementBathroomFan.sendCommand(OFF)
+	    logWarn("Bigboxer23", "BasementBathroomMotionTimer Off, Sensor Off, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "Basement Bathroom Motion is ON, not shutting off lights")
+    }
+end
