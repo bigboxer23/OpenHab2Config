@@ -14,6 +14,9 @@ then
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 21)
         {
             MasterBedroomFan.sendCommand(receivedCommand)
+        } else
+        {
+            MasterBedroomFan.sendCommand(ON)
         }
 	} else
 	{

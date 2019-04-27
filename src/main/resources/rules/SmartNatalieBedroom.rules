@@ -50,7 +50,7 @@ then
 		}
 		NatalieRoomLight.sendCommand(receivedCommand);
 		NatalieRoomWindow.sendCommand(receivedCommand);
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 20)
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
 			NatalieFan.sendCommand(receivedCommand);
 			NatatalieLamp.sendCommand(receivedCommand);
