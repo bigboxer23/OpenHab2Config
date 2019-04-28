@@ -1,0 +1,33 @@
+rule "Master Closet Motion ON"
+when
+    Item MasterClosetMotionSensor received update ON
+then
+	logWarn("Bigboxer23", "Master Closet Motion Triggered " + BasementBathroomLights.state + " " + MasterClosetMotionTimer.state)
+    if (MasterCloset.state == 0){
+        logWarn("Bigboxer23", "Master Closet Motion timer is inactive, triggering lights")
+        MasterCloset.sendCommand(100)
+    }
+    MasterClosetMotionTimer.sendCommand(OFF)
+end
+
+
+rule "Master Closet Motion OFF"
+when
+    Item MasterClosetMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", "Master Closet Motion sensor Off, setting timer")
+    MasterClosetMotionTimer.sendCommand(ON)
+end
+
+rule "Basement Motion Timer OFF"
+when
+    Item MasterClosetMotionTimer received update OFF
+then
+	if (MasterClosetMotionSensor.state === OFF){
+	    MasterCloset.sendCommand(0)
+	    logWarn("Bigboxer23", "MasterClosetMotionTimer Off, Sensor Off, shutting off lights")
+    } else
+    {
+        logWarn("Bigboxer23", "Master Closet Motion is ON, not shutting off lights")
+    }
+end
