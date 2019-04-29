@@ -9,6 +9,7 @@ then
 		DeaneLamp.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
+			DeaneFan.sendCommand(receivedCommand);
 			DeanesAccent.sendCommand(receivedCommand);
 		}
 		if (now.getHourOfDay >= 18)
@@ -28,8 +29,10 @@ then
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
 			DeaneRoomOverhead.sendCommand(receivedCommand);
+			DeaneFan.sendCommand(OFF);
 		} else
 		{
+			DeaneFan.sendCommand(ON);
 			if (receivedCommand == ON)
 			{
 				DeaneLamp.sendCommand(25);

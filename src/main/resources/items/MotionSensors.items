@@ -35,7 +35,7 @@ Group MasterClosetMotion  "Master Closet Motion" (MasterBedroom)
 Switch MasterClosetMotionSensor "Master Closet Motion Sensor" (MasterClosetMotion) {channel = "zwave:device:512:node93:sensor_binary" }
 Number MasterClosetMotionSensorBattery "Master Closet Motion Sensor Battery" (MasterClosetMotion, MasterBedroom) {channel = "zwave:device:512:node93:battery-level" }
 Number MasterClosetMotionTemperature "Master Closet Motion Temperature" (MasterClosetMotion, MasterBedroom) {channel = "zwave:device:512:node93:sensor_temperature" }
-Switch MasterClosetMotionTimer ( MasterClosetMotion) {expire="10m, command=OFF"}
+Switch MasterClosetMotionTimer ( MasterClosetMotion) {expire="2m, command=OFF"}
 
 Group LivingRoomMotion "Living Room Motion" (LivingRoom)
 Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:512:node59:sensor_door" }

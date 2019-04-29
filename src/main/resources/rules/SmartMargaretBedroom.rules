@@ -8,7 +8,7 @@ then
 		MargaretLight.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
-			MargaretFan.sendCommand(receivedCommand);
+			//MargaretFan.sendCommand(receivedCommand);
 			MaggieLamp.sendCommand(receivedCommand);
 			MargaretsAccent.sendCommand(receivedCommand);
 		} else
@@ -30,7 +30,7 @@ then
 			{
 				MargaretLight.sendCommand(receivedCommand);
 			}
-			MargaretFan.sendCommand(OFF);
+			//MargaretFan.sendCommand(OFF);
 		} else
 		{
 			if (receivedCommand == ON)
@@ -38,7 +38,7 @@ then
 				MargaretLight.sendCommand(20);
 				MaggieLamp.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(100)))
 				MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(42),new PercentType(100)))
-				MargaretFan.sendCommand(receivedCommand);
+				//MargaretFan.sendCommand(receivedCommand);
 			} else
 			{
 				MargaretLight.sendCommand(receivedCommand);
