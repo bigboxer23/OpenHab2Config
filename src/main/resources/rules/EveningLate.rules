@@ -10,6 +10,7 @@ then
 	MotionOverrides.sendCommand(OFF)
 	LivingRoomCornerLamp.sendCommand(0)
 	LivingRoomBack.sendCommand(0)
+	LivingRoomAccent.sendCommand(0)
 	//HeatingSetpoint.sendCommand(68|°F)
 	//CoolingSetpoint.sendCommand(75|°F)
 end

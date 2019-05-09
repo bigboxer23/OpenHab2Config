@@ -50,5 +50,6 @@ then
 	logWarn("Bigboxer23", "Evening Off Second")
 	LivingRoomCornerLamp.sendCommand(0)
 	LivingRoomBack.sendCommand(0)
+	LivingRoomAccent.sendCommand(0)
 	//TODO:use the darn motion sensor
 end

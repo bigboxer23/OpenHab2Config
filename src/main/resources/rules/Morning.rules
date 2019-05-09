@@ -10,6 +10,7 @@ then
 		MorningOn.sendCommand(ON)
 		UnderCabinets.sendCommand(35)
 		LivingRoomBack.sendCommand(65)
+		LivingRoomAccent.sendCommand(25)
 		EntryWay.sendCommand(100)
 		MasterBathMain.sendCommand(50)
 		Upstairs.sendCommand(50)
