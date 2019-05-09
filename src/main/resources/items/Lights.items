@@ -30,6 +30,7 @@ Dimmer GarageLights "Garage Lights" (Garage, EveningOffOff, GarageOpen) {channel
 Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom, MorningOn, EveningOnOn) {channel = "hue:0210:001788174d59:3:color"}
 Dimmer LivingRoomFront "Living Room Front" (LivingRoom, EveningOffOff) {channel = "zwave:device:512:node60:switch_dimmer"}
 Dimmer LivingRoomBack "Living Room Back" (LivingRoom, EveningOnOn) ["Notify"] {channel = "zwave:device:512:node61:switch_dimmer"}
+Color  LivingRoomAccent "Living Room Accent" (LivingRoom) {channel = "hue:0200:001788174d59:13:color"}
 
 
 //Kitchen
@@ -89,16 +90,15 @@ Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, Eveni
 
 //Deane
 Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {channel = "zwave:device:512:node29:switch_dimmer"}
-Dimmer  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:12:brightness"}
+Color  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0210:001788174d59:10:color"}
 Color  DeanesAccent "Deane Accent" (DeaneBedroom, MorningOff) {channel = "hue:0200:001788174d59:11:color"}
 Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) {channel = "zwave:device:512:node28:switch_binary"}
 
 
 
 //Margaret
-Color  MaggieLamp "Maggie Lamp" (MargaretBedroom, MorningOff) {channel = "hue:0210:001788174d59:10:color"}
+Dimmer  MaggieLamp "Maggie Lamp" (MargaretBedroom, MorningOff) {channel = "hue:0100:001788174d59:12:brightness"}
 Dimmer MargaretLight  "Margaret Light" (MargaretBedroom, EveningOffOff) {channel = "zwave:device:512:node25:switch_dimmer"}
-Color  MargaretsAccent "Margaret Accent" (MargaretBedroom, MorningOff) {channel = "hue:0200:001788174d59:13:color"}
 
 //Natalie
 Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:7:brightness"}

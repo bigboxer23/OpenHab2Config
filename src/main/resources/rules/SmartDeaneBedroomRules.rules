@@ -11,6 +11,7 @@ then
 		{
 			DeaneFan.sendCommand(receivedCommand);
 			DeanesAccent.sendCommand(receivedCommand);
+			DeaneLamp.sendCommand(receivedCommand);
 		}
 		if (now.getHourOfDay >= 18)
 		{
@@ -18,6 +19,7 @@ then
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
+			DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 		}
 	} else
 	{
@@ -25,6 +27,7 @@ then
 		{
 			logWarn("Bigboxer23", "Smart Deane Accent")
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
+			DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 		}
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
