@@ -5,4 +5,4 @@ Group:Dimmer   MorningOff
 Group:Dimmer    EveningOnOn
 Group:Dimmer    GarageOpen
 
-Switch TestSwitch
+//Switch TestSwitch

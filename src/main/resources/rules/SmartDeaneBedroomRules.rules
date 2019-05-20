@@ -6,14 +6,12 @@ then
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		DeaneRoomOverhead.sendCommand(receivedCommand);
-		DeaneLamp.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
 			DeaneFan.sendCommand(receivedCommand);
 			DeanesAccent.sendCommand(receivedCommand);
 			DeaneLamp.sendCommand(receivedCommand);
-		}
-		if (now.getHourOfDay >= 18)
+		} else
 		{
 			Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
