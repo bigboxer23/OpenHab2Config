@@ -2,27 +2,25 @@ rule "Smart Living Room Rule"
 when
 	Item SmartLivingRoom received command
 then
-		if (receivedCommand == OFF || receivedCommand == 0)
+		var aCommand = receivedCommand
+		if (aCommand == OFF || aCommand == 0)
 		{
-			LivingRoomCornerLamp.sendCommand(receivedCommand);
-			LivingRoomBack.sendCommand(receivedCommand);
-			LivingRoomFront.sendCommand(receivedCommand);
+			LivingRoomCornerLamp.sendCommand(receivedCommand)
+			LivingRoomBack.sendCommand(receivedCommand)
+			LivingRoomFront.sendCommand(receivedCommand)
+			receivedCommand.sendCommand(receivedCommand)
 		} else
 		{
-			if (now.getHourOfDay >= 7 && now.getHourOfDay < 22)
+			if (aCommand == ON)
 			{
-				LivingRoomCornerLamp.sendCommand(receivedCommand);
-				LivingRoomBack.sendCommand(receivedCommand);
-			} else
-			{
-				LivingRoomCornerLamp.sendCommand(50);
-				LivingRoomBack.sendCommand(50);
+				aCommand = 100
 			}
+			if (now.getHourOfDay < 7 || now.getHourOfDay >= 22)
+			{
+				aCommand = 50
+			}
+			LivingRoomCornerLamp.sendCommand(aCommand)
+			LivingRoomBack.sendCommand(aCommand)
+			LivingRoomAccent.sendCommand(aCommand)
 		}
-	LivingRoomCornerLamp.sendCommand(receivedCommand);
-	LivingRoomBack.sendCommand(receivedCommand);
-	if (receivedCommand == OFF || receivedCommand == 0)
-	{
-		LivingRoomFront.sendCommand(receivedCommand);
-	}
 end

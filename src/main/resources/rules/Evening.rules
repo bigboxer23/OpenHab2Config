@@ -28,11 +28,8 @@ then
 	logWarn("Bigboxer23", "Evening Off")
 	EveningOffOff.sendCommand(0)
 	EveningOffOff.sendCommand(OFF)
-	EveningOffOn.sendCommand(25)
-	EveningOffOn.sendCommand(ON)
 	StairsAccent.sendCommand(75)
-	LivingRoomCornerLamp.sendCommand(50)
-	LivingRoomBack.sendCommand(50)
+	SmartLivingRoom.sendCommand(ON)
 	//HeatingSetpoint.sendCommand(68|°F)
 	//CoolingSetpoint.sendCommand(75|°F)
 	if (now.getMonthOfYear == 12)
@@ -48,8 +45,6 @@ when
 	Time cron "0 55 23 ? * FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Evening Off Second")
-	LivingRoomCornerLamp.sendCommand(0)
-	LivingRoomBack.sendCommand(0)
-	LivingRoomAccent.sendCommand(0)
+	SmartLivingRoom.sendCommand(OFF)
 	//TODO:use the darn motion sensor
 end
