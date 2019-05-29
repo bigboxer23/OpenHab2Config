@@ -2,11 +2,18 @@ rule "Smart Master Bedroom Rule"
 when
 	Item SmartMasterBedroom received command
 then
-	logWarn("Bigboxer23", "Smart Master Bedroom: " + receivedCommand + " " + now.getHourOfDay + " " + MattsBedside.state)
+	logWarn("Bigboxer23", "Smart Master Bedroom: " + receivedCommand + " " + now.getHourOfDay + " " + MattsBedside.state + " " + MasterBedroomFan.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
-		MattsBedside.sendCommand(receivedCommand)
-        MaureensBedside.sendCommand(receivedCommand)
+		if (MasterBedroomFan.state == OFF)
+		{
+			MattsBedside.sendCommand(25)
+            MaureensBedside.sendCommand(25)
+		} else
+		{
+			MattsBedside.sendCommand(receivedCommand)
+            MaureensBedside.sendCommand(receivedCommand)
+		}
         MasterBedroomOverhead.sendCommand(receivedCommand)
         Hallway.sendCommand(receivedCommand)
         MasterCloset.sendCommand(receivedCommand)
@@ -20,26 +27,20 @@ then
         }
 	} else
 	{
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 21)
+		var aCommand = receivedCommand;
+		if (aCommand == ON)
 		{
-			var aCommand = receivedCommand;
-			if (receivedCommand == ON)
-			{
-				aCommand = 100;
-			}
-			MattsBedside.sendCommand(aCommand)
-            MaureensBedside.sendCommand(aCommand)
-            MasterBedroomOverhead.sendCommand(aCommand)
+			aCommand = 100;
+		}
+		if (now.getHourOfDay < 7 && now.getHourOfDay >= 21)
+		{
+			aCommand = 25;
+			MasterBedroomFan.sendCommand(ON)
 		} else
 		{
-			var aCommand = 25;
-            if (SmartMasterBedroom.state != 100)
-            {
-                aCommand = SmartMasterBedroom.state;
-            }
-            MattsBedside.sendCommand(aCommand)
-            MaureensBedside.sendCommand(aCommand)
-            MasterBedroomFan.sendCommand(ON)
+			MasterBedroomOverhead.sendCommand(aCommand)
 		}
+		MattsBedside.sendCommand(aCommand)
+		MaureensBedside.sendCommand(aCommand)
 	}
 end

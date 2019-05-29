@@ -3,6 +3,10 @@ Number UpstairsTemperature "Upstairs Temperature" (Climate)
 Number UpstairsHumidity "Upstairs Humidity" (Climate)
 Number UpstairsPressure "Upstairs Pressure" (Climate)
 Number UpstairsQuality "Upstairs Air Quality" (Climate)
+Number BasementTemperature "Basement Temperature" (Climate)
+Number BasementHumidity "Basement Humidity" (Climate)
+Number BasementPressure "Basement Pressure" (Climate)
+Number BasementQuality "Basement Air Quality" (Climate)
 //Number InsideHumidity "Inside Humidity" (Climate) {channel = "zwave:device:512:node86:sensor_relhumidity2"}
 //Number ThermostatMode "Thermostat Mode" (Climate) {channel = "zwave:device:512:node86:thermostat_mode"}
 //Number ThermostatState "Thermostat State" (Climate) {channel = "zwave:device:512:node86:thermostat_state"}

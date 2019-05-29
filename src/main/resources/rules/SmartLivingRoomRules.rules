@@ -18,9 +18,10 @@ then
 			if (now.getHourOfDay < 7 || now.getHourOfDay >= 22)
 			{
 				aCommand = 50
+				aCommand = aCommand
 			}
-			LivingRoomCornerLamp.sendCommand(aCommand)
-			LivingRoomBack.sendCommand(aCommand)
-			LivingRoomAccent.sendCommand(aCommand)
+			LivingRoomCornerLamp.sendCommand(aCommand as Number)
+			LivingRoomBack.sendCommand(aCommand as Number)
+			LivingRoomAccent.sendCommand(aCommand as Number)
 		}
 end

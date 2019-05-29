@@ -27,7 +27,7 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off")
 	EveningOffOff.sendCommand(0)
-	EveningOffOff.sendCommand(OFF)
+	//EveningOffOff.sendCommand(OFF)
 	StairsAccent.sendCommand(75)
 	SmartLivingRoom.sendCommand(ON)
 	//HeatingSetpoint.sendCommand(68|°F)
