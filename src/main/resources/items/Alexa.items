@@ -1,0 +1,7 @@
+Player GreatRoomDot "Great Room Dot" {channel="amazonechocontrol:echo:897667ba:G090LF096383032S:player"}
+Player BasementDot "Basement Dot" {channel="amazonechocontrol:echo:897667ba:G090U50784130Q5A:player"}
+Player DeaneDot "Deane's Dot" {channel="amazonechocontrol:echo:897667ba:G090LF096454156F:player"}
+Player DiningRoomDot "Dining Room Dot" {channel="amazonechocontrol:echo:897667ba:G090VC0783954X9K:player"}
+Player MasterBathroomDot "Master Bathroom Dot" {channel="amazonechocontrol:echo:897667ba:G090LF0965220G2F:player"}
+Player MasterBedroomDot "Master Bedroom Dot" {channel="amazonechocontrol:echospot:897667ba:G070RQ077492006E:player"}
+Player NatalieDot "Natalie's Dot" {channel="amazonechocontrol:echo:897667ba:G090LF0971220GRD:player"}

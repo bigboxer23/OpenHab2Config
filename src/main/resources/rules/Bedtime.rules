@@ -1,11 +1,3 @@
-//rule "Margaret Bedtime On"
-//when
-//	Time cron "0 15 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
-//then
-//	logWarn("Bigboxer23", "Bedtime On " + now.getDayOfWeek)
-//	SmartMargaretBedroom.sendCommand(ON);
-//end
-
 rule "Deane Bedtime On"
 when
 	Time cron "0 40 18 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
@@ -42,4 +34,13 @@ when
 then
 	logWarn("Bigboxer23", "Nat Reading Lamp off")
 	NatalieReadingLamp.sendCommand(0)
+end
+
+
+rule "Alexa Off"
+when
+	Time cron "0 00 21 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+        NatalieDot.sendCommand(PAUSE)
+
 end
