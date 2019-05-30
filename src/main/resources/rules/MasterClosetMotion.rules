@@ -2,7 +2,7 @@ rule "Master Closet Motion ON"
 when
     Item MasterClosetMotionSensor received update ON
 then
-	logWarn("Bigboxer23", "Master Closet Motion Triggered " + BasementBathroomLights.state + " " + MasterClosetMotionTimer.state)
+	logWarn("Bigboxer23", "Master Closet Motion Triggered " + MasterCloset.state + " " + MasterClosetMotionTimer.state)
     if (now.getHourOfDay >= 6 && now.getHourOfDay < 23 && MasterCloset.state == 0){
         logWarn("Bigboxer23", "Master Closet Motion timer is inactive, triggering lights")
         MasterCloset.sendCommand(100)
