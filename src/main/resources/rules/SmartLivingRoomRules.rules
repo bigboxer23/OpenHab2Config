@@ -8,7 +8,7 @@ then
 			LivingRoomCornerLamp.sendCommand(receivedCommand)
 			LivingRoomBack.sendCommand(receivedCommand)
 			LivingRoomFront.sendCommand(receivedCommand)
-			receivedCommand.sendCommand(receivedCommand)
+			LivingRoomAccent.sendCommand(receivedCommand)
 		} else
 		{
 			if (aCommand == ON)

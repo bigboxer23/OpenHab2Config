@@ -36,6 +36,7 @@ then
 	{
 		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
 	}
+	NatalieDot.sendCommand(PAUSE)
 end
 
 rule "Evening Off Second Call"
