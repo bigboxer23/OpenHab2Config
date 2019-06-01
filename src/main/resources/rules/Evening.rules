@@ -27,7 +27,6 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off")
 	EveningOffOff.sendCommand(0)
-	//EveningOffOff.sendCommand(OFF)
 	StairsAccent.sendCommand(75)
 	SmartLivingRoom.sendCommand(ON)
 	//HeatingSetpoint.sendCommand(68|°F)
@@ -37,6 +36,10 @@ then
 		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
 	}
 	NatalieDot.sendCommand(PAUSE)
+	if (MasterBedroomFan.state == OFF)
+	{
+		SmartMasterBedroom.sendCommand(0)
+	}
 end
 
 rule "Evening Off Second Call"

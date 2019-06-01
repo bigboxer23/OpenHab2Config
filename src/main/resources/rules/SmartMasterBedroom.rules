@@ -32,7 +32,7 @@ then
 		{
 			aCommand = 100;
 		}
-		if (now.getHourOfDay < 7 && now.getHourOfDay >= 21)
+		if (now.getHourOfDay < 7 || now.getHourOfDay >= 21)
 		{
 			aCommand = 25;
 			MasterBedroomFan.sendCommand(ON)
