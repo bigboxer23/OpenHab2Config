@@ -14,7 +14,6 @@ then
     }
 end
 
-
 rule "Master Bath Timer OFF"
 when
     Item MasterBathroomTimer received update OFF
@@ -24,28 +23,3 @@ then
     MasterBathFan.sendCommand(OFF)
     logWarn("Bigboxer23", "Master Bath Timer shutting off lights")
 end
-
-rule "Poop Closet turned on"
-when
-    Item PoopCloset changed or
-    Item PoopClosetFan received update ON
-then
-	if (PoopClosetTimer.state == OFF || PoopClosetTimer.state == NULL)
-	{
-		logWarn("Bigboxer23", "Poop Closet Timer set " + PoopCloset.state + " " + PoopClosetFan.state)
-        PoopClosetTimer.sendCommand(ON)
-    } else
-    {
-        logWarn("Bigboxer23", "Poop Closet Timer not set, " + PoopCloset.state + " " + PoopClosetFan.state + " " + PoopClosetTimer.state)
-    }
-end
-
-rule "Poop Closet Timer OFF"
-when
-    Item PoopClosetTimer received update OFF
-then
-    PoopCloset.sendCommand(0)
-    PoopClosetFan.sendCommand(OFF)
-    logWarn("Bigboxer23", "Poop Closet Timer shutting off lights")
-end
-

@@ -1,0 +1,49 @@
+var aName = "Poop Closet Motion"
+rule "Poop Closet Motion ON"
+when
+	Item PoopClosetMotionSensor received update ON
+then
+	logWarn("Bigboxer23", aName  + " Triggered " + PoopCloset.state + " " + PoopClosetMotionTimer.state)
+        var aLightLevel = 100;
+        if (now.getHourOfDay < 6 || now.getHourOfDay >= 23)
+        {
+            aLightLevel = 25
+        }
+        if (PoopCloset.state == 0){
+            logWarn("Bigboxer23", aName + " triggering lights")
+            PoopCloset.sendCommand(aLightLevel)
+            PoopClosetFan.sendCommand(ON)
+        }
+        PoopClosetFanTimer.sendCommand(OFF)
+        PoopClosetMotionTimer.sendCommand(OFF)
+end
+
+rule "Poop Closet Motion OFF"
+when
+    Item PoopClosetMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", aName + " sensor Off, setting timer")
+    PoopClosetMotionTimer.sendCommand(ON)
+end
+
+rule "Poop Closet Motion Timer OFF"
+when
+    Item PoopClosetMotionTimer received update OFF
+then
+ 	logWarn("Bigboxer23", aName + " timer expired. " + PoopClosetMotionSensor.state)
+	if (PoopClosetMotionSensor.state === OFF){
+		logWarn("Bigboxer23", aName + " Off, Sensor Off, shutting off lights")
+        PoopCloset.sendCommand(0)
+        PoopClosetFanTimer.sendCommand(ON)
+    }
+end
+
+rule "Poop Closet Fan Timer OFF"
+when
+    Item PoopClosetFanTimer received update OFF
+then
+	if (PoopClosetMotionSensor.state === OFF){
+        PoopClosetFan.sendCommand(OFF)
+        logWarn("Bigboxer23", aName + " Fan Timer shutting off fan")
+    }
+end
