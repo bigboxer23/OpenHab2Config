@@ -12,7 +12,7 @@ then
         if (PoopCloset.state == 0){
             logWarn("Bigboxer23", aName + " triggering lights")
             PoopCloset.sendCommand(aLightLevel)
-            PoopClosetFan.sendCommand(ON)
+            //PoopClosetFan.sendCommand(ON)
         }
         PoopClosetFanTimer.sendCommand(OFF)
         PoopClosetMotionTimer.sendCommand(OFF)
