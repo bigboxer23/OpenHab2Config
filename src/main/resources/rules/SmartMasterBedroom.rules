@@ -5,24 +5,24 @@ then
 	logWarn("Bigboxer23", "Smart Master Bedroom: " + receivedCommand + " " + now.getHourOfDay + " " + MattsBedside.state + " " + MasterBedroomFan.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
-		if (MasterBedroomFan.state == OFF)
-		{
-			MattsBedside.sendCommand(25)
-            MaureensBedside.sendCommand(25)
-		} else
-		{
-			MattsBedside.sendCommand(receivedCommand)
-            MaureensBedside.sendCommand(receivedCommand)
-		}
         MasterBedroomOverhead.sendCommand(receivedCommand)
         Hallway.sendCommand(receivedCommand)
         MasterCloset.sendCommand(receivedCommand)
         MainAccent.sendCommand(receivedCommand)
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 21)
         {
-            MasterBedroomFan.sendCommand(receivedCommand)
+            MasterBedroomFan.sendCommand(OFF)
+            MattsBedside.sendCommand(receivedCommand)
+            MaureensBedside.sendCommand(receivedCommand)
         } else
         {
+            var aCommand = 0;
+            if (MasterBedroomFan.state == OFF)
+            {
+                aCommand = 25
+            }
+            MattsBedside.sendCommand(aCommand)
+            MaureensBedside.sendCommand(aCommand)
             MasterBedroomFan.sendCommand(ON)
         }
 	} else
