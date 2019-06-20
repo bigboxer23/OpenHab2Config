@@ -41,8 +41,16 @@ Group MasterBathroomMotion "Master Bathroom Motion" (MasterBathroom)
 Switch PoopClosetMotionSensor "Poop Closet Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:512:node94:sensor_binary" }
 Number PoopClosetMotionBattery "Poop Closet Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node94:battery-level" }
 Number PoopClosetMotionLightSensor "Poop Closet Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node94:sensor_luminance" }
-Switch PoopClosetMotionTimer ( MasterBathroomMotion) {expire="1m, command=OFF"}
+Switch PoopClosetMotionTimer ( MasterBathroomMotion) {expire="5m, command=OFF"}
 Switch PoopClosetFanTimer {expire="15m, command=OFF"}
+
+Switch MasterBathroomMotionSensor "Master Bathroom Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:512:node95:sensor_binary" }
+Number MasterBathroomMotionBattery "Master Bathroom Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node95:battery-level" }
+Number MasterBathroomMotionLightSensor "Master Bathroom Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node95:sensor_luminance" }
+Switch MasterBathroomMotionTimer ( MasterBathroomMotion) {expire="15m, command=OFF"}
+Switch MasterBathroomFanTimer {expire="30m, command=OFF"}
+
+
 
 Group LivingRoomMotion "Living Room Motion" (LivingRoom)
 Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:512:node59:sensor_door" }
