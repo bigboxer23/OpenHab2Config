@@ -9,10 +9,8 @@ then
 		MorningOn.sendCommand(100)
 		MorningOn.sendCommand(ON)
 		UnderCabinets.sendCommand(35)
-		LivingRoomBack.sendCommand(65)
-		LivingRoomAccent.sendCommand(25)
+		LivingRoomAccent.sendCommand(100)
 		EntryWay.sendCommand(100)
-		MasterBathMain.sendCommand(50)
 		Upstairs.sendCommand(50)
 		StairsAccent.sendCommand(35)
 		MaggieLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5)))
@@ -45,7 +43,8 @@ then
 	EveningOffOff.sendCommand(OFF)
 	MorningOff.sendCommand(0)
 	MorningOff.sendCommand(OFF)
-	CoolingSetpoint.sendCommand(73|°F)
+	SmartLivingRoom.sendCommand(0)
+	//CoolingSetpoint.sendCommand(73|°F)
 	if (now.getMonthOfYear == 12)
 	{
 		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights

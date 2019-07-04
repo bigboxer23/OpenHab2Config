@@ -44,11 +44,10 @@ Number PoopClosetMotionLightSensor "Poop Closet Motion Light Sensor" (MasterBath
 Switch PoopClosetMotionTimer ( MasterBathroomMotion) {expire="5m, command=OFF"}
 Switch PoopClosetFanTimer {expire="3m, command=OFF"}
 
-Switch MasterBathroomMotionSensor "Master Bathroom Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:512:node95:sensor_binary" }
-Number MasterBathroomMotionBattery "Master Bathroom Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node95:battery-level" }
-Number MasterBathroomMotionLightSensor "Master Bathroom Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node95:sensor_luminance" }
-Switch MasterBathroomMotionTimer ( MasterBathroomMotion) {expire="15m, command=OFF"}
-Switch MasterBathroomFanTimer {expire="30m, command=OFF"}
+Switch MasterBathroomMotionSensor "Master Bathroom Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:512:node99:sensor_binary" }
+Number MasterBathroomMotionBattery "Master Bathroom Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node99:battery-level" }
+Number MasterBathroomMotionLightSensor "Master Bathroom Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:512:node99:sensor_luminance" }
+Switch MasterBathroomMotionTimer ( MasterBathroomMotion) {expire="30m, command=OFF"}
 
 Group LivingRoomMotion "Living Room Motion" (LivingRoom)
 Contact LivingRoomMotionSensor "Living Room Motion Sensor" (LivingRoomMotion) {channel = "zwave:device:512:node59:sensor_door" }
@@ -65,6 +64,3 @@ Number LaundryRoomSensorBattery "Laundry Room Motion Sensor Battery" (UpstairsBa
 Switch UpstairsBathroomMotionSensor "Upstairs Bathroom Motion Sensor" (UpstairsBathroomMotion) {channel = "zwave:device:512:node91:sensor_binary" }
 Number UpstairsBathroomSensorBattery "Upstairs Bathroom Motion Sensor Battery" (UpstairsBathroomMotion, UpstairsBathroom) {channel = "zwave:device:512:node91:battery-level" }
 Switch UpstairsBathroomMotionTimer ( UpstairsBathroomMotion) {expire="20m, command=OFF"}
-
-//Bathroom timers
-Switch MasterBathroomTimer {expire="45m, command=OFF"}

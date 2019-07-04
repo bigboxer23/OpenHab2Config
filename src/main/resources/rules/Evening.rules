@@ -7,7 +7,6 @@ then
 	EveningOnOn.sendCommand(100)
 	FrontPorchLights.sendCommand(45)
 	UnderCabinets.sendCommand(50)
-	MasterBathTub.sendCommand(25)
 	Upstairs.sendCommand(45)
 	Hallway.sendCommand(20)
 	Sink.sendCommand(50)

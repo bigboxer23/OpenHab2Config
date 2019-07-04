@@ -20,7 +20,7 @@ then
     GuestBathroomMotionTimer.sendCommand(ON)
 end
 
-rule "Guest Bathroom Motion OFF"
+rule "Guest Bathroom Motion Timer OFF"
 when
     Item GuestBathroomMotionTimer received update OFF
 then
