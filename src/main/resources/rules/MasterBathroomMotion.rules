@@ -1,7 +1,8 @@
 var aName = "Master Bathroom Motion"
 rule "Master Bathroom Motion ON"
 when
-	Item MasterBathroomMotionSensor received update ON
+	Item MasterBathroomMotionSensor received update ON or
+	Item MasterBathroomShowerMotionSensor received update ON
 then
 	logWarn("Bigboxer23", aName  + " Triggered " + MasterBathShower.state + " " + MasterBathroomMotionTimer.state)
         if (MasterBathShower.state == 0){
@@ -13,18 +14,22 @@ end
 
 rule "Master Bathroom Motion OFF"
 when
-    Item MasterBathroomMotionSensor received update OFF
+    Item MasterBathroomMotionSensor received update OFF or
+    Item MasterBathroomShowerMotionSensor received update OFF
 then
-	logWarn("Bigboxer23", aName + " sensor Off, setting timer")
-    MasterBathroomMotionTimer.sendCommand(ON)
+ 	logWarn("Bigboxer23", aName + " sensor off. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state)
+	if (MasterBathroomMotionSensor.state === OFF && MasterBathroomShowerMotionSensor.state === OFF){
+    	logWarn("Bigboxer23", aName + " sensor Off, setting timer")
+	    MasterBathroomMotionTimer.sendCommand(ON)
+	}
 end
 
 rule "Master Bathroom Timer OFF"
 when
     Item MasterBathroomMotionTimer received update OFF
 then
- 	logWarn("Bigboxer23", aName + " timer expired. " + MasterBathroomMotionSensor.state)
-	if (MasterBathroomMotionSensor.state === OFF){
+ 	logWarn("Bigboxer23", aName + " timer expired. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state)
+	if (MasterBathroomMotionSensor.state === OFF && MasterBathroomShowerMotionSensor.state === OFF){
 		logWarn("Bigboxer23", aName + " Off, Sensor Off, shutting off lights")
         SmartMasterBathroom.sendCommand(OFF)
     }
