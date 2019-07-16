@@ -1,3 +1,5 @@
+var aName = "Basement Motion"
+
 rule "Basement Motion ON"
 when
     Item BasementScreenMotionSensor received update ON or
@@ -5,10 +7,10 @@ when
 	Item BasementStairsMotionSensor received update OPEN
 then
 	val aNightTime = (now.getHourOfDay < 7) && (now.getHourOfDay >= 0)
-	logWarn("Bigboxer23", "Basement Motion Triggered " + BackOverhead.state + " " + BasementMotionTimer.state + " " + aNightTime)
-    if (BackOverhead.state == 0 && !aNightTime && BasementMotionOverride.state != ON)
+	logWarn("Bigboxer23", aName + " ON " + MiddleOverhead.state + " " + BasementMotionTimer.state + " " + aNightTime)
+    if (MiddleOverhead.state == 0 && !aNightTime && BasementMotionOverride.state != ON)
     {
-        logWarn("Bigboxer23", "Basement Motion timer is inactive, triggering lights")
+        logWarn("Bigboxer23", aName + " timer is inactive, triggering lights")
 		Basement.sendCommand(100)
     }
     BasementMotionTimer.sendCommand(OFF)
@@ -20,12 +22,12 @@ when
     Item ArtAreaMotionSensor received update CLOSED or
     Item BasementStairsMotionSensor received update CLOSED
 then
-	logWarn("Bigboxer23", "Basement Motion sensor Off, maybe timer cancel ")
-	logWarn("Bigboxer23", BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
-	logWarn("Bigboxer23", (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === CLOSED) + " " + (BasementStairsMotionSensor.state === CLOSED))
+	logWarn("Bigboxer23", aName + " sensor Off, maybe timer cancel ")
+	logWarn("Bigboxer23", aName + " " + BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
+	logWarn("Bigboxer23", aName + " " + (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === CLOSED) + " " + (BasementStairsMotionSensor.state === CLOSED))
 	if (BasementScreenMotionSensor.state === OFF && ArtAreaMotionSensor.state === CLOSED && BasementStairsMotionSensor.state === CLOSED && BasementMotionOverride.state != ON)
 	{
-		logWarn("Bigboxer23", "Basement Motion setting Timer")
+		logWarn("Bigboxer23", aName + " setting Timer")
         BasementMotionTimer.sendCommand(ON)
     }
 end
@@ -36,14 +38,13 @@ when
 then
 	if (BasementScreenMotionSensor.state === OFF && ArtAreaMotionSensor.state === CLOSED && BasementStairsMotionSensor.state === CLOSED && BasementMotionOverride.state != ON)
 	{
-		logWarn("Bigboxer23", "Basement Motion timer is inactive, triggering lights")
+	    logWarn("Bigboxer23", aName + " Timer Off, Sensor Off, shutting off lights")
 	    Basement.sendCommand(0)
 	    UtilityOverhead.sendCommand(0)
-	    logWarn("Bigboxer23", "BasementMotionTimer Off, Sensor Off, shutting off lights")
     } else
     {
-        logWarn("Bigboxer23", "BasementMotion is ON, not shutting off lights")
-        logWarn("Bigboxer23", BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
-        logWarn("Bigboxer23", (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === CLOSED) + " " + (BasementStairsMotionSensor.state === CLOSED))
+        logWarn("Bigboxer23", aName + " is ON, not shutting off lights " + BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state)
+        logWarn("Bigboxer23", aName + " " + BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
+        logWarn("Bigboxer23", aName + " " + (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === CLOSED) + " " + (BasementStairsMotionSensor.state === CLOSED))
     }
 end

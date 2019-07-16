@@ -19,7 +19,7 @@ then
 			MasterBathShower.sendCommand(aLightLevel)
 			if (now.getHourOfDay <= 7)
             {
-				MasterBathFan.sendCommand(ON)
+				//MasterBathFan.sendCommand(ON)
 			}
 		}
 	}
