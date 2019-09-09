@@ -68,3 +68,9 @@ Number LaundryRoomSensorBattery "Laundry Room Motion Sensor Battery" (UpstairsBa
 Switch UpstairsBathroomMotionSensor "Upstairs Bathroom Motion Sensor" (UpstairsBathroomMotion) {channel = "zwave:device:512:node91:sensor_binary" }
 Number UpstairsBathroomSensorBattery "Upstairs Bathroom Motion Sensor Battery" (UpstairsBathroomMotion, UpstairsBathroom) {channel = "zwave:device:512:node91:battery-level" }
 Switch UpstairsBathroomMotionTimer ( UpstairsBathroomMotion) {expire="20m, command=OFF"}
+
+Group PlayroomMotion "Playroom Motion" (Playroom)
+Switch PlayroomMotionSensor "Playroom Motion Sensor" (PlayroomMotion) {channel = "zwave:device:512:node102:sensor_binary" }
+Number PlayroomMotionBattery "Playroom Motion Sensor Battery" (PlayroomMotion, Playroom) {channel = "zwave:device:512:node102:battery-level" }
+Number PlayroomMotionLightSensor "Poop Closet Motion Light Sensor" (PlayroomMotion, Playroom) {channel = "zwave:device:512:node102:sensor_luminance" }
+Switch PlayroomMotionTimer ( PlayroomMotion) {expire="25m, command=OFF"}

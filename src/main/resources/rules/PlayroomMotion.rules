@@ -1,0 +1,36 @@
+var aName = "Playroom Motion"
+rule "Poop Closet Motion ON"
+when
+	Item PlayroomMotionSensor received update ON
+then
+	logWarn("Bigboxer23", aName  + " Triggered " + PoopCloset.state + " " + PlayroomMotionTimer.state)
+        var aLightLevel = 100;
+        if (now.getHourOfDay < 6 || now.getHourOfDay >= 23)
+        {
+            aLightLevel = 25
+        }
+        if (PlayroomLight.state == 0){
+            logWarn("Bigboxer23", aName + " triggering lights")
+            SmartPlayroom.sendCommand(aLightLevel)
+        }
+        PlayroomMotionTimer.sendCommand(OFF)
+end
+
+rule "Playroom Motion OFF"
+when
+    Item PlayroomMotionSensor received update OFF
+then
+	logWarn("Bigboxer23", aName + " sensor Off, setting timer")
+    PlayroomMotionTimer.sendCommand(ON)
+end
+
+rule "Playroom Motion Timer OFF"
+when
+    Item PlayroomMotionTimer received update OFF
+then
+ 	logWarn("Bigboxer23", aName + " timer expired. " + PlayroomMotionSensor.state)
+	if (PlayroomMotionSensor.state === OFF){
+		logWarn("Bigboxer23", aName + " Off, Sensor Off, shutting off lights")
+        SmartPlayroom.sendCommand(0)
+    }
+end
