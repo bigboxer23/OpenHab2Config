@@ -29,7 +29,7 @@ when
 	Time cron "0 35 07 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", "Fans off")
-	MargaretFan.sendCommand(OFF)
+	DeaneFan.sendCommand(OFF)
 	NatalieFan.sendCommand(OFF)
 end
 

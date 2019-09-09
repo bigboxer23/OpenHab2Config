@@ -96,9 +96,9 @@ Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) {channel = "zwave:device
 
 
 
-//Margaret
-Dimmer  MaggieLamp "Maggie Lamp" (MargaretBedroom, MorningOff) {channel = "hue:0100:001788174d59:12:brightness"}
-Dimmer MargaretLight  "Margaret Light" (MargaretBedroom, EveningOffOff) {channel = "zwave:device:512:node25:switch_dimmer"}
+//Playroom
+Dimmer  PlayroomLamp "Playroom Lamp" (Playroom, MorningOff) {channel = "hue:0100:001788174d59:12:brightness"}
+Dimmer PlayroomLight  "Playroom Light" (Playroom, EveningOffOff) {channel = "zwave:device:512:node25:switch_dimmer"}
 
 //Natalie
 Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:7:brightness"}

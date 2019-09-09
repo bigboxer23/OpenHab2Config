@@ -1,50 +1,26 @@
-rule "Smart Margaret Room Rule"
+rule "Smart Playroom Rule"
 when
-	Item SmartMargaretBedroom received command
+	Item SmartPlayroom received command
 then
-	logWarn("Bigboxer23", "Smart Margaret: " + receivedCommand + " " + now.getHourOfDay + " " + MargaretLight.state)
+	logWarn("Bigboxer23", "Smart Playroom: " + receivedCommand + " " + now.getHourOfDay + " " + PlayroomLight.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
-		MargaretLight.sendCommand(receivedCommand);
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
-		{
-			//MargaretFan.sendCommand(receivedCommand);
-			MaggieLamp.sendCommand(receivedCommand);
-			//MargaretsAccent.sendCommand(receivedCommand);
-		} else
-		{
-			MaggieLamp.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(1)))
-			//MargaretsAccent.sendCommand(new HSBType(new DecimalType(307),new PercentType(82),new PercentType(1)))
-			Hallway.sendCommand(receivedCommand);
-			Upstairs.sendCommand(receivedCommand);
-			EntryWay.sendCommand(receivedCommand);
-		}
+		PlayroomLight.sendCommand(receivedCommand);
+		PlayroomLamp.sendCommand(receivedCommand);
 	} else
 	{
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 21)
 		{
-			if (receivedCommand == ON)
-			{
-				MargaretLight.sendCommand(100);
-			} else
-			{
-				MargaretLight.sendCommand(receivedCommand);
-			}
-			//MargaretFan.sendCommand(OFF);
+            if (receivedCommand == ON)
+            {
+                PlayroomLight.sendCommand(100);
+            } else
+            {
+                PlayroomLight.sendCommand(receivedCommand);
+            }
 		} else
 		{
-			if (receivedCommand == ON)
-			{
-				MargaretLight.sendCommand(20);
-				MaggieLamp.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(100)))
-				//MargaretsAccent.sendCommand(new HSBType(new DecimalType(82),new PercentType(42),new PercentType(100)))
-				//MargaretFan.sendCommand(receivedCommand);
-			} else
-			{
-				MargaretLight.sendCommand(receivedCommand);
-				MaggieLamp.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(receivedCommand.toString)))
-				//MargaretsAccent.sendCommand(new HSBType(new DecimalType(33),new PercentType(42),new PercentType(receivedCommand.toString)))
-			}
+			PlayroomLamp.sendCommand(35);
 		}
 	}
 end

@@ -15,9 +15,9 @@ Switch DiningRoomMotionTimer ( DiningRoomMotion) {expire="15m, command=OFF"}
 Switch DiningRoomMotionOverride "Dining Room Motion Override" ( DiningRoomMotion, MotionOverrides)
 
 
-Group MargaretBedroomMotion "Margaret Bedroom Motion" (MargaretBedroom)
-Contact MargaretBedroomMotionSensor "Margaret Bedroom Motion Sensor" (MargaretBedroomMotion) {channel = "zwave:device:512:node30:sensor_door" }
-Number MargaretBedroomMotionSensorBattery "Margaret Bedroom Motion Sensor Battery" (MargaretBedroomMotion, MargaretBedroom) {channel = "zwave:device:512:node30:battery-level" }
+Group DeaneBedroomMotion "Deane Bedroom Motion" (DeaneBedroom)
+Contact DeaneBedroomMotionSensor "Deane Bedroom Motion Sensor" (DeaneBedroomMotion) {channel = "zwave:device:512:node30:sensor_door" }
+Number DeaneBedroomMotionSensorBattery "Deane Bedroom Motion Sensor Battery" (DeaneBedroomMotion, DeaneBedroom) {channel = "zwave:device:512:node30:battery-level" }
 
 
 Group MudRoomMotion  "Mud Room Motion" (MudRoom)
