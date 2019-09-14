@@ -24,6 +24,7 @@ then
             MattsBedside.sendCommand(aCommand)
             MaureensBedside.sendCommand(aCommand)
             MasterBedroomFan.sendCommand(ON)
+            SmartMasterBathroom.sendCommand(OFF)
         }
 	} else
 	{
@@ -39,6 +40,10 @@ then
 		if (now.getHourOfDay < 7 || now.getHourOfDay >= 21)
 		{
 			MasterBedroomFan.sendCommand(ON)
+			MasterCloset.sendCommand(0)
+            MasterBedroomOverhead.sendCommand(0)
+            MainAccent.sendCommand(0)
+            Hallway.sendCommand(0)
 		} else
 		{
 			MasterBedroomOverhead.sendCommand(aCommand)

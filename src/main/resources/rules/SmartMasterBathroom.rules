@@ -11,15 +11,17 @@ then
 		var aLightLevel = 100;
         if (now.getHourOfDay < 6 || now.getHourOfDay >= 23)
         {
-            aLightLevel = 15
-        }
-		MasterBathMain.sendCommand(aLightLevel)
+            aLightLevel = 10
+        } else
+        {
+			MasterBathMain.sendCommand(aLightLevel)
+		}
 		if (now.getHourOfDay >= 6 && now.getHourOfDay < 10)
         {
 			MasterBathShower.sendCommand(aLightLevel)
 			if (now.getHourOfDay <= 7)
             {
-				//MasterBathFan.sendCommand(ON)
+				MasterBathFan.sendCommand(ON)
 			}
 		}
 	}
