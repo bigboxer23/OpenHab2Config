@@ -2,7 +2,7 @@ rule "Smart Smart Master Bathroom Rule"
 when
 	Item SmartMasterBathroom received command
 then
-	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay)
+	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getDayOfWeek)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		MasterBathroom.sendCommand(receivedCommand)
@@ -11,7 +11,8 @@ then
 		var aLightLevel = 100;
         if (now.getHourOfDay < 6 || now.getHourOfDay >= 23)
         {
-            aLightLevel = 10
+            aLightLevel = 15
+            PoopCloset.sendCommand(aLightLevel)
         } else
         {
 			MasterBathMain.sendCommand(aLightLevel)
@@ -19,7 +20,8 @@ then
 		if (now.getHourOfDay >= 6 && now.getHourOfDay < 10)
         {
 			MasterBathShower.sendCommand(aLightLevel)
-			if (now.getHourOfDay <= 7)
+
+			if (now.getHourOfDay <= 7 && now.getDayOfWeek < 6)
             {
 				MasterBathFan.sendCommand(ON)
 			}

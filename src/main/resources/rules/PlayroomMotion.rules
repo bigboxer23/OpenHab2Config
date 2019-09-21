@@ -1,5 +1,5 @@
 var aName = "Playroom Motion"
-rule "Poop Closet Motion ON"
+rule "Playroom Motion ON"
 when
 	Item PlayroomMotionSensor received update ON
 then
