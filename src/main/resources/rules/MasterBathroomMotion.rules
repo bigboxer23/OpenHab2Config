@@ -1,4 +1,4 @@
-var aName = "Master Bathroom Motion"
+val aName = "Master Bathroom Motion"
 rule "Master Bathroom Motion ON"
 when
 	Item MasterBathroomMotionSensor received update ON or
