@@ -1,0 +1,19 @@
+val aName = "Smart Basement Bathroom"
+rule "Smart Basement Bathroom"
+when
+	Item SmartBasementBathroom received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+            BasementBathroomFan.sendCommand(OFF)
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        BasementBathroomShower.sendCommand(aCommand)
+        BasementBathroomLights.sendCommand(aCommand)
+        BasementBathroomAccent.sendCommand(aCommand)
+end

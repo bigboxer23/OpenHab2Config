@@ -1,0 +1,18 @@
+val aName = "Smart Kitchen"
+rule "Smart Kitchen"
+when
+	Item SmartKitchen received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        Sink.sendCommand(aCommand)
+        KitchenOverhead.sendCommand(aCommand)
+        UnderCabinets .sendCommand(aCommand)
+end

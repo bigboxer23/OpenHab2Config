@@ -1,0 +1,19 @@
+val aName = "Smart Upstairs Bathroom"
+rule "Smart Upstairs Bathroom"
+when
+	Item SmartUpstairsBathroom received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+            UpstairsBathroomFan.sendCommand(OFF)
+            UpstairsBathroomTub.sendCommand(aCommand)
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        LaundryRoom.sendCommand(aCommand)
+        UpstairsBathroomLight.sendCommand(aCommand)
+end

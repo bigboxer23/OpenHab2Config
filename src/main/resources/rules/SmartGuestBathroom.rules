@@ -1,0 +1,18 @@
+val aName = "Smart Guest Bathroom"
+rule "Smart Guest Bathroom"
+when
+	Item SmartGuestBathroom received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+            GuestFan.sendCommand(OFF)
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        GuestBathroomAccent.sendCommand(aCommand)
+        GuestBathroomOverhead.sendCommand(aCommand)
+end

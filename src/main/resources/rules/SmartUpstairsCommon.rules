@@ -1,0 +1,17 @@
+val aName = "Smart Upstairs Common"
+rule "Smart Upstairs Common"
+when
+	Item SmartUpstairsCommon received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        Upstairs.sendCommand(aCommand)
+        StairsAccent.sendCommand(aCommand)
+end

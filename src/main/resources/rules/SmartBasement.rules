@@ -1,0 +1,26 @@
+val aName = "Smart Basement"
+rule "Smart Basement"
+when
+	Item SmartBasement received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        Basement.sendCommand(aCommand)
+        BackBar.sendCommand(aCommand)
+        BackBarAccent.sendCommand(aCommand)
+        BarLamp.sendCommand(aCommand)
+        ArtAccent.sendCommand(aCommand)
+        MiddleOverhead.sendCommand(aCommand)
+        BackOverhead.sendCommand(aCommand)
+        ScreenAccent.sendCommand(aCommand)
+        ScreenOverhead.sendCommand(aCommand)
+        BarAccent.sendCommand(aCommand)
+        ArtArea.sendCommand(aCommand)
+end

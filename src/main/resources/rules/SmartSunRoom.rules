@@ -1,0 +1,17 @@
+val aName = "Smart Sun Room"
+rule "Smart Sun Room"
+when
+	Item SmartSunRoom received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+            SunRoomCeilingFan.sendCommand(OFF)
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        Overhead.sendCommand(aCommand)
+end

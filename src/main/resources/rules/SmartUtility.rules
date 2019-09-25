@@ -1,0 +1,16 @@
+val aName = "Smart Utility"
+rule "Smart Utility"
+when
+	Item SmartUtility received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        UtilityOverhead.sendCommand(aCommand)
+end

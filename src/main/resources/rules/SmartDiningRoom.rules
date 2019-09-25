@@ -1,0 +1,18 @@
+val aName = "Smart Dining Room"
+rule "Smart Dining Room"
+when
+	Item SmartDiningRoom received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        NorthAccent.sendCommand(aCommand)
+        Chandelier.sendCommand(aCommand)
+        SouthAccent.sendCommand(aCommand)
+end

@@ -1,0 +1,16 @@
+val aName = "Smart Front Porch"
+rule "Smart Front Porch"
+when
+	Item SmartFrontPorch received command
+then
+		var Number aCommand = receivedCommand;
+		if (aCommand == ON)
+        {
+            aCommand = 100
+        } else if (aCommand == OFF)
+        {
+            aCommand = 0;
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+        FrontPorchLights.sendCommand(aCommand)
+end
