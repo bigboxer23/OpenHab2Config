@@ -97,7 +97,7 @@ Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) ["Switchable"] {channel 
 
 
 //Playroom
-Dimmer  PlayroomLamp "Playroom Lamp" (Playroom, MorningOff) {channel = "hue:0100:001788174d59:12:brightness"}
+Dimmer  PlayroomLamp "Playroom Lamp" (Playroom, EveningOffOff) {channel = "hue:0100:001788174d59:12:brightness"}
 Dimmer PlayroomLight  "Playroom Light" (Playroom, EveningOffOff) {channel = "zwave:device:512:node25:switch_dimmer"}
 
 //Natalie
