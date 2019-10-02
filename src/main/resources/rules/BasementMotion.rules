@@ -7,7 +7,7 @@ when
 	Item BasementStairsMotionSensor received update OPEN
 then
 	val aNightTime = (now.getHourOfDay < 7) && (now.getHourOfDay >= 0)
-	logWarn("Bigboxer23", aName + " ON " + MiddleOverhead.state + " " + BasementMotionTimer.state + " " + aNightTime)
+	logWarn("Bigboxer23", aName + " ON " + MiddleOverhead.state + " " + BasementMotionTimer.state + " " + aNightTime + " Override state" + BasementMotionOverride.state)
     if (MiddleOverhead.state == 0 && !aNightTime && BasementMotionOverride.state != ON)
     {
         logWarn("Bigboxer23", aName + " timer is inactive, triggering lights")

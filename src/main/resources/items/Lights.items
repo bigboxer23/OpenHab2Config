@@ -116,7 +116,8 @@ Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel
 Dimmer  MainAccent "Main Accent" (MasterBedroom, EveningOnOn) {channel = "zwave:device:512:node39:switch_dimmer"}
 Dimmer  Hallway "Hallway" (MasterBedroom) {channel = "zwave:device:512:node40:switch_dimmer"}
 Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel = "zwave:device:512:node41:switch_dimmer"}
-Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:512:node27:switch_binary"}
+//Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:512:node27:switch_binary"}
+Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:512:node103:switch_binary"}
 
 
 //Master Bathroom
