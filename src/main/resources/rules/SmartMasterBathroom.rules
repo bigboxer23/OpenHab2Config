@@ -2,29 +2,31 @@ rule "Smart Smart Master Bathroom Rule"
 when
 	Item SmartMasterBathroom received command
 then
-	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getDayOfWeek)
+	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getMinuteOfHour + " " + now.getDayOfWeek)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		MasterBathroom.sendCommand(receivedCommand)
 	} else
 	{
 		var aLightLevel = 100;
-        if (now.getHourOfDay < 6 || now.getHourOfDay >= 23)
+        if (now.getHourOfDay < 5 ||
+         (now.getHourOfDay == 6 && now.getMinuteOfHour < 35) ||
+          now.getHourOfDay >= 21 ||
+           (now.getDayOfWeek >= 6 && now.getHourOfDay < 7))
         {
             aLightLevel = 15
             PoopCloset.sendCommand(aLightLevel)
         } else
         {
 			MasterBathMain.sendCommand(aLightLevel)
-		}
-		if (now.getHourOfDay >= 6 && now.getHourOfDay < 10)
-        {
-			MasterBathShower.sendCommand(aLightLevel)
-
-			if (now.getHourOfDay <= 7 && now.getDayOfWeek < 6)
+			if (now.getHourOfDay < 10)
             {
-				MasterBathFan.sendCommand(ON)
-			}
+                MasterBathShower.sendCommand(aLightLevel)
+                if (now.getHourOfDay <= 7 && now.getDayOfWeek < 6)
+                {
+                    MasterBathFan.sendCommand(ON)
+                }
+            }
 		}
 	}
 end

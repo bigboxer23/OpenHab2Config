@@ -4,8 +4,8 @@ when
 	Item MasterBathroomMotionSensor received update ON or
 	Item MasterBathroomShowerMotionSensor received update ON
 then
-	logWarn("Bigboxer23", aName  + " Triggered " + MasterBathMain.state + " " + MasterBathroomMotionTimer.state)
-        if (MasterBathMain.state == 0){
+		logWarn("Bigboxer23", aName  + " Triggered " + MasterBathMain.state + " " + PoopCloset.state + " " + MasterBathroomMotionTimer.state)
+        if (MasterBathMain.state == 0 && PoopCloset.state == 0){
             logWarn("Bigboxer23", aName + " triggering lights")
             SmartMasterBathroom.sendCommand(100)
         }
