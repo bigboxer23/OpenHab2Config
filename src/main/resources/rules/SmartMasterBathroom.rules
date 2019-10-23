@@ -9,7 +9,7 @@ then
 	} else
 	{
 		var aLightLevel = 100;
-        if (now.getHourOfDay < 5 ||
+        if (now.getHourOfDay <= 5 ||
          (now.getHourOfDay == 6 && now.getMinuteOfHour < 35) ||
           now.getHourOfDay >= 21 ||
            (now.getDayOfWeek >= 6 && now.getHourOfDay < 7))

@@ -1,14 +1,21 @@
 val aName = "Master Bathroom Motion"
 rule "Master Bathroom Motion ON"
 when
-	Item MasterBathroomMotionSensor received update ON or
-	Item MasterBathroomShowerMotionSensor received update ON
+	Item MasterBathroomMotionSensor received update ON
 then
 		logWarn("Bigboxer23", aName  + " Triggered " + MasterBathMain.state + " " + PoopCloset.state + " " + MasterBathroomMotionTimer.state)
         if (MasterBathMain.state == 0 && PoopCloset.state == 0){
             logWarn("Bigboxer23", aName + " triggering lights")
             SmartMasterBathroom.sendCommand(100)
         }
+        MasterBathroomMotionTimer.sendCommand(OFF)
+end
+
+rule "Master Bathroom Motion ON II"
+when
+	Item MasterBathroomShowerMotionSensor received update ON
+then
+		logWarn("Bigboxer23", aName  + " II Triggered " + MasterBathMain.state + " " + PoopCloset.state + " " + MasterBathroomMotionTimer.state)
         MasterBathroomMotionTimer.sendCommand(OFF)
 end
 

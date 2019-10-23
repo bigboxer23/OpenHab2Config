@@ -48,7 +48,7 @@ then
 		{
 			MasterBedroomOverhead.sendCommand(aCommand)
 		}
-		MattsBedside.sendCommand(aCommand)
-		MaureensBedside.sendCommand(aCommand)
+		MattsBedside.sendCommand(aCommand as Number)
+		MaureensBedside.sendCommand(aCommand as Number)
 	}
 end
