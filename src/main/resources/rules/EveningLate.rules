@@ -3,12 +3,15 @@ when
 	Item Evening received command OFF or
 	Time cron "0 30 01 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Evening Late Off")
-	EveningOffOff.sendCommand(0)
-	EveningOffOff.sendCommand(OFF)
-	StairsAccent.sendCommand(0)
-	MotionOverrides.sendCommand(OFF)
-	SmartLivingRoom.sendCommand(0)
-	//HeatingSetpoint.sendCommand(68|°F)
-	//CoolingSetpoint.sendCommand(75|°F)
+	logWarn("Bigboxer23", "Evening Late Off " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		EveningOffOff.sendCommand(0)
+		EveningOffOff.sendCommand(OFF)
+		StairsAccent.sendCommand(0)
+		MotionOverrides.sendCommand(OFF)
+		SmartLivingRoom.sendCommand(0)
+		//HeatingSetpoint.sendCommand(68|°F)
+		//CoolingSetpoint.sendCommand(75|°F)
+	}
 end

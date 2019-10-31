@@ -3,18 +3,21 @@ when
 	Item Evening received command ON or
 	Channel 'astro:sun:local:set#event' triggered START
 then
-	logWarn("Bigboxer23", "Evening On")
-	EveningOnOn.sendCommand(100)
-	FrontPorchLights.sendCommand(45)
-	UnderCabinets.sendCommand(50)
-	Upstairs.sendCommand(45)
-	Hallway.sendCommand(20)
-	Sink.sendCommand(50)
-	EntryWay.sendCommand(100)
-	MainAccent.sendCommand(75)
-	if (now.getMonthOfYear == 12)
+	logWarn("Bigboxer23", "Evening On " + VacationMode.state)
+	if (VacationMode.state != ON)
 	{
-		SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
+		EveningOnOn.sendCommand(100)
+		FrontPorchLights.sendCommand(45)
+		UnderCabinets.sendCommand(50)
+		Upstairs.sendCommand(45)
+		Hallway.sendCommand(20)
+		Sink.sendCommand(50)
+		EntryWay.sendCommand(100)
+		MainAccent.sendCommand(75)
+		if (now.getMonthOfYear == 12)
+		{
+			SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
+		}
 	}
 end
 
@@ -24,20 +27,23 @@ when
 	Time cron "0 30 22 ? * SUN,MON,TUE,WED,THU *" or
 	Time cron "0 30 23 ? * FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Evening Off")
-	EveningOffOff.sendCommand(0)
-	StairsAccent.sendCommand(75)
-	SmartLivingRoom.sendCommand(ON)
-	//HeatingSetpoint.sendCommand(68|°F)
-	//CoolingSetpoint.sendCommand(75|°F)
-	if (now.getMonthOfYear == 12)
+	logWarn("Bigboxer23", "Evening Off " + VacationMode.state)
+	if (VacationMode.state != ON)
 	{
-		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
-	}
-	NatalieDot.sendCommand(PAUSE)
-	if (MasterBedroomFan.state == OFF)
-	{
-		SmartMasterBedroom.sendCommand(0)
+		EveningOffOff.sendCommand(0)
+		StairsAccent.sendCommand(75)
+		SmartLivingRoom.sendCommand(ON)
+		//HeatingSetpoint.sendCommand(68|°F)
+		//CoolingSetpoint.sendCommand(75|°F)
+		if (now.getMonthOfYear == 12)
+		{
+			SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
+		}
+		NatalieDot.sendCommand(PAUSE)
+		if (MasterBedroomFan.state == OFF)
+		{
+			SmartMasterBedroom.sendCommand(0)
+		}
 	}
 end
 
@@ -47,7 +53,10 @@ when
 	Time cron "0 30 23 ? * SUN,MON,TUE,WED,THU *" or
 	Time cron "0 55 23 ? * FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Evening Off Second")
-	SmartLivingRoom.sendCommand(OFF)
+	logWarn("Bigboxer23", "Evening Off Second " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		SmartLivingRoom.sendCommand(OFF)
+	}
 	//TODO:use the darn motion sensor
 end

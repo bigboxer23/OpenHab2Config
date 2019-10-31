@@ -2,15 +2,22 @@ rule "Deane Bedtime On"
 when
 	Time cron "0 40 18 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Deane Bedtime On " + now.getDayOfWeek)
-	SmartDeaneBedroom.sendCommand(ON)
+	logWarn("Bigboxer23", "Deane Bedtime On " + now.getDayOfWeek + " " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		SmartDeaneBedroom.sendCommand(ON)
+	}
 end
 
 rule "Nat Bedtime On"
 when
 	Time cron "0 15 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	SmartNatalieBedroom.sendCommand(ON)
+	logWarn("Bigboxer23", "Nat Bedtime On " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		SmartNatalieBedroom.sendCommand(ON)
+	}
 end
 
 rule "Bedtime Off"
@@ -30,8 +37,11 @@ rule "Nat Reading Light Off"
 when
 	Time cron "0 30 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Nat Reading Lamp off")
-	NatalieReadingLamp.sendCommand(0)
+	logWarn("Bigboxer23", "Nat Reading Lamp off " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		NatalieReadingLamp.sendCommand(0)
+	}
 end
 
 
