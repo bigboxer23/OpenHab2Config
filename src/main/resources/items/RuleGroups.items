@@ -1,6 +1,7 @@
 Group:Dimmer   EveningOffOff
 Group:Dimmer   EveningOffOn
 Group:Dimmer   MorningOn
+Group:Dimmer   WinterMorningOn
 Group:Dimmer   MorningOff
 Group:Dimmer    EveningOnOn
 Group:Dimmer    GarageOpen

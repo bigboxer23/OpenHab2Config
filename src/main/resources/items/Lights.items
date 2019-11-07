@@ -27,17 +27,17 @@ Number FloodSensorBattery "Flood Sensor Battery" (Utility) ["ignore"] {channel =
 Dimmer GarageLights "Garage Lights" (Garage, EveningOffOff, GarageOpen) {channel = "zwave:device:512:node58:switch_dimmer", expire="45m, command=0"}
 
 //Living Room
-Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom, EveningOnOn) {channel = "hue:0210:001788174d59:3:color"}
+Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0210:001788174d59:3:color"}
 Dimmer LivingRoomFront "Living Room Front" (LivingRoom, EveningOffOff) {channel = "zwave:device:512:node60:switch_dimmer"}
 Dimmer LivingRoomBack "Living Room Back" (LivingRoom, EveningOnOn) ["Notify"] {channel = "zwave:device:512:node61:switch_dimmer"}
-Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn) {channel = "hue:0200:001788174d59:13:color"}
+Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, MorningOn) {channel = "hue:0200:001788174d59:13:color"}
 
 
 //Kitchen
 Dimmer SinkAccessory "Sink Accessory" (Kitchen) ["ignore"] {channel = "zwave:device:512:node62:switch_dimmer"}
 Dimmer Sink "Sink" (Kitchen, EveningOffOff) {channel = "zwave:device:512:node66:switch_dimmer"}
 Dimmer KitchenOverheadAccessory "Kitchen Overhead Accessory" (Kitchen) ["ignore"] {channel = "zwave:device:512:node63:switch_dimmer"}
-Dimmer KitchenOverhead "Kitchen Overhead" (Kitchen, EveningOffOff, EveningOnOn) ["Notify"] {channel = "zwave:device:512:node65:switch_dimmer"}
+Dimmer KitchenOverhead "Kitchen Overhead" (Kitchen, EveningOffOff, EveningOnOn, WinterMorningOn) ["Notify"] {channel = "zwave:device:512:node65:switch_dimmer"}
 Dimmer UnderCabinets "Under Cabinets" (Kitchen, EveningOffOff) {channel = "zwave:device:512:node64:switch_dimmer"}
 
 
@@ -54,7 +54,7 @@ Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch) {channel = "zwave:devi
 
 //Great Room
 Dimmer EntryWayAccessory "Entry Way Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:512:node48:switch_dimmer"}
-Dimmer EntryWay "Entry Way" (GreatRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:512:node85:switch_dimmer"}
+Dimmer EntryWay "Entry Way" (GreatRoom, EveningOffOff, MorningOn) ["Notify"] {channel = "zwave:device:512:node85:switch_dimmer"}
 Dimmer BasementStairsAccessory "Basement Stairs Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:512:node51:switch_dimmer"}
 Dimmer BasementStairs "Basement Stairs" (GreatRoom, EveningOffOff, MorningOn, EveningOnOn) {channel = "zwave:device:512:node55:switch_dimmer"}
 Dimmer EntryWayAccent "Entry Way Accent" (GreatRoom, EveningOffOff, MorningOn, EveningOnOn) {channel = "zwave:device:512:node53:switch_dimmer"}
@@ -130,4 +130,4 @@ Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom, EveningOffOff) ["Switch
 
 //Switch TeslaHorn "Tesla Horn" (MasterBathroom) {channel = "tesla:models:e0983279:honkhorn"}
 //Switch TestSwitch "TestSwitch"
-Switch VacationMode "Vacation Mode"
+Switch VacationMode "Vacation Mode" (Scenes)

@@ -1,8 +1,9 @@
-rule "Speedtest init"
+rule "Startup rule"
 when
     System started
 then
     MotionOverrides.sendCommand(OFF)
+    VacationMode.sendCommand(OFF)
     executeCommandLine('curl -k https://192.168.0.46/climate/forceUpdate', 5000)
     executeCommandLine('curl -k https://192.168.0.24/climate/forceUpdate', 5000)
     //sendHttpGetRequest("https://192.168.0.46/climate/forceUpdate")
