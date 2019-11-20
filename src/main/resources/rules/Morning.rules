@@ -3,7 +3,7 @@ when
 	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *" or
 	Item Morning received command ON
 then
-	logWarn("Bigboxer23", "Morning On " + VacationMode.state + now.getMonthOfYear)
+	logWarn("Bigboxer23", "Morning On " + VacationMode.state + " " + now.getMonthOfYear)
 	if (VacationMode.state != ON)
 	{
 		MorningOn.sendCommand(100)
@@ -12,7 +12,6 @@ then
 		Upstairs.sendCommand(50)
 		StairsAccent.sendCommand(35)
 		LivingRoomBack.sendCommand(50)
-		MaggieLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(5)))
 		if (now.getMonthOfYear < 3 || now.getMonthOfYear > 10)
 		{
 			WinterMorningOn.sendCommand(100)
