@@ -13,7 +13,11 @@ then
             UpstairsBathroomFan.sendCommand(OFF)
             UpstairsBathroomTub.sendCommand(aCommand)
         }
-        logWarn("Bigboxer23", aName + ": " + aCommand)
-        LaundryRoom.sendCommand(aCommand)
         UpstairsBathroomLight.sendCommand(aCommand)
+        if (now.getHourOfDay >= 7 || now.getHourOfDay < 19)
+        {
+            LaundryRoom.sendCommand(aCommand)
+        }
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+
 end

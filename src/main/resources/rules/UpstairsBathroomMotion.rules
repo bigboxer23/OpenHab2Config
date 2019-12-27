@@ -8,7 +8,7 @@ then
 	logWarn("Bigboxer23", aName + " ON " + LaundryRoom.state + " " + UpstairsBathroomMotionTimer.state + " " + LaundryRoomMotionSensor.state)
     if (LaundryRoom.state == 0 || UpstairsBathroomLight.state == 0){
         logWarn("Bigboxer23", aName + " timer is inactive, triggering lights")
-        SmartUpstairsBathroom.sendCommand(100)
+        SmartUpstairsBathroom.sendCommand(ON)
     }
     UpstairsBathroomMotionTimer.sendCommand(OFF)
 end
