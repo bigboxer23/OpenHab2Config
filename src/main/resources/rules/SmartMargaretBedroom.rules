@@ -14,9 +14,11 @@ then
             if (receivedCommand == ON)
             {
                 PlayroomLight.sendCommand(100);
+                PlayroomLamp.sendCommand(100);
             } else
             {
                 PlayroomLight.sendCommand(receivedCommand);
+                PlayroomLamp.sendCommand(receivedCommand);
             }
 		} else
 		{

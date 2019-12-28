@@ -44,6 +44,7 @@ then
         MasterBathMain.sendCommand(OFF)
         MasterBathShower.sendCommand(OFF)
         MasterBathTub.sendCommand(OFF)
+        PoopCloset.sendCommand(OFF)
     }
 end
 
@@ -52,7 +53,7 @@ rule "Master Bathroom Fan Timer OFF"
 when
     Item MasterBathroomMotionFanTimer received update OFF
 then
- 	logWarn("Bigboxer23", aName + " timer expired. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state)
+ 	logWarn("Bigboxer23", aName + " fan timer expired. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state)
 	if (MasterBathroomMotionSensor.state === OFF && MasterBathroomShowerMotionSensor.state === OFF){
 		logWarn("Bigboxer23", aName + " Off, Sensor Off, shutting off lights")
         SmartMasterBathroom.sendCommand(OFF)
