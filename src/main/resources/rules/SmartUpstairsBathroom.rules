@@ -14,7 +14,7 @@ then
             UpstairsBathroomTub.sendCommand(aCommand)
         }
         UpstairsBathroomLight.sendCommand(aCommand)
-        if (now.getHourOfDay >= 7 || now.getHourOfDay < 19)
+        if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
         {
             LaundryRoom.sendCommand(aCommand)
         }

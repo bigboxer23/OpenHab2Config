@@ -37,7 +37,7 @@ then
 	            aCommand = 25;
 	        }
 		}
-		if (now.getHourOfDay < 7 || now.getHourOfDay >= 21)
+		if (now.getHourOfDay < 7 || now.getHourOfDay >= 20)
 		{
 			MasterBedroomFan.sendCommand(ON)
 			MasterCloset.sendCommand(0)
