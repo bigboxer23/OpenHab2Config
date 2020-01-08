@@ -17,7 +17,7 @@ Dimmer BasementBathroomLights "Basement Bathroom Lights" (BasementBathroom, Even
 Dimmer BasementBathroomAccent "Basement Bathroom Accent" (BasementBathroom, EveningOffOff) {channel = "zwave:device:512:node75:switch_dimmer"}
 
 //Utility
-Dimmer UtilityOverhead "Utility Overhead" (Utility, EveningOffOff) {channel = "zwave:device:512:node2:switch_dimmer"}
+Dimmer UtilityOverhead "Utility Overhead" (Utility, EveningOffOff) {channel = "zwave:device:512:node2:switch_dimmer", expire="20m, command=0"}
 Switch FloodSensor "Flood Sensor" (Utility) ["ignore"] {channel = "zwave:device:512:node84:alarm_flood"}
 Number FloodSensorBattery "Flood Sensor Battery" (Utility) ["ignore"] {channel = "zwave:device:512:node84:battery-level"}
 

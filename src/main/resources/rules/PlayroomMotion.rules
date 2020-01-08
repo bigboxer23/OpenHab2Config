@@ -4,10 +4,10 @@ when
 	Item PlayroomMotionSensor received update ON
 then
 	logWarn("Bigboxer23", aName  + " Triggered " + PoopCloset.state + " " + PlayroomMotionTimer.state)
-        if (PlayroomLight.state == 0 && (now.getHourOfDay > 7 && now.getHourOfDay < 21))
+        if (PlayroomLight.state == 0 && (now.getHourOfDay > 7 && now.getHourOfDay < 20))
         {
             logWarn("Bigboxer23", aName + " triggering lights")
-            SmartPlayroom.sendCommand(100)
+            SmartPlayroom.sendCommand(ON)
         }
         PlayroomMotionTimer.sendCommand(OFF)
 end
