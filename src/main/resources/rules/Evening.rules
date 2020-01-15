@@ -28,9 +28,9 @@ when
 	Time cron "0 30 23 ? * FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Evening Off " + VacationMode.state)
+	EveningOffOff.sendCommand(0)
 	if (VacationMode.state != ON)
 	{
-		EveningOffOff.sendCommand(0)
 		StairsAccent.sendCommand(75)
 		SmartLivingRoom.sendCommand(ON)
 		//HeatingSetpoint.sendCommand(68|°F)
@@ -54,9 +54,6 @@ when
 	Time cron "0 55 23 ? * FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Evening Off Second " + VacationMode.state)
-	if (VacationMode.state != ON)
-	{
-		SmartLivingRoom.sendCommand(OFF)
-	}
+	SmartLivingRoom.sendCommand(OFF)
 	//TODO:use the darn motion sensor
 end
