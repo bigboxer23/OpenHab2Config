@@ -2,7 +2,7 @@ rule "Smart Smart Master Bathroom Rule"
 when
 	Item SmartMasterBathroom received command
 then
-	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getMinuteOfHour + " " + now.getDayOfWeek)
+	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getMinuteOfHour + " " + now.getDayOfWeek + " " + IsNight.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		MasterBathroom.sendCommand(receivedCommand)
@@ -26,6 +26,14 @@ then
                 {
                     MasterBathFan.sendCommand(ON)
                 }
+            }
+            if (IsNight.state == ON)
+            {
+                if (IsLateNight.state == OFF)
+                {
+                    MasterBathTub.sendCommand(aLightLevel)
+                }
+                PoopCloset.sendCommand(aLightLevel)
             }
 		}
 	}

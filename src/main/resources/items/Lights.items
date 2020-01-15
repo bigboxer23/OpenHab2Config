@@ -130,3 +130,5 @@ Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom, EveningOffOff) ["Switch
 //Switch TeslaHorn "Tesla Horn" (MasterBathroom) {channel = "tesla:models:e0983279:honkhorn"}
 //Switch TestSwitch "TestSwitch"
 Switch VacationMode "Vacation Mode" (Scenes)
+Switch IsNight "Is Night"
+Switch IsLateNight "Is Late Night"

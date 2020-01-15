@@ -4,6 +4,7 @@ when
 	Channel 'astro:sun:local:set#event' triggered START
 then
 	logWarn("Bigboxer23", "Evening On " + VacationMode.state)
+	IsNight.sendCommand(ON)
 	if (VacationMode.state != ON)
 	{
 		EveningOnOn.sendCommand(100)
@@ -29,6 +30,7 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off " + VacationMode.state)
 	EveningOffOff.sendCommand(0)
+	IsLateNight.sendCommand(ON)
 	if (VacationMode.state != ON)
 	{
 		StairsAccent.sendCommand(75)

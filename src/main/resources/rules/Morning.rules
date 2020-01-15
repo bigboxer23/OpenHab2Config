@@ -4,6 +4,8 @@ when
 	Item Morning received command ON
 then
 	logWarn("Bigboxer23", "Morning On " + VacationMode.state + " " + now.getMonthOfYear)
+	IsNight.sendCommand(OFF)
+	IsLateNight.sendCommand(OFF)
 	if (VacationMode.state != ON)
 	{
 		MorningOn.sendCommand(100)
