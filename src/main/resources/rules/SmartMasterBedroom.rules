@@ -44,9 +44,6 @@ then
             MasterBedroomOverhead.sendCommand(0)
             MainAccent.sendCommand(0)
             Hallway.sendCommand(0)
-		} else
-		{
-			MasterBedroomOverhead.sendCommand(aCommand as Number)
 		}
 		MattsBedside.sendCommand(aCommand as Number)
 		MaureensBedside.sendCommand(aCommand as Number)

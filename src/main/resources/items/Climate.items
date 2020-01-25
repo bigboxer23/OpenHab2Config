@@ -16,11 +16,12 @@ Number BasementQuality "Basement Air Quality" (Climate)
 //Number:Temperature CoolingSetpoint "Cooling Setpoint" (Climate) {channel = "zwave:device:512:node86:thermostat_setpoint_cooling"}
 //Number ThermostatBattery "Thermostat Battery" (Climate) {channel = "zwave:device:512:node86:battery-level"}
 
-//WeatherBug
-Number:Temperature OutsideTemperature "Outside Temperature" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:current#temperature"}
-Number:Temperature LowTemperature "Low Temperature" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#temperature"}
-Number:Temperature HighTemperature "High Temperature" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#temperature"}
-Number:Dimensionless OutsideHumidity "Outside Humidity" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#humidity"}
-Number:Speed MaxWindspeed "Max Windspeed" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#wind-speed"}
-Number:Speed AvgWindspeed "Avg Windspeed" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#wind-speed"}
-Number:Length RainfallHour "Rainfall Per Hour" (Climate) {channel = "openweathermap:weather-and-forecast:ad139b45:local:current#rain"}
+//OpenWeatherMap
+Number:Temperature OutsideTemperature "Outside Temperature" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:current#temperature"}
+Number:Temperature LowTemperature "Low Temperature" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastToday#min-temperature"}
+Number:Temperature HighTemperature "High Temperature" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastToday#max-temperature"}
+Number:Dimensionless OutsideHumidity "Outside Humidity" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastToday#humidity"}
+//Number:Speed MaxWindspeed "Max Windspeed" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#wind-speed"}
+//Number:Speed AvgWindspeed "Avg Windspeed" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:forecastHours24#wind-speed"}
+//Number:Length RainfallHour "Rainfall Per Hour" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:current#rain"}
+//DateTime ObTime "Ob Time" (Climate) //{channel = "openweathermap:weather-and-forecast:ad139b45:local:current#time-stamp"}
