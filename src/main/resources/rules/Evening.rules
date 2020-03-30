@@ -28,13 +28,16 @@ when
 	Time cron "0 30 22 ? * SUN,MON,TUE,WED,THU *" or
 	Time cron "0 30 23 ? * FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Evening Off " + VacationMode.state)
+	logWarn("Bigboxer23", "Evening Off " + VacationMode.state + " " + LivingRoomBack.state)
 	EveningOffOff.sendCommand(0)
 	IsLateNight.sendCommand(ON)
 	if (VacationMode.state != ON)
 	{
 		StairsAccent.sendCommand(75)
-		SmartLivingRoom.sendCommand(ON)
+		if (LivingRoomBack.state != 0)
+		{
+			SmartLivingRoom.sendCommand(ON)
+		}
 		//HeatingSetpoint.sendCommand(68|°F)
 		//CoolingSetpoint.sendCommand(75|°F)
 		if (now.getMonthOfYear == 12)

@@ -35,6 +35,7 @@ then
 	logWarn("Bigboxer23", "Fans off")
 	DeaneFan.sendCommand(OFF)
 	NatalieFan.sendCommand(OFF)
+	MasterBedroomFan.sendCommand(OFF)
 end
 
 rule "Morning Off"
