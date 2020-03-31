@@ -11,6 +11,8 @@ then
 			LivingRoomAccent.sendCommand(receivedCommand)
 		} else
 		{
+			//var aShouldNotExecute = aCommand == ON && LivingRoomBack.state == 100 && IsNight.state == ON && IsLateNight.state == OFF
+			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsLateNight.state + " " + aShouldNotExecute)
 			if (aCommand == ON)
 			{
 				aCommand = 100
@@ -18,7 +20,6 @@ then
 			if (now.getHourOfDay < 7 || now.getHourOfDay >= 22)
 			{
 				aCommand = 50
-				aCommand = aCommand
 			}
 			LivingRoomCornerLamp.sendCommand(aCommand as Number)
 			LivingRoomBack.sendCommand(aCommand as Number)
