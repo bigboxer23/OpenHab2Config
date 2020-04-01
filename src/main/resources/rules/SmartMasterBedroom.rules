@@ -9,6 +9,8 @@ then
         Hallway.sendCommand(receivedCommand)
         MasterCloset.sendCommand(receivedCommand)
         MainAccent.sendCommand(receivedCommand)
+        MattsOverheadAccent.sendCommand(receivedCommand)
+        MaureensOverheadAccent.sendCommand(receivedCommand)
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 21)
         {
             MasterBedroomFan.sendCommand(OFF)
