@@ -12,7 +12,7 @@ then
 		} else
 		{
 			//var aShouldNotExecute = aCommand == ON && LivingRoomBack.state == 100 && IsNight.state == ON && IsLateNight.state == OFF
-			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsLateNight.state + " " + aShouldNotExecute)
+			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsLateNight.state)
 			if (aCommand == ON)
 			{
 				aCommand = 100

@@ -1,3 +1,4 @@
 Switch Morning "Morning" (Scenes) ["Switchable"]
 Switch Evening "Evening" (Scenes) ["Switchable"]
+Switch Authorize "Authorize" (Scenes) ["Switchable"]
 Switch EveningLate "Evening Late" (Scenes)

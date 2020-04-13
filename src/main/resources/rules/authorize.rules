@@ -1,0 +1,8 @@
+val aName = "Authorize"
+rule "Authorize"
+when
+	Item Authorize received command
+then
+        executeCommandLine('curl -k https://bigboxer23.duckdns.org/enableTokenFetch?t=', 5000)
+        logWarn("Bigboxer23", aName + ": " + aCommand)
+end
