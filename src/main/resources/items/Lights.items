@@ -53,7 +53,7 @@ Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch) {channel = "zwave:devi
 
 //Great Room
 Dimmer EntryWayAccessory "Entry Way Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:512:node48:switch_dimmer"}
-Dimmer EntryWay "Entry Way" (GreatRoom, EveningOffOff, MorningOn) ["Notify"] {channel = "zwave:device:512:node85:switch_dimmer"}
+Dimmer EntryWay "Entry Way" (GreatRoom, EveningOffOff, WinterMorningOn) ["Notify"] {channel = "zwave:device:512:node85:switch_dimmer"}
 Dimmer BasementStairsAccessory "Basement Stairs Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:512:node51:switch_dimmer"}
 Dimmer BasementStairs "Basement Stairs" (GreatRoom, EveningOffOff, MorningOn, EveningOnOn) {channel = "zwave:device:512:node55:switch_dimmer"}
 Dimmer EntryWayAccent "Entry Way Accent" (GreatRoom, EveningOffOff, MorningOn, EveningOnOn) {channel = "zwave:device:512:node53:switch_dimmer"}

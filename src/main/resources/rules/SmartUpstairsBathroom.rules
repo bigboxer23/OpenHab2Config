@@ -7,7 +7,7 @@ then
 		if (aCommand == ON)
         {
             aCommand = 100
-        } else if (aCommand == OFF)
+        } else if (aCommand == OFF || aCommand == 0)
         {
             aCommand = 0;
             UpstairsBathroomFan.sendCommand(OFF)

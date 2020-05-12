@@ -11,12 +11,11 @@ then
 		MorningOn.sendCommand(100)
 		MorningOn.sendCommand(ON)
 		UnderCabinets.sendCommand(35)
-		Upstairs.sendCommand(50)
 		StairsAccent.sendCommand(35)
-		LivingRoomBack.sendCommand(50)
 		if (now.getMonthOfYear < 3 || now.getMonthOfYear > 10)
 		{
 			WinterMorningOn.sendCommand(100)
+			LivingRoomBack.sendCommand(50)
 		}
 		if (now.getMonthOfYear == 12)
         {
@@ -30,7 +29,7 @@ end
 
 rule "Morning Fans Off Rule"
 when
-	Time cron "0 35 07 ? * MON,TUE,WED,THU,FRI *"
+	Time cron "0 45 07 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", "Fans off")
 	DeaneFan.sendCommand(OFF)
