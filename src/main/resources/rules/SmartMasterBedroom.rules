@@ -47,7 +47,14 @@ then
             MainAccent.sendCommand(0)
             Hallway.sendCommand(0)
 		}
-		MattsBedside.sendCommand(aCommand as Number)
-		MaureensBedside.sendCommand(aCommand as Number)
+		if (now.getHourOfDay > 6 && now.getHourOfDay < 10)
+        {
+			MasterBedroomOverhead.sendCommand(aCommand as Number)
+        } else
+        {
+            MattsBedside.sendCommand(aCommand as Number)
+            MaureensBedside.sendCommand(aCommand as Number)
+        }
+
 	}
 end
