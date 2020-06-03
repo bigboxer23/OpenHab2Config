@@ -10,15 +10,18 @@ then
 		EveningOnOn.sendCommand(100)
 		FrontPorchLights.sendCommand(45)
 		UnderCabinets.sendCommand(50)
-		Upstairs.sendCommand(45)
-		Hallway.sendCommand(20)
 		Sink.sendCommand(50)
-		EntryWay.sendCommand(100)
 		MainAccent.sendCommand(75)
 		if (now.getMonthOfYear == 12)
 		{
 			SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
 		}
+		if (NatalieFan.state == OFF)
+        {
+            EntryWay.sendCommand(100)
+            Upstairs.sendCommand(45)
+            Hallway.sendCommand(20)
+        }
 	}
 end
 
