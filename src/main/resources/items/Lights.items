@@ -71,7 +71,7 @@ Switch SunRoomOutlet "Sun Room Outlet" (SunRoom) {channel = "zwave:device:512:no
 
 
 //Guest Bathroom
-Switch GuestFan "Guest Fan" (GuestBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:512:node16:switch_binary"}
+Switch GuestFan "Guest Fan" (GuestBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:512:node116:switch_binary"}
 Dimmer GuestBathroomAccent "Guest Bathroom Accent" (GuestBathroom, EveningOffOff) {channel = "zwave:device:512:node17:switch_dimmer"}
 Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOffOff) {channel = "zwave:device:512:node18:switch_dimmer"}
 
