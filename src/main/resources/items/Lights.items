@@ -134,3 +134,4 @@ Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom, EveningOffOff) ["Switch
 Switch VacationMode "Vacation Mode" (Scenes)
 Switch IsNight "Is Night"
 Switch IsLateNight "Is Late Night"
+Switch LitterRobot "Litter Robot"

@@ -1,0 +1,9 @@
+val aName = "LitterRobot"
+rule "LitterRobot Cron"
+when
+Time cron "0 0 0/3 * * ?" or
+	Item LitterRobot received command ON
+then
+        executeCommandLine('curl -X POST https://maker.ifttt.com/trigger/triggerLitterRobot/with/key/', 5000)
+        logWarn("Bigboxer23", aName + " executing")
+end
