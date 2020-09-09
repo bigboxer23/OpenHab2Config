@@ -29,7 +29,7 @@ Dimmer GarageLights "Garage Lights" (Garage, EveningOffOff, GarageOpen) {channel
 Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0210:001788174d59:3:color"}
 Dimmer LivingRoomFront "Living Room Front" (LivingRoom, EveningOffOff) {channel = "zwave:device:512:node60:switch_dimmer"}
 Dimmer LivingRoomBack "Living Room Back" (LivingRoom, EveningOnOn) ["Notify"] {channel = "zwave:device:512:node61:switch_dimmer"}
-Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, MorningOn) {channel = "hue:0200:001788174d59:13:color"}
+Color  LivingRoomAccent "Living Room Accent" (LivingRoom) {channel = "hue:0200:001788174d59:13:color"}
 
 
 //Kitchen
@@ -111,7 +111,7 @@ Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff) {channel = "
 Color  MattsBedside "Matt's Bedside" (MasterBedroom, MorningOff) ["Notify"] {channel = "hue:0210:001788174d59:15:color"}
 Color  MaureensBedside "Maureen's Bedside" (MasterBedroom, MorningOff) {channel = "hue:0210:001788174d59:16:color"}
 Dimmer  MasterCloset "Master Closet" (MasterBedroom, MorningOff) {channel = "zwave:device:512:node15:switch_dimmer", expire="9m, command=0"}
-Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:512:node26:switch_dimmer"}
+Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel = "zwave:device:512:node26:switch_dimmer"}
 Dimmer  MainAccent "Main Accent" (MasterBedroom, EveningOnOn, MorningOff) {channel = "zwave:device:512:node39:switch_dimmer"}
 Dimmer  Hallway "Hallway" (MasterBedroom) {channel = "zwave:device:512:node40:switch_dimmer"}
 Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel = "zwave:device:512:node41:switch_dimmer"}

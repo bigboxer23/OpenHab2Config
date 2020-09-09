@@ -1,0 +1,21 @@
+val aName = "Home Office"
+
+rule "Home Office On"
+when
+	Time cron "0 0 8 ? * MON,TUE,WED,THU,FRI *" or
+	Item Morning received command OFF
+then
+	logWarn("Bigboxer23", aName + " On")
+	MasterBedroomOverhead.sendCommand(100)
+	LivingRoomAccent.sendCommand(100)
+end
+
+rule "Home Office Off"
+when
+	Time cron "0 30 16 ? * MON,TUE,WED,THU,FRI *" or
+	Item Morning received command OFF
+then
+	logWarn("Bigboxer23", aName + " Off")
+	MasterBedroomOverhead.sendCommand(0)
+	LivingRoomAccent.sendCommand(0)
+end
