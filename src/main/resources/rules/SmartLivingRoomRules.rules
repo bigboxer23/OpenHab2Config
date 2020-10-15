@@ -5,7 +5,7 @@ then
 		var aCommand = receivedCommand
 		if (aCommand == OFF || aCommand == 0)
 		{
-			LivingRoomCornerLamp.sendCommand(receivedCommand)
+			//LivingRoomCornerLamp.sendCommand(receivedCommand)
 			LivingRoomBack.sendCommand(receivedCommand)
 			LivingRoomFront.sendCommand(receivedCommand)
 			LivingRoomAccent.sendCommand(receivedCommand)
@@ -21,7 +21,7 @@ then
 			{
 				aCommand = 50
 			}
-			LivingRoomCornerLamp.sendCommand(aCommand as Number)
+			//LivingRoomCornerLamp.sendCommand(aCommand as Number)
 			LivingRoomBack.sendCommand(aCommand as Number)
 			LivingRoomAccent.sendCommand(aCommand as Number)
 		}

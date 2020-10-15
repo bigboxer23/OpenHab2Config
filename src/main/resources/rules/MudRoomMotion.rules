@@ -26,7 +26,7 @@ then
 	if (MudRoomMotionSensor.state === OFF){
 		logWarn("Bigboxer23", "Mud Room Motion timer is inactive, triggering lights")
 	    MudRoomLight.sendCommand(0)
-	    GarageLights.sendCommand(0)
+	    GarageLightsWrapper.sendCommand(0)
 	    logWarn("Bigboxer23", "MudRoomMotionTimer Off, Sensor Off, shutting off lights")
     } else
     {

@@ -24,6 +24,9 @@ Number FloodSensorBattery "Flood Sensor Battery" (Utility) ["ignore"] {channel =
 
 //Garage
 Dimmer GarageLights "Garage Lights" (Garage, EveningOffOff, GarageOpen) {channel = "zwave:device:512:node58:switch_dimmer", expire="45m, command=0"}
+Dimmer GarageCenterLightHue "Garage Center Light 1" (Garage, EveningOffOff, GarageOpen) {channel = "hue:0100:001788174d59:17:brightness", expire="45m, command=0"}
+Dimmer GarageCenterLightGe "Garage Center Light 2" (Garage, EveningOffOff, GarageOpen) {channel = "hue:0100:001788174d59:8:brightness", expire="45m, command=0"}
+
 
 //Living Room
 Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0210:001788174d59:3:color"}

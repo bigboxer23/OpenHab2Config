@@ -14,5 +14,5 @@ then
             aCommand = 0;
         }
         logWarn("Bigboxer23", aName + ": " + aCommand)
-        GarageLights.sendCommand(aCommand)
+        GarageLightsWrapper.sendCommand(aCommand)
 end
