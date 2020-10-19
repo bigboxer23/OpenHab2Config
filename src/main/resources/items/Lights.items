@@ -29,10 +29,10 @@ Dimmer GarageCenterLightGe "Garage Center Light 2" (Garage, EveningOffOff, Garag
 
 
 //Living Room
-Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0210:001788174d59:3:color"}
+Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom) {channel = "hue:0210:001788174d59:3:color"}
 Dimmer LivingRoomFront "Living Room Front" (LivingRoom, EveningOffOff) {channel = "zwave:device:512:node60:switch_dimmer"}
 Dimmer LivingRoomBack "Living Room Back" (LivingRoom, EveningOnOn) ["Notify"] {channel = "zwave:device:512:node61:switch_dimmer"}
-Color  LivingRoomAccent "Living Room Accent" (LivingRoom) {channel = "hue:0200:001788174d59:13:color"}
+Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0200:001788174d59:13:color"}
 
 
 //Kitchen
