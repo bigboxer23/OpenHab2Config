@@ -67,16 +67,16 @@ Dimmer OverheadAccent "Overhead Accent" (GreatRoom, EveningOffOff, EveningOnOn) 
 Dimmer MudRoomLight "Mud Room" (MudRoom, EveningOffOff, GarageOpen) {channel = "zwave:device:512:node57:switch_dimmer"}
 
 //Sun Room
-Dimmer Overhead "Overhead" (SunRoom, EveningOffOff) {channel = "zwave:device:512:node11:switch_dimmer"}
-Dimmer Deck "Deck" (SunRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:512:node12:switch_dimmer"}
-Switch SunRoomCeilingFan "Sun Room Ceiling Fan" (SunRoom, EveningOffOff) ["Switchable"] {channel = "zwave:device:512:node13:switch_binary"}
-Switch SunRoomOutlet "Sun Room Outlet" (SunRoom) {channel = "zwave:device:512:node14:switch_binary"}
+Dimmer Overhead "Overhead" (SunRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node5:switch_dimmer"}
+Dimmer Deck "Deck" (SunRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node4:switch_dimmer"}
+Switch SunRoomCeilingFan "Sun Room Ceiling Fan" (SunRoom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node3:switch_binary"}
+Switch SunRoomOutlet "Sun Room Outlet" (SunRoom) {channel = "zwave:device:c98ae6a6:node6:switch_binary"}
 
 
 //Guest Bathroom
-Switch GuestFan "Guest Fan" (GuestBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:512:node116:switch_binary"}
-Dimmer GuestBathroomAccent "Guest Bathroom Accent" (GuestBathroom, EveningOffOff) {channel = "zwave:device:512:node17:switch_dimmer"}
-Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOffOff) {channel = "zwave:device:512:node18:switch_dimmer"}
+Switch GuestFan "Guest Fan" (GuestBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node8:switch_binary"}
+Dimmer GuestBathroomAccent "Guest Bathroom Accent" (GuestBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node9:switch_dimmer"}
+Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node7:switch_dimmer"}
 
 //Upstairs Common
 Dimmer  Upstairs "Upstairs" (UpstairsCommon, EveningOffOff) {channel = "zwave:device:512:node43:switch_dimmer"}
@@ -85,10 +85,10 @@ Dimmer  StairsAccentAccessory "Stairs Accent Accessory" (UpstairsCommon) ["ignor
 Dimmer  StairsAccent "Stairs Accent" (UpstairsCommon, EveningOnOn, MorningOff) {channel = "zwave:device:512:node47:switch_dimmer"}
 
 //Upstairs Bathroom
-Dimmer  LaundryRoom "Laundry Room" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node35:switch_dimmer"}
-Switch  UpstairsBathroomFan "Upstairs Bathroom Fan" (UpstairsBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:512:node122:switch_binary"}
-Dimmer  UpstairsBathroomTub "Upstairs Bathroom Tub" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node37:switch_dimmer"}
-Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:512:node38:switch_dimmer"}
+Dimmer  LaundryRoom "Laundry Room" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node11:switch_dimmer"}
+Switch  UpstairsBathroomFan "Upstairs Bathroom Fan" (UpstairsBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node14:switch_binary"}
+Dimmer  UpstairsBathroomTub "Upstairs Bathroom Tub" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node12:switch_dimmer"}
+Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node13:switch_dimmer"}
 
 //Deane
 Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {channel = "zwave:device:512:node29:switch_dimmer"}
@@ -100,28 +100,27 @@ Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) ["Switchable"] {channel 
 
 //Playroom
 Dimmer  PlayroomLamp "Playroom Lamp" (Playroom, EveningOffOff) {channel = "hue:0100:001788174d59:12:brightness"}
-Dimmer PlayroomLight  "Playroom Light" (Playroom, EveningOffOff) {channel = "zwave:device:512:node25:switch_dimmer"}
+Dimmer PlayroomLight  "Playroom Light" (Playroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node20:switch_dimmer"}
 
 //Natalie
 Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:7:brightness"}
-Dimmer NatalieRoomWindow  "Natalie Room Window" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:512:node31:switch_dimmer"}
-Dimmer NatalieRoomLight  "Natalie Room Light" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:512:node32:switch_dimmer"}
-Switch NatalieFan  "Natalie Fan" (NatalieBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:512:node87:switch_binary"}
+Dimmer NatalieRoomWindow  "Natalie Room Window" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node19:switch_dimmer"}
+Dimmer NatalieRoomLight  "Natalie Room Light" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node18:switch_dimmer"}
+Switch NatalieFan  "Natalie Fan" (NatalieBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node17:switch_binary"}
 Color NatatalieLamp "Natalie Lamp" (NatalieBedroom, MorningOff) {channel = "hue:0210:001788174d59:5:color"}
 Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff) {channel = "hue:0200:001788174d59:14:color"}
 
 //Master Bedroom
 Color  MattsBedside "Matt's Bedside" (MasterBedroom, MorningOff) ["Notify"] {channel = "hue:0210:001788174d59:15:color"}
 Color  MaureensBedside "Maureen's Bedside" (MasterBedroom, MorningOff) {channel = "hue:0210:001788174d59:16:color"}
-Dimmer  MasterCloset "Master Closet" (MasterBedroom, MorningOff) {channel = "zwave:device:512:node15:switch_dimmer", expire="9m, command=0"}
-Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel = "zwave:device:512:node26:switch_dimmer"}
-Dimmer  MainAccent "Main Accent" (MasterBedroom, EveningOnOn, MorningOff) {channel = "zwave:device:512:node39:switch_dimmer"}
+Dimmer  MasterCloset "Master Closet" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node21:switch_dimmer", expire="9m, command=0"}
+Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel = "zwave:device:c98ae6a6:node24:switch_dimmer"}
+Dimmer  MainAccent "Main Accent" (MasterBedroom, EveningOnOn, MorningOff) {channel = "zwave:device:c98ae6a6:node26:switch_dimmer"}
 Dimmer  Hallway "Hallway" (MasterBedroom) {channel = "zwave:device:512:node40:switch_dimmer"}
-Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel = "zwave:device:512:node41:switch_dimmer"}
-//Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:512:node27:switch_binary"}
-Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:512:node103:switch_binary"}
-Dimmer MattsOverheadAccent "Matt's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:512:node113:switch_dimmer"}
-Dimmer MaureensOverheadAccent "Maureen's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:512:node114:switch_dimmer"}
+Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel = "zwave:device:c98ae6a6:node23:switch_dimmer"}
+Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node25:switch_binary"}
+Dimmer MattsOverheadAccent "Matt's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node28:switch_dimmer"}
+Dimmer MaureensOverheadAccent "Maureen's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node27:switch_dimmer"}
 
 //Master Bathroom
 Dimmer  MasterBathMain "Master Bath Main" (MasterBathroom, EveningOffOff) {channel = "zwave:device:512:node19:switch_dimmer"}
