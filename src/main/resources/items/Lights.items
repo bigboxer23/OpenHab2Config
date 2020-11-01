@@ -18,8 +18,8 @@ Dimmer BasementBathroomAccent "Basement Bathroom Accent" (BasementBathroom, Even
 
 //Utility
 Dimmer UtilityOverhead "Utility Overhead" (Utility, EveningOffOff) {channel = "zwave:device:c98ae6a6:node65:switch_dimmer", expire="20m, command=0"}
-Switch FloodSensor "Flood Sensor" (Utility) ["ignore"] {channel = "zwave:device:512:node84:alarm_flood"}
-Number FloodSensorBattery "Flood Sensor Battery" (Utility) ["ignore"] {channel = "zwave:device:512:node84:battery-level"}
+Switch FloodSensor "Flood Sensor" (Utility) ["ignore"] {channel = "zwave:device:c98ae6a6:node73:alarm_flood"}
+Number FloodSensorBattery "Flood Sensor Battery" (Utility) ["ignore"] {channel = "zwave:device:c98ae6a6:node73:battery-level"}
 
 
 //Garage
