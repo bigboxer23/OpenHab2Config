@@ -13,4 +13,8 @@ then
         }
         logWarn("Bigboxer23", aName + ": " + aCommand)
         MudRoomLight.sendCommand(aCommand)
+        if (aCommand == 0)
+        {
+            MudStorageRoom.sendCommand(aCommand)
+        }
 end

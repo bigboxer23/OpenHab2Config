@@ -38,7 +38,7 @@ Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, WinterMor
 //Kitchen
 Dimmer SinkAccessory "Sink Accessory" (Kitchen) ["ignore"] {channel = "zwave:device:c98ae6a6:node51:switch_dimmer"}
 Dimmer Sink "Sink" (Kitchen, EveningOffOff) {channel = "zwave:device:c98ae6a6:node30:switch_dimmer"}
-Dimmer KitchenOverheadAccessory "Kitchen Overhead Accessory" (Kitchen) ["ignore"] {channel = "zwave:device:c98ae6a6:node47:switch_dimmer"}
+Dimmer KitchenOverheadAccessory "Kitchen Overhead Accessory" (Kitchen) ["ignore"] {channel = "zwave:device:c98ae6a6:node76:switch_dimmer"}
 Dimmer KitchenOverhead "Kitchen Overhead" (Kitchen, EveningOffOff, EveningOnOn, WinterMorningOn) ["Notify"] {channel = "zwave:device:c98ae6a6:node50:switch_dimmer"}
 Dimmer UnderCabinets "Under Cabinets" (Kitchen, EveningOffOff) {channel = "zwave:device:c98ae6a6:node52:switch_dimmer"}
 
@@ -55,9 +55,9 @@ Dimmer FrontPorchLights "Front Porch Lights" (FrontPorch, EveningOffOff) {channe
 Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch) {channel = "zwave:device:c98ae6a6:node71:switch_binary"}
 
 //Great Room
-Dimmer EntryWayAccessory "Entry Way Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:c98ae6a6:node45:switch_dimmer"}
+Dimmer EntryWayAccessory "Entry Way Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:c98ae6a6:node75:switch_dimmer"}
 Dimmer EntryWay "Entry Way" (GreatRoom, EveningOffOff, WinterMorningOn) ["Notify"] {channel = "zwave:device:c98ae6a6:node49:switch_dimmer"}
-Dimmer BasementStairsAccessory "Basement Stairs Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:c98ae6a6:node57:switch_dimmer"}
+Dimmer BasementStairsAccessory "Basement Stairs Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:c98ae6a6:node74:switch_dimmer"}
 Dimmer BasementStairs "Basement Stairs" (GreatRoom, EveningOffOff, MorningOn, EveningOnOn) {channel = "zwave:device:c98ae6a6:node58:switch_dimmer"}
 Dimmer EntryWayAccent "Entry Way Accent" (GreatRoom, EveningOffOff, MorningOn, EveningOnOn) {channel = "zwave:device:c98ae6a6:node46:switch_dimmer"}
 Dimmer OverheadAccent "Overhead Accent" (GreatRoom, EveningOffOff, EveningOnOn) {channel = "zwave:device:c98ae6a6:node48:switch_dimmer"}
@@ -80,8 +80,8 @@ Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOf
 
 //Upstairs Common
 Dimmer  Upstairs "Upstairs" (UpstairsCommon, EveningOffOff) {channel = "zwave:device:c98ae6a6:node37:switch_dimmer"}
-Dimmer  UpstairsAccessory "Upstairs Accessory" (UpstairsCommon) ["ignore"] {channel = "zwave:device:512:node67:switch_dimmer"}
-Dimmer  StairsAccentAccessory "Stairs Accent Accessory" (UpstairsCommon) ["ignore"] {channel = "zwave:device:512:node88:switch_dimmer"}
+//Dimmer  UpstairsAccessory "Upstairs Accessory" (UpstairsCommon) ["ignore"] {channel = "zwave:device:c98ae6a6:node75:switch_dimmer"}
+//Dimmer  StairsAccentAccessory "Stairs Accent Accessory" (UpstairsCommon) ["ignore"] {channel = "zwave:device:c98ae6a6:node74:switch_dimmer"}
 Dimmer  StairsAccent "Stairs Accent" (UpstairsCommon, EveningOnOn, MorningOff) {channel = "zwave:device:c98ae6a6:node44:switch_dimmer"}
 
 //Upstairs Bathroom

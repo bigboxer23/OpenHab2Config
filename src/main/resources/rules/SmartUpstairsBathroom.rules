@@ -12,6 +12,7 @@ then
             aCommand = 0;
             UpstairsBathroomFan.sendCommand(OFF)
             UpstairsBathroomTub.sendCommand(aCommand)
+            LaundryRoom.sendCommand(aCommand)
         }
         UpstairsBathroomLight.sendCommand(aCommand)
         if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)

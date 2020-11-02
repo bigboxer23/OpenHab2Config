@@ -28,18 +28,25 @@
 						<configuration>
 							<target>
 								<scp
-								     todir="root@server:/etc/openhab2/items"
+								     todir="pi@openhab:/etc/openhab2/items"
 								     keyfile="${user.home}/.ssh/id_rsa"
 								     passphrase=""
 								     trust="true">
 									<fileset dir="${project.basedir}/src/main/resources/items"/>
 								</scp>
 								<scp
-										todir="root@server:/etc/openhab2/rules"
+										todir="pi@openhab:/etc/openhab2/rules"
 										keyfile="${user.home}/.ssh/id_rsa"
 										passphrase=""
 										trust="true">
 									<fileset dir="${project.basedir}/src/main/resources/rules"/>
+								</scp>
+								<scp
+										todir="pi@openhab:/etc/openhab2/things"
+										keyfile="${user.home}/.ssh/id_rsa"
+										passphrase=""
+										trust="true">
+									<fileset dir="${project.basedir}/src/main/resources/things"/>
 								</scp>
 							</target>
 						</configuration>
