@@ -1,6 +1,6 @@
 rule "Dining Motion ON"
 when
-    Item DiningRoomMotionSensor received update OPEN
+    Item DiningRoomMotionSensor received update ON
 then
 	val aSunsetHourMinusOne = new DateTime(vSunset_Time.state.toString).getHourOfDay - 1
 	val aSunriseHourPlusOne = new DateTime(vSunrise_Time.state.toString).getHourOfDay + 1
@@ -19,7 +19,7 @@ end
 
 rule "Dining Motion CLOSED"
 when
-    Item DiningRoomMotionSensor received update CLOSED
+    Item DiningRoomMotionSensor received update OFF
 then
 	logWarn("Bigboxer23", "Dining Room Motion sensor closed, setting timer")
     DiningRoomMotionTimer.sendCommand(ON)
@@ -29,7 +29,7 @@ rule "Dining Motion OFF"
 when
     Item DiningRoomMotionTimer received update OFF
 then
-	if (DiningRoomMotionSensor.state === CLOSED && DiningRoomMotionOverride.state != ON)
+	if (DiningRoomMotionSensor.state === OFF && DiningRoomMotionOverride.state != ON)
 	{
 	    logWarn("Bigboxer23", "DiningRoomMotionTimer Off, CLOSED, shutting off lights")
 	    NorthAccent.sendCommand(0)

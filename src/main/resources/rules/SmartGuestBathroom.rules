@@ -3,16 +3,13 @@ rule "Smart Guest Bathroom"
 when
 	Item SmartGuestBathroom received command
 then
-		var Number aCommand = receivedCommand;
-		if (aCommand == ON)
+        logWarn("Bigboxer23", aName + ": " + receivedCommand)
+		if (receivedCommand == ON)
         {
-            aCommand = 100
-        } else if (aCommand == OFF)
+            GuestBathroomAccent.sendCommand(100)
+            GuestBathroomOverhead.sendCommand(100)
+        } else if (receivedCommand == OFF || receivedCommand == 0)
         {
-            aCommand = 0;
-            GuestFan.sendCommand(OFF)
+            GuestBathroom.sendCommand(OFF)
         }
-        logWarn("Bigboxer23", aName + ": " + aCommand)
-        GuestBathroomAccent.sendCommand(aCommand)
-        GuestBathroomOverhead.sendCommand(aCommand)
 end

@@ -64,7 +64,7 @@ Dimmer OverheadAccent "Overhead Accent" (GreatRoom, EveningOffOff, EveningOnOn) 
 
 //Mud Room
 Dimmer MudRoomLight "Mud Room" (MudRoom, EveningOffOff, GarageOpen) {channel = "zwave:device:c98ae6a6:node33:switch_dimmer"}
-Dimmer MudStorageRoom "Mud Storage Room" (MudRoom, EveningOffOff, GarageOpen) {channel = "zwave:device:c98ae6a6:node72:switch_dimmer", expire="10m, command=0"}
+Dimmer MudStorageRoom "Mud Storage Room" (MudRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node72:switch_dimmer", expire="10m, command=0"}
 
 //Sun Room
 Dimmer Overhead "Overhead" (SunRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node5:switch_dimmer"}

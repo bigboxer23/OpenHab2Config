@@ -5,7 +5,7 @@ then
 	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getMinuteOfHour + " " + now.getDayOfWeek + " " + IsNight.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
-		MasterBathroom.sendCommand(receivedCommand)
+		MasterBathroom.sendCommand(OFF)
 	} else
 	{
 		var aLightLevel = 100;
