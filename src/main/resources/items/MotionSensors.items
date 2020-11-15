@@ -19,22 +19,21 @@ Group DeaneBedroomMotion "Deane Bedroom Motion" (DeaneBedroom)
 Contact DeaneBedroomMotionSensor "Deane Bedroom Motion Sensor" (DeaneBedroomMotion) {channel = "zwave:device:512:node30:sensor_door" }
 Number DeaneBedroomMotionSensorBattery "Deane Bedroom Motion Sensor Battery" (DeaneBedroomMotion, DeaneBedroom) {channel = "zwave:device:512:node30:battery-level" }
 
-
 Group MudRoomMotion  "Mud Room Motion" (MudRoom)
 Switch MudRoomMotionSensor "Mud Room Motion Sensor" (MudRoomMotion) {channel = "zwave:device:c98ae6a6:node86:sensor_binary" }
 Number MudRoomMotionSensorBattery "Mud Room Motion Sensor Battery" (MudRoomMotion, MudRoom) {channel = "zwave:device:c98ae6a6:node86:battery-level" }
 Switch MudRoomMotionTimer ( MudRoomMotion) {expire="1m, command=OFF"}
 
 Group BasementBathroomMotion  "Basement Bathroom Motion" (BasementBathroom)
-Switch BasementBathroomMotionSensor "Basement Bathroom Motion Sensor" (BasementBathroomMotion) {channel = "zwave:device:512:node92:sensor_binary" }
-Number BasementBathroomMotionSensorBattery "Basement Bathroom Motion Sensor Battery" (BasementBathroomMotion, BasementBathroom) {channel = "zwave:device:512:node92:battery-level" }
-Number BasementBathroomMotionTemperature "Basement Bathroom Motion Temperature" (BasementBathroomMotion, BasementBathroom) {channel = "zwave:device:512:node92:sensor_temperature" }
+Switch BasementBathroomMotionSensor "Basement Bathroom Motion Sensor" (BasementBathroomMotion) {channel = "zwave:device:c98ae6a6:node87:alarm_motion" }
+Number BasementBathroomMotionSensorBattery "Basement Bathroom Motion Sensor Battery" (BasementBathroomMotion, BasementBathroom) {channel = "zwave:device:c98ae6a6:node87:battery-level" }
+Number BasementBathroomMotionTemperature "Basement Bathroom Motion Temperature" (BasementBathroomMotion, BasementBathroom) {channel = "zwave:device:c98ae6a6:node87:sensor_temperature" }
 Switch BasementBathroomMotionTimer ( BasementBathroomMotion) {expire="10m, command=OFF"}
 
 Group MasterClosetMotion  "Master Closet Motion" (MasterBedroom)
-Switch MasterClosetMotionSensor "Master Closet Motion Sensor" (MasterClosetMotion) {channel = "zwave:device:512:node93:sensor_binary" }
-Number MasterClosetMotionSensorBattery "Master Closet Motion Sensor Battery" (MasterClosetMotion, MasterBedroom) {channel = "zwave:device:512:node93:battery-level" }
-Number MasterClosetMotionTemperature "Master Closet Motion Temperature" (MasterClosetMotion, MasterBedroom) {channel = "zwave:device:512:node93:sensor_temperature" }
+Switch MasterClosetMotionSensor "Master Closet Motion Sensor" (MasterClosetMotion) {channel = "zwave:device:c98ae6a6:node88:alarm_motion" }
+Number MasterClosetMotionSensorBattery "Master Closet Motion Sensor Battery" (MasterClosetMotion, MasterBedroom) {channel = "zwave:device:c98ae6a6:node88:battery-level" }
+Number MasterClosetMotionTemperature "Master Closet Motion Temperature" (MasterClosetMotion, MasterBedroom) {channel = "zwave:device:c98ae6a6:node88:sensor_temperature" }
 Switch MasterClosetMotionTimer ( MasterClosetMotion) {expire="2m, command=OFF"}
 
 Group MasterBathroomMotion "Master Bathroom Motion" (MasterBathroom)
