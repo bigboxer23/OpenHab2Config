@@ -35,7 +35,7 @@ end
 
 rule "Nat Reading Light Off"
 when
-	Time cron "0 30 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+	Time cron "0 30 21 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Nat Reading Lamp off " + VacationMode.state)
 	if (VacationMode.state != ON)
