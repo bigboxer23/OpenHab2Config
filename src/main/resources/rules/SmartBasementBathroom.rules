@@ -7,13 +7,13 @@ then
 		if (aCommand == ON)
         {
             aCommand = 100
-        } else if (aCommand == OFF)
+        } else if (aCommand == OFF || aCommand == 0)
         {
             aCommand = 0;
             BasementBathroomFan.sendCommand(OFF)
+            BasementBathroomShower.sendCommand(aCommand)
         }
         logWarn("Bigboxer23", aName + ": " + aCommand)
-        BasementBathroomShower.sendCommand(aCommand)
         BasementBathroomLights.sendCommand(aCommand)
         BasementBathroomAccent.sendCommand(aCommand)
 end

@@ -6,8 +6,7 @@ then
 	logWarn("Bigboxer23", aName  + " Triggered " + BasementBathroomLights.state + " " + BasementBathroomMotionTimer.state)
     if (BasementBathroomLights.state == 0){
         logWarn("Bigboxer23", aName + " triggering lights")
-        BasementBathroomLights.sendCommand(100)
-        BasementBathroomAccent.sendCommand(100)
+        SmartBasementBathroom.sendCommand(100)
     }
     BasementBathroomMotionTimer.sendCommand(OFF)
 end
@@ -31,9 +30,7 @@ then
 	    {
 	        BasementBathroomShower.sendCommand(50)
 	    }
-	    BasementBathroomLights.sendCommand(0)
-	    BasementBathroomAccent.sendCommand(0)
-	    BasementBathroomFan.sendCommand(OFF)
+	    SmartBasementBathroom.sendCommand(0)
     } else
     {
         logWarn("Bigboxer23", aName  + " is ON, not shutting off lights")
