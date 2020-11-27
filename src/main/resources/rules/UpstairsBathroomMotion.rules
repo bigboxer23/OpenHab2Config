@@ -1,4 +1,4 @@
-var aName = "Upstairs Motion"
+var aName = "Upstairs Bathroom Motion"
 
 rule "Upstairs Bathroom Motion ON"
 when

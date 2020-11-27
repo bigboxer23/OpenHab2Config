@@ -16,6 +16,7 @@ then
 			Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
+			LaundryRoom.sendCommand(receivedCommand)
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 			DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 		}
