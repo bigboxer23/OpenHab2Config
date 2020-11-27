@@ -13,7 +13,7 @@ Dimmer ArtArea "Art Area" (Basement, EveningOffOff) {channel = "zwave:device:c98
 //Basement Bathroom
 Switch BasementBathroomFan "Basement Bathroom Fan" (BasementBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node70:switch_binary"}
 Dimmer BasementBathroomShower "Basement Bathroom Shower" (BasementBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node69:switch_dimmer", expire="45m, command=0"}
-Dimmer BasementBathroomLights "Basement Bathroom Lights" (BasementBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node67:switch_dimmer"}
+Dimmer BasementBathroomLights "Basement Bathroom Lights" (BasementBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node90:switch_dimmer"}
 Dimmer BasementBathroomAccent "Basement Bathroom Accent" (BasementBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node68:switch_dimmer"}
 
 //Utility
