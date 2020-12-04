@@ -2,7 +2,7 @@ var aName = "Upstairs Bathroom Motion"
 
 rule "Upstairs Bathroom Motion ON"
 when
-    Item LaundryRoomMotionSensor received update OPEN or
+    Item LaundryRoomMotionSensor received update ON or
     Item UpstairsBathroomMotionSensor received update ON
 then
 	logWarn("Bigboxer23", aName + " ON " + LaundryRoom.state + " " + UpstairsBathroomMotionTimer.state + " " + LaundryRoomMotionSensor.state)
@@ -16,13 +16,13 @@ end
 
 rule "Upstairs Bathroom Motion OFF"
 when
-    Item LaundryRoomMotionSensor received update CLOSED or
+    Item LaundryRoomMotionSensor received update OFF or
     Item UpstairsBathroomMotionSensor received update OFF
 then
 logWarn("Bigboxer23", aName + " sensor Off, maybe timer cancel ")
 	logWarn("Bigboxer23", aName + " " + LaundryRoomMotionSensor.state + " " + UpstairsBathroomMotionSensor.state)
 	logWarn("Bigboxer23", aName + " " + (LaundryRoomMotionSensor.state === OFF) + " " + (UpstairsBathroomMotionSensor.state === OFF))
-	if (LaundryRoomMotionSensor.state === CLOSED && UpstairsBathroomMotionSensor.state === OFF)
+	if (LaundryRoomMotionSensor.state === OFF && UpstairsBathroomMotionSensor.state === OFF)
     {
         logWarn("Bigboxer23", aName + " setting Timer")
         UpstairsBathroomMotionTimer.sendCommand(ON)
@@ -33,7 +33,7 @@ rule "Upstairs Bathroom Timer OFF"
 when
     Item UpstairsBathroomMotionTimer received update OFF
 then
-        if (LaundryRoomMotionSensor.state === CLOSED && UpstairsBathroomMotionSensor.state === OFF)
+        if (LaundryRoomMotionSensor.state === OFF && UpstairsBathroomMotionSensor.state === OFF)
     	{
     	    logWarn("Bigboxer23", aName + " Timer Off, Sensor Off, shutting off lights")
 			SmartUpstairsBathroom.sendCommand(OFF)
