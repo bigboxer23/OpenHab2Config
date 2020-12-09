@@ -63,6 +63,7 @@ then
             Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
+			LaundryRoom.sendCommand(receivedCommand);
 			NatalieFan.sendCommand(ON);
 		}
 	} else
