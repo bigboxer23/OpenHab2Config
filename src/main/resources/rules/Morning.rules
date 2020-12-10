@@ -19,7 +19,7 @@ then
 		}
 		if (now.getMonthOfYear == 12)
         {
-            SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
+            ChristmasLights.sendCommand(ON)
         }
 	} else
 	{
@@ -51,6 +51,6 @@ then
 	//CoolingSetpoint.sendCommand(73|°F)
 	if (now.getMonthOfYear == 12)
 	{
-		SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
+		ChristmasLights.sendCommand(OFF)
 	}
 end

@@ -5,5 +5,4 @@ Group:Dimmer   WinterMorningOn
 Group:Dimmer   MorningOff
 Group:Dimmer    EveningOnOn
 Group:Dimmer    GarageOpen
-
-//Switch TestSwitch
+Group:Dimmer   ChristmasLights

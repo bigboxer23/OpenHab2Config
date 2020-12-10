@@ -14,7 +14,7 @@ then
 		MainAccent.sendCommand(75)
 		if (now.getMonthOfYear == 12)
 		{
-			SunRoomOutlet.sendCommand(ON)//For Xmas Tree lights
+			ChristmasLights.sendCommand(ON)
 		}
 		if (NatalieFan.state == OFF)
         {
@@ -45,7 +45,7 @@ then
 		//CoolingSetpoint.sendCommand(75|°F)
 		if (now.getMonthOfYear == 12)
 		{
-			SunRoomOutlet.sendCommand(OFF)//For Xmas Tree lights
+			ChristmasLights.sendCommand(OFF)
 		}
 		NatalieDot.sendCommand(PAUSE)
 		if (MasterBedroomFan.state == OFF)
