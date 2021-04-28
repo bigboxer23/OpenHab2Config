@@ -6,16 +6,43 @@ when
 	Item Morning received command OFF
 then
 	logWarn("Bigboxer23", aName + " On")
-	MasterBedroomOverhead.sendCommand(100)
-	LivingRoomCornerLamp.sendCommand(100)
+	if (VacationMode.state != ON)
+    {
+		MasterBedroomOverhead.sendCommand(100)
+		LivingRoomCornerLamp.sendCommand(100)
+	}
 end
 
 rule "Home Office Off"
 when
-	Time cron "0 30 16 ? * MON,TUE,WED,THU,FRI *" or
+	Time cron "0 00 17 ? * MON,TUE,WED,THU,FRI *" or
 	Item Morning received command OFF
 then
 	logWarn("Bigboxer23", aName + " Off")
 	MasterBedroomOverhead.sendCommand(0)
 	LivingRoomCornerLamp.sendCommand(0)
+end
+
+rule "Home Office Cool Down 66"
+when
+	Time cron "0 30 16 ? * MON,TUE,WED,THU,FRI *"
+then
+	logWarn("Bigboxer23", aName + " Off")
+	if (VacationMode.state != ON)
+    {
+		MasterBedroomOverhead.sendCommand(66)
+		LivingRoomCornerLamp.sendCommand(66)
+	}
+end
+
+rule "Home Office Cool Down 45"
+when
+	Time cron "0 45 16 ? * MON,TUE,WED,THU,FRI *"
+then
+	logWarn("Bigboxer23", aName + " Off")
+	if (VacationMode.state != ON)
+    {
+		MasterBedroomOverhead.sendCommand(45)
+		LivingRoomCornerLamp.sendCommand(45)
+	}
 end
