@@ -2,8 +2,7 @@ rule "Smart Living Room Rule"
 when
 	Item SmartLivingRoom received command
 then
-		var aCommand = receivedCommand
-		if (aCommand == OFF || aCommand == 0)
+		if (receivedCommand == OFF || receivedCommand == 0)
 		{
 			//LivingRoomCornerLamp.sendCommand(receivedCommand)
 			LivingRoomBack.sendCommand(receivedCommand)
@@ -12,17 +11,21 @@ then
 		} else
 		{
 			//var aShouldNotExecute = aCommand == ON && LivingRoomBack.state == 100 && IsNight.state == ON && IsLateNight.state == OFF
+			var aCommand = receivedCommand
+			var aCornerCommand = receivedCommand
 			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsLateNight.state)
-			if (aCommand == ON)
+			if (aCommand == ON || aCommand == 100)
 			{
-				aCommand = 100
+				aCommand = 70
+				aCornerCommand = 100
 			}
 			if (now.getHourOfDay < 7 || now.getHourOfDay >= 22)
 			{
 				aCommand = 50
+				aCornerCommand = 50
 			}
-			//LivingRoomCornerLamp.sendCommand(aCommand as Number)
+			//LivingRoomCornerLamp.sendCommand(aCornerCommand as Number)
 			LivingRoomBack.sendCommand(aCommand as Number)
-			LivingRoomAccent.sendCommand(aCommand as Number)
+			LivingRoomAccent.sendCommand(aCornerCommand as Number)
 		}
 end
