@@ -15,9 +15,9 @@ Switch DiningRoomMotionTimer ( DiningRoomMotion) {expire="15m, command=OFF"}
 Switch DiningRoomMotionOverride "Dining Room Motion Override" ( DiningRoomMotion, MotionOverrides)
 
 
-Group DeaneBedroomMotion "Deane Bedroom Motion" (DeaneBedroom)
-Contact DeaneBedroomMotionSensor "Deane Bedroom Motion Sensor" (DeaneBedroomMotion) {channel = "zwave:device:512:node30:sensor_door" }
-Number DeaneBedroomMotionSensorBattery "Deane Bedroom Motion Sensor Battery" (DeaneBedroomMotion, DeaneBedroom) {channel = "zwave:device:512:node30:battery-level" }
+//Group DeaneBedroomMotion "Deane Bedroom Motion" (DeaneBedroom)
+//Contact DeaneBedroomMotionSensor "Deane Bedroom Motion Sensor" (DeaneBedroomMotion) {channel = "zwave:device:512:node30:sensor_door" }
+//Number DeaneBedroomMotionSensorBattery "Deane Bedroom Motion Sensor Battery" (DeaneBedroomMotion, DeaneBedroom) {channel = "zwave:device:512:node30:battery-level" }
 
 Group MudRoomMotion  "Mud Room Motion" (MudRoom)
 Switch MudRoomMotionSensor "Mud Room Motion Sensor" (MudRoomMotion) {channel = "zwave:device:c98ae6a6:node86:sensor_binary" }
@@ -37,15 +37,15 @@ Number MasterClosetMotionTemperature "Master Closet Motion Temperature" (MasterC
 Switch MasterClosetMotionTimer ( MasterClosetMotion) {expire="2m, command=OFF"}
 
 Group MasterBathroomMotion "Master Bathroom Motion" (MasterBathroom)
-Switch PoopClosetMotionSensor "Poop Closet Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:c98ae6a6:node81:sensor_binary" }
-Number PoopClosetMotionBattery "Poop Closet Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node81:battery-level" }
-Number PoopClosetMotionLightSensor "Poop Closet Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node81:sensor_luminance" }
+Switch PoopClosetMotionSensor "Poop Closet Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:c98ae6a6:node94:sensor_binary" }
+Number PoopClosetMotionBattery "Poop Closet Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node94:battery-level" }
+Number PoopClosetMotionLightSensor "Poop Closet Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node94:sensor_luminance" }
 Switch PoopClosetMotionTimer ( MasterBathroomMotion) {expire="5m, command=OFF"}
 Switch PoopClosetFanTimer {expire="10m, command=OFF"}
 
-Switch MasterBathroomMotionSensor "Master Bathroom Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:c98ae6a6:node80:sensor_binary" }
-Number MasterBathroomMotionBattery "Master Bathroom Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node80:battery-level" }
-Number MasterBathroomMotionLightSensor "Master Bathroom Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node80:sensor_luminance" }
+Switch MasterBathroomMotionSensor "Master Bathroom Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:c98ae6a6:node91:sensor_binary" }
+Number MasterBathroomMotionBattery "Master Bathroom Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node91:battery-level" }
+Number MasterBathroomMotionLightSensor "Master Bathroom Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node91:sensor_luminance" }
 Switch MasterBathroomShowerMotionSensor "Master Bathroom Shower Motion Sensor" (MasterBathroomMotion) {channel = "zwave:device:c98ae6a6:node82:sensor_binary" }
 Number MasterBathroomShowerMotionBattery "Master Bathroom Shower Motion Sensor Battery" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node82:battery-level" }
 Number MasterBathroomShowerMotionLightSensor "Master Bathroom Shower Motion Light Sensor" (MasterBathroomMotion, MasterBathroom) {channel = "zwave:device:c98ae6a6:node82:sensor_luminance" }
