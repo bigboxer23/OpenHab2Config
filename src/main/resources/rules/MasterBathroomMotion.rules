@@ -27,7 +27,7 @@ when
     Item MasterBathroomShowerMotionSensor received update OFF
 then
  	logWarn("Bigboxer23", aName + " sensor off. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state + " " + MasterBathroomMotionFanTimer.state)
-	if (MasterBathroomMotionSensor.state === OFF && MasterBathroomShowerMotionSensor.state === OFF){
+	if ((MasterBathroomMotionSensor.state === OFF || MasterBathroomMotionSensor.state === NULL) && (MasterBathroomShowerMotionSensor.state === OFF || MasterBathroomShowerMotionSensor.state === NULL)){
     	logWarn("Bigboxer23", aName + " sensor Off, setting timer")
 	    MasterBathroomMotionTimer.sendCommand(ON)
 	    MasterBathroomMotionFanTimer.sendCommand(ON)
@@ -39,7 +39,7 @@ when
     Item MasterBathroomMotionTimer received update OFF
 then
  	logWarn("Bigboxer23", aName + " timer expired. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state)
-	if (MasterBathroomMotionSensor.state === OFF && MasterBathroomShowerMotionSensor.state === OFF){
+	if ((MasterBathroomMotionSensor.state === OFF || MasterBathroomMotionSensor.state === NULL) && (MasterBathroomShowerMotionSensor.state === OFF || MasterBathroomShowerMotionSensor.state === NULL)){
 		logWarn("Bigboxer23", aName + " Off, Sensor Off, shutting off lights")
         MasterBathMain.sendCommand(OFF)
         MasterBathShower.sendCommand(OFF)
@@ -54,7 +54,7 @@ when
     Item MasterBathroomMotionFanTimer received update OFF
 then
  	logWarn("Bigboxer23", aName + " fan timer expired. " + MasterBathroomMotionSensor.state + " " + MasterBathroomShowerMotionSensor.state)
-	if (MasterBathroomMotionSensor.state === OFF && MasterBathroomShowerMotionSensor.state === OFF){
+	if ((MasterBathroomMotionSensor.state === OFF || MasterBathroomMotionSensor.state === NULL) && (MasterBathroomShowerMotionSensor.state === OFF || MasterBathroomShowerMotionSensor.state === NULL)){
 		logWarn("Bigboxer23", aName + " Off, Sensor Off, shutting off lights")
         SmartMasterBathroom.sendCommand(OFF)
     }
