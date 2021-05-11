@@ -12,7 +12,6 @@ then
             aCommand = 0;
         }
         logWarn("Bigboxer23", aName + ": " + aCommand)
-        Basement.sendCommand(aCommand)
         BackBar.sendCommand(aCommand)
         BackBarAccent.sendCommand(aCommand)
         BarLamp.sendCommand(aCommand)
