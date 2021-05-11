@@ -11,7 +11,8 @@ then
 		FrontPorchLights.sendCommand(45)
 		UnderCabinets.sendCommand(50)
 		Sink.sendCommand(50)
-		MainAccent.sendCommand(75)
+		MaureensOverheadAccent.sendCommand(50)
+		MattsOverheadAccent.sendCommand(50)
 		if (now.getMonthOfYear == 12)
 		{
 			ChristmasLights.sendCommand(ON)
