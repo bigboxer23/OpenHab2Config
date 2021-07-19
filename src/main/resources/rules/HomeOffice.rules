@@ -30,6 +30,7 @@ then
 	logWarn("Bigboxer23", aName + " Off")
 	if (VacationMode.state != ON)
     {
+        MasterBedroomFan.sendCommand(OFF)
 		MasterBedroomOverhead.sendCommand(66)
 		LivingRoomCornerLamp.sendCommand(66)
 	}
