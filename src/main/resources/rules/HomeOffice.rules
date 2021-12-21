@@ -6,7 +6,7 @@ when
 	Item Morning received command OFF
 then
 	logWarn("Bigboxer23", aName + " On")
-	if (VacationMode.state != ON)
+	if (VacationMode.state != ON && IsPTO.state != ON)
     {
 		MasterBedroomOverhead.sendCommand(100)
 		LivingRoomCornerLamp.sendCommand(100)
@@ -28,7 +28,7 @@ when
 	Time cron "0 30 16 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", aName + " Off")
-	if (VacationMode.state != ON)
+	if (VacationMode.state != ON && IsPTO.state != ON)
     {
         MasterBedroomFan.sendCommand(OFF)
 		MasterBedroomOverhead.sendCommand(66)
@@ -41,7 +41,7 @@ when
 	Time cron "0 45 16 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", aName + " Off")
-	if (VacationMode.state != ON)
+	if (VacationMode.state != ON && IsPTO.state != ON)
     {
 		MasterBedroomOverhead.sendCommand(45)
 		LivingRoomCornerLamp.sendCommand(45)

@@ -1,0 +1,13 @@
+rule "Is Weekend Rule"
+when
+	Item Evening received command OFF or
+	Time cron "0 0 0/3 * * ?"
+then
+	logWarn("Bigboxer23", "Setting Weekend" + IsWeekend.state)
+	IsWeekend.sendCommand(OFF)
+	if (now.getDayOfWeek >= 6)
+	{
+		IsWeekend.sendCommand(ON)
+	}
+	logWarn("Bigboxer23", "Setting Weekend2" + IsWeekend.state)
+end
