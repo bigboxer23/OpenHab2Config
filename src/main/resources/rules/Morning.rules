@@ -6,7 +6,7 @@ then
 	logWarn("Bigboxer23", "Morning On " + VacationMode.state + " " + now.getMonthOfYear)
 	IsNight.sendCommand(OFF)
 	IsLateNight.sendCommand(OFF)
-	if (VacationMode.state != ON)
+	if (VacationMode.state != ON && IsPTO.state != ON)
 	{
 		MorningOn.sendCommand(100)
 		MorningOn.sendCommand(ON)
@@ -23,7 +23,7 @@ then
         }
 	} else
 	{
-		logWarn("Bigboxer23", "Vacation Mode Enabled, not triggering")
+		logWarn("Bigboxer23", "Vacation or PTO Mode Enabled, not triggering")
 	}
 end
 
@@ -32,9 +32,12 @@ when
 	Time cron "0 45 07 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", "Fans off")
-	DeaneFan.sendCommand(OFF)
-	NatalieFan.sendCommand(OFF)
-	MasterBedroomFan.sendCommand(OFF)
+	if (IsPTO.state != ON)
+	{
+		DeaneFan.sendCommand(OFF)
+		NatalieFan.sendCommand(OFF)
+		MasterBedroomFan.sendCommand(OFF)
+	}
 end
 
 rule "Morning Off"
