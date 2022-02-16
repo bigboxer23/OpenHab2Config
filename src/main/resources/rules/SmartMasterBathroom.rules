@@ -2,38 +2,30 @@ rule "Smart Smart Master Bathroom Rule"
 when
 	Item SmartMasterBathroom received command
 then
-	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getMinuteOfHour + " " + now.getDayOfWeek + " " + IsNight.state)
+	logWarn("Bigboxer23", "Smart SmartMasterBathroom: " + receivedCommand + " " + now.getHourOfDay + " " + now.getMinuteOfHour + " " + now.getDayOfWeek + " " + IsNight.state + " " + IsWeekend.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
 		MasterBathroom.sendCommand(OFF)
 	} else
 	{
-		var aLightLevel = 100;
-        if (now.getHourOfDay <= 5 ||
-         (now.getHourOfDay == 6 && now.getMinuteOfHour < 35) ||
-          now.getHourOfDay >= 21 ||
-           (now.getDayOfWeek >= 6 && now.getHourOfDay < 7))
-        {
-            aLightLevel = 15
-            PoopCloset.sendCommand(aLightLevel)
-        } else
-        {
-			MasterBathMain.sendCommand(aLightLevel)
-			if (now.getHourOfDay < 10)
+		if (IsNight.state == ON)
+		{
+			PoopCloset.sendCommand(15)
+		} else
+		{
+			MasterBathMain.sendCommand(100)
+            if (IsMorning.state == ON)
             {
-                MasterBathShower.sendCommand(aLightLevel)
-                if (now.getHourOfDay <= 7 && now.getDayOfWeek < 6)
+                MasterBathShower.sendCommand(100)
+                if (now.getHourOfDay <= 7 && IsWeekend.state == OFF)
                 {
                     MasterBathFan.sendCommand(ON)
                 }
             }
-            if (IsNight.state == ON)
+            if (IsEvening.state == ON)
             {
-                if (IsLateNight.state == OFF)
-                {
-                    MasterBathTub.sendCommand(aLightLevel)
-                }
-                PoopCloset.sendCommand(aLightLevel)
+                MasterBathTub.sendCommand(100)
+                PoopCloset.sendCommand(100)
             }
 		}
 	}

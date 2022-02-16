@@ -10,16 +10,15 @@ then
 			LivingRoomAccent.sendCommand(receivedCommand)
 		} else
 		{
-			//var aShouldNotExecute = aCommand == ON && LivingRoomBack.state == 100 && IsNight.state == ON && IsLateNight.state == OFF
 			var aCommand = receivedCommand
 			var aCornerCommand = receivedCommand
-			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsLateNight.state)
+			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsEvening.state)
 			if (aCommand == ON || aCommand == 100)
 			{
 				aCommand = 70
 				aCornerCommand = 100
 			}
-			if (now.getHourOfDay < 7 || now.getHourOfDay >= 22)
+			if (IsNight.state == ON)
 			{
 				aCommand = 50
 				aCornerCommand = 50

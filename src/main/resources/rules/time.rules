@@ -11,3 +11,40 @@ then
 	}
 	logWarn("Bigboxer23", "Setting Weekend2" + IsWeekend.state)
 end
+
+rule "Morning"
+when
+	Time cron "0 55 06 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Morning " + VacationMode.state + " " + now.getMonthOfYear)
+	IsNight.sendCommand(OFF)
+	IsMorning.sendCommand(ON)
+end
+
+rule "Day"
+when
+	Time cron "0 0 9 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Day " + VacationMode.state + " " + now.getMonthOfYear)
+	IsMorning.sendCommand(OFF)
+	IsDay.sendCommand(ON)
+end
+
+rule "Evening"
+when
+	Channel 'astro:sun:local:set#event' triggered START
+then
+	logWarn("Bigboxer23", "Evening " + VacationMode.state + " " + now.getMonthOfYear)
+	IsDay.sendCommand(OFF)
+	IsEvening.sendCommand(ON)
+end
+
+rule "Night"
+when
+	Time cron "0 30 22 ? * SUN,MON,TUE,WED,THU *" or
+    Time cron "0 30 23 ? * FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Night " + VacationMode.state + " " + now.getMonthOfYear)
+	IsEvening.sendCommand(OFF)
+	IsNight.sendCommand(ON)
+end

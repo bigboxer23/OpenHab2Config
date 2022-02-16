@@ -26,6 +26,11 @@ then
             MattsBedside.sendCommand(aCommand)
             MaureensBedside.sendCommand(aCommand)
             MasterBedroomFan.sendCommand(ON)
+            if (IsNight.state == OFF)
+            {
+                IsEvening.sendCommand(OFF)
+                IsNight.sendCommand(ON)
+            }
             SmartMasterBathroom.sendCommand(OFF)
         }
 	} else

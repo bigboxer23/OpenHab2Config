@@ -1,7 +1,9 @@
 Group Time "Time"
 DateTime vSunrise_Time "Day [%1$tH:%1$tM]" <sun> (Time) { channel="astro:sun:local:rise#start" }
 DateTime vSunset_Time "Evening [%1$tH:%1$tM]" <sunset> (Time) { channel="astro:sun:local:set#start" }
+Switch IsMorning "Is Morning" (Time)
+Switch IsDay "Is Day" (Time)
+Switch IsEvening "Is Evening" (Time)
 Switch IsNight "Is Night" (Time)
-Switch IsLateNight "Is Late Night" (Time)
 Switch IsWeekend "Is Weekend" (Time)
 Switch IsPTO "Is PTO" (Time)

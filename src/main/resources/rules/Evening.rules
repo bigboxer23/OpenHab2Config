@@ -1,10 +1,9 @@
 rule "Evening On"
 when
 	Item Evening received command ON or
-	Channel 'astro:sun:local:set#event' triggered START
+	Item IsEvening received command ON
 then
 	logWarn("Bigboxer23", "Evening On " + VacationMode.state)
-	IsNight.sendCommand(ON)
 	if (VacationMode.state != ON)
 	{
 		EveningOnOn.sendCommand(100)
@@ -29,12 +28,10 @@ end
 rule "Evening Off First Call"
 when
 	Item Evening received command OFF or
-	Time cron "0 30 22 ? * SUN,MON,TUE,WED,THU *" or
-	Time cron "0 30 23 ? * FRI,SAT *"
+	Item IsNight received command ON
 then
 	logWarn("Bigboxer23", "Evening Off " + VacationMode.state + " " + LivingRoomBack.state)
 	EveningOffOff.sendCommand(0)
-	IsLateNight.sendCommand(ON)
 	if (VacationMode.state != ON)
 	{
 		StairsAccent.sendCommand(75)

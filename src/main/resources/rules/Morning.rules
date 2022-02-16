@@ -1,12 +1,10 @@
 rule "Morning On Rule"
 when
-	Time cron "0 55 06 ? * MON,TUE,WED,THU,FRI *" or
+	Item IsMorning received command ON or
 	Item Morning received command ON
 then
 	logWarn("Bigboxer23", "Morning On " + VacationMode.state + " " + now.getMonthOfYear)
-	IsNight.sendCommand(OFF)
-	IsLateNight.sendCommand(OFF)
-	if (VacationMode.state != ON && IsPTO.state != ON)
+	if (VacationMode.state != ON && IsPTO.state != ON && IsWeekend.state != ON)
 	{
 		MorningOn.sendCommand(100)
 		MorningOn.sendCommand(ON)
@@ -42,7 +40,7 @@ end
 
 rule "Morning Off"
 when
-	Time cron "0 0 9 ? * SUN,MON,TUE,WED,THU,FRI,SAT *" or
+	Item IsDay received command ON or
 	Item Morning received command OFF
 then
 	logWarn("Bigboxer23", "Morning Off")
