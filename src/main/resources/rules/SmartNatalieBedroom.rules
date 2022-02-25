@@ -24,7 +24,7 @@ then
         case 4:
         {
             logWarn("Bigboxer23", "Bedtime Thursday")
-            aPurple = new HSBType(new DecimalType(233), new PercentType(59), new PercentType(1))
+            aPurple = new HSBType(new DecimalType(140), new PercentType(100), new PercentType(1))
         }
         case 5:
         {
@@ -87,11 +87,11 @@ then
 			NatalieFan.sendCommand(OFF);
 		} else
 		{
+		    NatatalieLamp.sendCommand(aPurple)
+            NataliesAccent.sendCommand(aPurple)
 			if (receivedCommand == ON)
 			{
                 NatalieReadingLamp.sendCommand(40)
-                NatatalieLamp.sendCommand(aPurple)
-                NataliesAccent.sendCommand(aPurple)
                 NatalieFan.sendCommand(ON)
 			} else
 			{
