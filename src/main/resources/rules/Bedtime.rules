@@ -32,6 +32,18 @@ then
 	DeaneLamp.sendCommand(0)
 end
 
+rule "Nat purple light on"
+when
+	Time cron "0 00 21 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Nat purple light on " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		var aPurple = new HSBType(new DecimalType(223),new PercentType(100),new PercentType(1))
+		NatatalieLamp.sendCommand(aPurple)
+        NataliesAccent.sendCommand(aPurple)
+	}
+end
 
 rule "Nat Reading Light Off"
 when

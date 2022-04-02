@@ -27,12 +27,18 @@ rule "Home Office Cool Down 66"
 when
 	Time cron "0 30 16 ? * MON,TUE,WED,THU,FRI *"
 then
-	logWarn("Bigboxer23", aName + " Off")
+	logWarn("Bigboxer23", aName + " Off 66 " + MasterBedroomOverhead.state)
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
         MasterBedroomFan.sendCommand(OFF)
-		MasterBedroomOverhead.sendCommand(66)
-		LivingRoomCornerLamp.sendCommand(66)
+        if (MasterBedroomOverhead.state != 0)
+        {
+			MasterBedroomOverhead.sendCommand(66)
+		}
+		if (LivingRoomCornerLamp.state != 0)
+		{
+			LivingRoomCornerLamp.sendCommand(66)
+		}
 	}
 end
 
@@ -40,10 +46,16 @@ rule "Home Office Cool Down 45"
 when
 	Time cron "0 45 16 ? * MON,TUE,WED,THU,FRI *"
 then
-	logWarn("Bigboxer23", aName + " Off")
+	logWarn("Bigboxer23", aName + " Off 45 " + MasterBedroomOverhead.state)
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
-		MasterBedroomOverhead.sendCommand(45)
-		LivingRoomCornerLamp.sendCommand(45)
+		if (MasterBedroomOverhead.state != 0)
+        {
+            MasterBedroomOverhead.sendCommand(45)
+        }
+        if (LivingRoomCornerLamp.state != 0)
+        {
+            LivingRoomCornerLamp.sendCommand(45)
+        }
 	}
 end
