@@ -39,7 +39,7 @@ then
 	logWarn("Bigboxer23", "Nat purple light on " + VacationMode.state)
 	if (VacationMode.state != ON)
 	{
-		var aPurple = new HSBType(new DecimalType(223),new PercentType(100),new PercentType(1))
+		var aPurple = new HSBType(new DecimalType(261),new PercentType(100),new PercentType(1))
 		NatatalieLamp.sendCommand(aPurple)
         NataliesAccent.sendCommand(aPurple)
 	}

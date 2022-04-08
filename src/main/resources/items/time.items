@@ -1,4 +1,4 @@
-Group Time "Time"
+Group Time "Time" ["Room"]
 DateTime vSunrise_Time "Day [%1$tH:%1$tM]" <sun> (Time) { channel="astro:sun:local:rise#start" }
 DateTime vSunset_Time "Evening [%1$tH:%1$tM]" <sunset> (Time) { channel="astro:sun:local:set#start" }
 Switch IsMorning "Is Morning" (Time)

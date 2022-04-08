@@ -44,7 +44,7 @@ then
     }
     if (now.getHourOfDay >= 9)
     {
-        aPurple = new HSBType(new DecimalType(223),new PercentType(100),new PercentType(1))
+        aPurple = new HSBType(new DecimalType(261),new PercentType(100),new PercentType(1))
     }
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
