@@ -4,7 +4,10 @@ when
 	Item SmartUpstairsBathroom received command
 then
 		var Number aCommand = receivedCommand;
-		if (aCommand == ON)
+		if (IsNight.state == ON && aCommand == ON)
+        {
+            aCommand = 15
+        } else if (aCommand == ON)
         {
             aCommand = 100
         } else if (aCommand == OFF || aCommand == 0)
