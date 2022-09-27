@@ -6,7 +6,7 @@ then
 		var Number aCommand = receivedCommand;
 		if (aCommand == ON || aCommand == 100)
         {
-            aCommand = 5
+            aCommand = 11
         } else if (aCommand == OFF || aCommand == 0)
         {
             aCommand = 0;
