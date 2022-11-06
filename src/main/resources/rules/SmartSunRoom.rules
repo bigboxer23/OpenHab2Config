@@ -4,10 +4,10 @@ when
 	Item SmartSunRoom received command
 then
 		var Number aCommand = receivedCommand;
-		if (aCommand == ON || aCommand == 100)
+		if (receivedCommand == ON || receivedCommand == 100)
         {
             aCommand = 11
-        } else if (aCommand == OFF || aCommand == 0)
+        } else if (receivedCommand == OFF || receivedCommand == 0)
         {
             aCommand = 0;
             SunRoomCeilingFan.sendCommand(OFF)
@@ -18,4 +18,5 @@ then
         logWarn("Bigboxer23", aName + ": " + aCommand)
         HotTub.sendCommand(aCommand)
         OverheadDeck.sendCommand(aCommand)
+        Deck.sendCommand(aCommand)
 end
