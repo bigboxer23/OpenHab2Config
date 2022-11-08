@@ -4,9 +4,11 @@ when
 	Item SmartSunRoom received command
 then
 		var Number aCommand = receivedCommand;
+		var Number aCommand2 = receivedCommand;
 		if (receivedCommand == ON || receivedCommand == 100)
         {
             aCommand = 11
+            aCommand2 = 25
         } else if (receivedCommand == OFF || receivedCommand == 0)
         {
             aCommand = 0;
@@ -18,5 +20,5 @@ then
         logWarn("Bigboxer23", aName + ": " + aCommand)
         HotTub.sendCommand(aCommand)
         OverheadDeck.sendCommand(aCommand)
-        Deck.sendCommand(aCommand)
+        Deck.sendCommand(aCommand2)
 end
