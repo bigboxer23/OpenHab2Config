@@ -11,13 +11,14 @@ then
             aCommand2 = 25
         } else if (receivedCommand == OFF || receivedCommand == 0)
         {
-            aCommand = 0;
+            aCommand = 0
+            aCommand2 = 0
             SunRoomCeilingFan.sendCommand(OFF)
         } else
         {
             aCommand = Math.round((aCommand / 3).floatValue())
         }
-        logWarn("Bigboxer23", aName + ": " + aCommand)
+        logWarn("Bigboxer23", aName + ": " + aCommand + " " + aCommand2)
         HotTub.sendCommand(aCommand)
         OverheadDeck.sendCommand(aCommand)
         Deck.sendCommand(aCommand2)
