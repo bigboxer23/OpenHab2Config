@@ -109,8 +109,8 @@ Dimmer PlayroomLight  "Playroom Light" (Playroom, EveningOffOff) {channel = "zwa
 //Natalie
 Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff) {channel = "hue:0100:001788174d59:7:brightness"}
 Dimmer NatalieRoomWindow  "Natalie Room Window" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node19:switch_dimmer"}
-Dimmer NatalieRoomLight  "Natalie Room Light" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node18:switch_dimmer"}
-Switch NatalieFan  "Natalie Fan" (NatalieBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node17:switch_binary"}
+Dimmer NatalieRoomLight  "Natalie Room Light" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node109:switch_dimmer"}
+Switch NatalieFan  "Natalie Fan" (NatalieBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node109:switch_binary1"}
 Color NatatalieLamp "Natalie Lamp" (NatalieBedroom, MorningOff) {channel = "hue:0210:001788174d59:5:color"}
 Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff) {channel = "hue:0200:001788174d59:14:color"}
 

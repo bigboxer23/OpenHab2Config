@@ -48,6 +48,7 @@ then
 		NatalieDot.sendCommand(PAUSE)
 		if (MasterBedroomFan.state == OFF)
 		{
+			logWarn("Bigboxer23", "Fan reports Off sending 0")
 			SmartMasterBedroom.sendCommand(0)
 		}
 	}
