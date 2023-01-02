@@ -71,8 +71,8 @@ Dimmer MudStorageRoom "Mud Storage Room" (MudRoom, EveningOffOff) {channel = "zw
 //Sun Room
 Dimmer Overhead "Overhead" (SunRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node5:switch_dimmer"}
 Dimmer Deck "Deck" (SunRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node4:switch_dimmer"}
-Dimmer OverheadDeck "Overhead Deck" (SunRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node106:switch_dimmer"}
-Dimmer HotTub "Hot Tub" (SunRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node107:switch_dimmer"}
+Dimmer OverheadDeck "Overhead Deck" (SunRoom) ["Notify"] {channel = "zwave:device:c98ae6a6:node106:switch_dimmer"}
+Dimmer HotTub "Hot Tub" (SunRoom) ["Notify"] {channel = "zwave:device:c98ae6a6:node107:switch_dimmer"}
 Switch SunRoomCeilingFan "Sun Room Ceiling Fan" (SunRoom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node3:switch_binary"}
 Switch SunRoomOutlet "Sun Room Outlet" (SunRoom, ChristmasLights) {channel = "zwave:device:c98ae6a6:node6:switch_binary"}
 

@@ -62,5 +62,7 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off Second " + VacationMode.state)
 	SmartLivingRoom.sendCommand(OFF)
+	HotTub.sendCommand(OFF)
+	OverheadDeck.sendCommand(OFF)
 	//TODO:use the darn motion sensor
 end
