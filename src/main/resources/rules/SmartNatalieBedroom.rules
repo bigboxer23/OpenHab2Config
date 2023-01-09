@@ -57,12 +57,12 @@ then
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
 			NatalieFan.sendCommand(receivedCommand);
-			NatatalieLamp.sendCommand(receivedCommand);
+			//NatatalieLamp.sendCommand(receivedCommand);
 			NataliesAccent.sendCommand(receivedCommand);
 			NatalieFan.sendCommand(OFF);
 		} else
 		{
-			NatatalieLamp.sendCommand(aPurple)
+			//NatatalieLamp.sendCommand(aPurple)
             NataliesAccent.sendCommand(aPurple)
             Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
@@ -91,7 +91,7 @@ then
 			NatalieFan.sendCommand(OFF);
 		} else
 		{
-		    NatatalieLamp.sendCommand(aPurple)
+		   // NatatalieLamp.sendCommand(aPurple)
             NataliesAccent.sendCommand(aPurple)
 			if (receivedCommand == ON)
 			{
