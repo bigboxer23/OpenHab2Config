@@ -9,7 +9,7 @@ then
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
 		//MasterBedroomOverhead.sendCommand(100)
-		LivingRoomCornerLamp.sendCommand(100)
+		//LivingRoomCornerLamp.sendCommand(100)
 	}
 end
 
