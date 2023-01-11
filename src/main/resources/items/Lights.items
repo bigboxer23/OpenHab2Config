@@ -30,7 +30,6 @@ Dimmer GarageCenterLightGe "Garage Center Light 2" (Garage, EveningOffOff, Garag
 
 
 //Living Room
-Color LivingRoomCornerLamp "Living Room Corner" (LivingRoom) {channel = "hue:0210:ecb5faa0d486:8:color"}
 Dimmer LivingRoomFront "Living Room Front" (LivingRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node29:switch_dimmer"}
 Dimmer LivingRoomBack "Living Room Back" (LivingRoom, EveningOnOn) ["Notify"] {channel = "zwave:device:c98ae6a6:node31:switch_dimmer"}
 Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0200:ecb5faa0d486:5:color"}
@@ -125,6 +124,7 @@ Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel
 Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node25:switch_binary"}
 Dimmer MattsOverheadAccent "Matt's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node28:switch_dimmer"}
 Dimmer MaureensOverheadAccent "Maureen's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node27:switch_dimmer"}
+Color MasterBedroomCornerLamp "Master Bedroom Corner Lamp" (MasterBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:8:color"}
 
 //Master Bathroom
 Dimmer  MasterBathMain "Master Bath Main" (MasterBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node105:switch_dimmer"}

@@ -23,8 +23,6 @@ then
             {
                 aCommand = 25
             }
-            MattsBedside.sendCommand(aCommand)
-            MaureensBedside.sendCommand(aCommand)
             MasterBedroomFan.sendCommand(ON)
             if (IsNight.state == OFF)
             {
@@ -32,6 +30,8 @@ then
                 IsNight.sendCommand(ON)
             }
             SmartMasterBathroom.sendCommand(OFF)
+            MattsBedside.sendCommand(aCommand)
+            MaureensBedside.sendCommand(aCommand)
         }
 	} else
 	{

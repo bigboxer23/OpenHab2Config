@@ -9,7 +9,7 @@ then
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
 		//MasterBedroomOverhead.sendCommand(100)
-		//LivingRoomCornerLamp.sendCommand(100)
+		//MasterBedroomCornerLamp.sendCommand(100)
 	}
 end
 
@@ -20,7 +20,7 @@ when
 then
 	logWarn("Bigboxer23", aName + " Off")
 	MasterBedroomOverhead.sendCommand(0)
-	LivingRoomCornerLamp.sendCommand(0)
+	//MasterBedroomCornerLamp.sendCommand(0)
 end
 
 rule "Home Office Cool Down 66"
@@ -35,9 +35,9 @@ then
         {
 			MasterBedroomOverhead.sendCommand(66)
 		}
-		if (LivingRoomCornerLamp.state != 0)
+		if (MasterBedroomCornerLamp.state != 0)
 		{
-			LivingRoomCornerLamp.sendCommand(66)
+			//MasterBedroomCornerLamp.sendCommand(66)
 		}
 	}
 end
@@ -53,9 +53,9 @@ then
         {
             MasterBedroomOverhead.sendCommand(45)
         }
-        if (LivingRoomCornerLamp.state != 0)
+        if (MasterBedroomCornerLamp.state != 0)
         {
-            LivingRoomCornerLamp.sendCommand(45)
+            //MasterBedroomCornerLamp.sendCommand(45)
         }
 	}
 end

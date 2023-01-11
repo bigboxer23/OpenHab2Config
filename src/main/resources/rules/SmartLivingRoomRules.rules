@@ -4,7 +4,6 @@ when
 then
 		if (receivedCommand == OFF || receivedCommand == 0)
 		{
-			//LivingRoomCornerLamp.sendCommand(receivedCommand)
 			LivingRoomBack.sendCommand(receivedCommand)
 			LivingRoomFront.sendCommand(receivedCommand)
 			LivingRoomAccent.sendCommand(receivedCommand)
@@ -23,7 +22,6 @@ then
 				aCommand = 50
 				aCornerCommand = 50
 			}
-			//LivingRoomCornerLamp.sendCommand(aCornerCommand as Number)
 			LivingRoomBack.sendCommand(aCommand as Number)
 			LivingRoomAccent.sendCommand(aCornerCommand as Number)
 		}
