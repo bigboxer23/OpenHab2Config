@@ -40,7 +40,7 @@ then
 	if (VacationMode.state != ON)
 	{
 		var aPurple = new HSBType(new DecimalType(261),new PercentType(100),new PercentType(1))
-		NatatalieLamp.sendCommand(aPurple)
+		//NatatalieLamp.sendCommand(aPurple)
         NataliesAccent.sendCommand(aPurple)
 	}
 end

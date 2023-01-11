@@ -11,6 +11,7 @@ then
         MainAccent.sendCommand(receivedCommand)
         MattsOverheadAccent.sendCommand(receivedCommand)
         MaureensOverheadAccent.sendCommand(receivedCommand)
+        MasterBedroomCornerLamp.sendCommand(receivedCommand)
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 21)
         {
             MasterBedroomFan.sendCommand(OFF)
@@ -53,6 +54,7 @@ then
             Hallway.sendCommand(0)
             MattsOverheadAccent.sendCommand(0)
             MaureensOverheadAccent.sendCommand(0)
+            MasterBedroomCornerLamp.sendCommand(receivedCommand)
 		}
 		if (now.getHourOfDay > 6 && now.getHourOfDay < 10)
         {
@@ -62,6 +64,5 @@ then
             MattsBedside.sendCommand(aCommand as Number)
             MaureensBedside.sendCommand(aCommand as Number)
         }
-
 	}
 end
