@@ -54,15 +54,14 @@ then
 		}
 		NatalieRoomLight.sendCommand(receivedCommand);
 		NatalieRoomWindow.sendCommand(receivedCommand);
+		NatatalieLamp.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
 			NatalieFan.sendCommand(receivedCommand);
-			//NatatalieLamp.sendCommand(receivedCommand);
 			NataliesAccent.sendCommand(receivedCommand);
 			NatalieFan.sendCommand(OFF);
 		} else
 		{
-			//NatatalieLamp.sendCommand(aPurple)
             NataliesAccent.sendCommand(aPurple)
             Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
