@@ -32,6 +32,7 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off " + VacationMode.state + " " + LivingRoomBack.state)
 	EveningOffOff.sendCommand(0)
+	SunRoomCeilingFan.sendCommand(OFF)
 	if (VacationMode.state != ON)
 	{
 		StairsAccent.sendCommand(75)

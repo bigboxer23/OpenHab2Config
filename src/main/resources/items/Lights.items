@@ -1,7 +1,7 @@
 //Basement
 Color BackBar "Back Bar" (Basement, EveningOffOff) ["Notify","Internal"] {channel = "hue:0210:ecb5faa0d486:15:color"}
 Color BackBarAccent "Back Bar Accent" (Basement, EveningOffOff) ["Notify","Internal"] {channel = "hue:0210:ecb5faa0d486:16:color"}
-Dimmer  BarLamp "Bar Lamp" (Basement, EveningOffOff) {channel = "hue:0100:ecb5faa0d486:17:brightness"}
+Dimmer  BarLamp "Bar Lamp" (Basement, EveningOffOff) {channel = "hue:0220:ecb5faa0d486:20:brightness"}
 Dimmer ArtAccent "Art Accent" (Basement, EveningOffOff) {channel = "zwave:device:c98ae6a6:node59:switch_dimmer"}
 Dimmer MiddleOverhead "Middle Overhead" (Basement, EveningOffOff) {channel = "zwave:device:c98ae6a6:node61:switch_dimmer"}
 Dimmer BackOverhead "Back Overhead" (Basement, EveningOffOff) {channel = "zwave:device:c98ae6a6:node60:switch_dimmer"}
@@ -68,11 +68,11 @@ Dimmer MudRoomLight "Mud Room" (MudRoom, EveningOffOff, GarageOpen) {channel = "
 Dimmer MudStorageRoom "Mud Storage Room" (MudRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node72:switch_dimmer", expire="10m, command=0"}
 
 //Sun Room
-Dimmer Overhead "Overhead" (SunRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node5:switch_dimmer"}
+Dimmer Overhead "Overhead" (SunRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node110:switch_dimmer"}
 Dimmer Deck "Deck" (SunRoom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node4:switch_dimmer"}
 Dimmer OverheadDeck "Overhead Deck" (SunRoom) ["Notify"] {channel = "zwave:device:c98ae6a6:node106:switch_dimmer"}
 Dimmer HotTub "Hot Tub" (SunRoom) ["Notify"] {channel = "zwave:device:c98ae6a6:node107:switch_dimmer"}
-Switch SunRoomCeilingFan "Sun Room Ceiling Fan" (SunRoom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node3:switch_binary"}
+Switch SunRoomCeilingFan "Sun Room Ceiling Fan" (SunRoom) ["Switchable"] {channel = "zwave:device:c98ae6a6:node110:switch_binary1"}
 Switch SunRoomOutlet "Sun Room Outlet" (SunRoom, ChristmasLights) {channel = "zwave:device:c98ae6a6:node6:switch_binary"}
 
 

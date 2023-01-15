@@ -10,6 +10,7 @@ then
 		MorningOn.sendCommand(ON)
 		UnderCabinets.sendCommand(35)
 		StairsAccent.sendCommand(35)
+		SunRoomCeilingFan.sendCommand(ON)
 		if (now.getMonthOfYear < 3 || now.getMonthOfYear > 10)
 		{
 			WinterMorningOn.sendCommand(100)
