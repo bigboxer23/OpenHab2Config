@@ -56,7 +56,7 @@ then
             MaureensOverheadAccent.sendCommand(0)
             MasterBedroomCornerLamp.sendCommand(0)
 		}
-		if (now.getHourOfDay > 6 && now.getHourOfDay < 10)
+		if (now.getHourOfDay > 7 && now.getHourOfDay < 21)
         {
 			MasterBedroomOverhead.sendCommand(aCommand as Number)
         } else
