@@ -54,7 +54,7 @@ then
             Hallway.sendCommand(0)
             MattsOverheadAccent.sendCommand(0)
             MaureensOverheadAccent.sendCommand(0)
-            MasterBedroomCornerLamp.sendCommand(receivedCommand)
+            MasterBedroomCornerLamp.sendCommand(0)
 		}
 		if (now.getHourOfDay > 6 && now.getHourOfDay < 10)
         {

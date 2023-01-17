@@ -110,7 +110,7 @@ Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff
 Dimmer NatalieRoomWindow  "Natalie Room Window" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node19:switch_dimmer"}
 Dimmer NatalieRoomLight  "Natalie Room Light" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node109:switch_dimmer"}
 Switch NatalieFan  "Natalie Fan" (NatalieBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node109:switch_binary1"}
-Color NatatalieLamp "Natalie Lamp" (NatalieBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:14:color"}
+Color NatalieLamp "Natalie Lamp" (NatalieBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:14:color"}
 Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff) {channel = "hue:0200:ecb5faa0d486:12:color"}
 
 //Master Bedroom

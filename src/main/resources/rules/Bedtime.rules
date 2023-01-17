@@ -26,7 +26,7 @@ when
 	Item Bedtime received command OFF
 then
 	logWarn("Bigboxer23", "Bedtime Off " + now.getDayOfWeek)
-	NatatalieLamp.sendCommand(0)
+	NatalieLamp.sendCommand(0)
 	DeanesAccent.sendCommand(0)
 	NataliesAccent.sendCommand(0)
 	DeaneLamp.sendCommand(0)
@@ -40,7 +40,7 @@ then
 	if (VacationMode.state != ON)
 	{
 		var aPurple = new HSBType(new DecimalType(261),new PercentType(100),new PercentType(1))
-		//NatatalieLamp.sendCommand(aPurple)
+		//NatalieLamp.sendCommand(aPurple)
         NataliesAccent.sendCommand(aPurple)
 	}
 end
