@@ -13,7 +13,7 @@ then
         {
             aCommand = 0
             aCommand2 = 0
-            SunRoomCeilingFan.sendCommand(OFF)
+            //SunRoomCeilingFan.sendCommand(OFF)
         } else
         {
             aCommand = Math.round((aCommand / 3).floatValue())

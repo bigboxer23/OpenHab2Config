@@ -101,6 +101,7 @@ then
 				NatalieReadingLamp.sendCommand(receivedCommand);
 				NatalieRoomLight.sendCommand(OFF);
 				NatalieRoomWindow.sendCommand(OFF);
+				NatalieLamp.sendCommand(OFF)
 			}
 		}
 	}
