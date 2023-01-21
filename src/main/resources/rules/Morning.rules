@@ -10,19 +10,22 @@ then
 		MorningOn.sendCommand(ON)
 		UnderCabinets.sendCommand(35)
 		StairsAccent.sendCommand(35)
-		SunRoomCeilingFan.sendCommand(ON)
 		if (now.getMonthOfYear < 3 || now.getMonthOfYear > 10)
 		{
 			WinterMorningOn.sendCommand(100)
 			LivingRoomBack.sendCommand(50)
 		}
+	} else
+	{
+		logWarn("Bigboxer23", "Vacation, PTO or Weekend Mode Enabled, not triggering")
+	}
+	if (VacationMode.state != ON && IsPTO.state != ON)//Trigger even on weekend
+	{
+		SunRoomCeilingFan.sendCommand(ON)
 		if (now.getMonthOfYear == 12)
         {
             ChristmasLights.sendCommand(ON)
         }
-	} else
-	{
-		logWarn("Bigboxer23", "Vacation or PTO Mode Enabled, not triggering")
 	}
 end
 
