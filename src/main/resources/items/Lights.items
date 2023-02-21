@@ -128,11 +128,11 @@ Color MasterBedroomCornerLamp "Master Bedroom Corner Lamp" (MasterBedroom, Morni
 
 //Master Bathroom
 Dimmer  MasterBathMain "Master Bath Main" (MasterBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node105:switch_dimmer"}
-Dimmer  MasterBathShower "Master Bath Shower" (MasterBathroom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node38:switch_dimmer"}
-Dimmer  PoopCloset "Poop Closet" (MasterBathroom, EveningOffOff) ["Notify"] {channel = "zwave:device:c98ae6a6:node43:switch_dimmer"}
+Dimmer  MasterBathShower "Master Bath Shower" (MasterBathroom) ["Notify"] {channel = "zwave:device:c98ae6a6:node38:switch_dimmer"}
+Dimmer  PoopCloset "Poop Closet" (MasterBathroom) ["Notify"] {channel = "zwave:device:c98ae6a6:node43:switch_dimmer"}
 Dimmer  MasterBathTub "Master Bath Tub" (MasterBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node41:switch_dimmer"}
-Switch  MasterBathFan "Master Bathroom Fan" (MasterBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node105:switch_binary1"}
-Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node42:switch_binary"}
+Switch  MasterBathFan "Master Bathroom Fan" (MasterBathroom) ["Switchable"] {channel = "zwave:device:c98ae6a6:node105:switch_binary1"}
+Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom) ["Switchable"] {channel = "zwave:device:c98ae6a6:node42:switch_binary"}
 
 //Switch TeslaHorn "Tesla Horn" (MasterBathroom) {channel = "tesla:models:e0983279:honkhorn"}
 //Switch TestSwitch "TestSwitch"
