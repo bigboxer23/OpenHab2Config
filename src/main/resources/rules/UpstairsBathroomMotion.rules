@@ -6,7 +6,7 @@ when
     Item UpstairsBathroomMotionSensor received update ON
 then
 	logWarn("Bigboxer23", aName + " ON " + LaundryRoom.state + " " + UpstairsBathroomMotionTimer.state + " " + LaundryRoomMotionSensor.state)
-    if (LaundryRoom.state == 0 || UpstairsBathroomLight.state == 0){
+    if (LaundryRoom.state == 0 || UpstairsBathroomLight.state == 0 || (IsNight.state == OFF && UpstairsBathroomLight.state == 15)){
         logWarn("Bigboxer23", aName + " timer is inactive, triggering lights")
         SmartUpstairsBathroom.sendCommand(ON)
     }
