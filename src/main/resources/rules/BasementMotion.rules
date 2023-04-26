@@ -11,7 +11,7 @@ then
     if (MiddleOverhead.state == 0 && !aNightTime && BasementMotionOverride.state != ON)
     {
         logWarn("Bigboxer23", aName + " timer is inactive, triggering lights")
-		Basement.sendCommand(100)
+		SmartBasement.sendCommand(100)
     }
     BasementMotionTimer.sendCommand(OFF)
 end
@@ -39,8 +39,7 @@ then
 	if (BasementScreenMotionSensor.state === OFF && ArtAreaMotionSensor.state === OFF && BasementStairsMotionSensor.state === OFF && BasementMotionOverride.state != ON)
 	{
 	    logWarn("Bigboxer23", aName + " Timer Off, Sensor Off, shutting off lights")
-	    Basement.sendCommand(0)
-	    UtilityOverhead.sendCommand(0)
+	    SmartBasement.sendCommand(0)
     } else
     {
         logWarn("Bigboxer23", aName + " is ON, not shutting off lights " + BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state)
