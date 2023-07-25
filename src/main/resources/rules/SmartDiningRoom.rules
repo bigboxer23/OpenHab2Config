@@ -16,3 +16,20 @@ then
         Chandelier.sendCommand(aCommand)
         SouthAccent.sendCommand(aCommand)
 end
+
+rule "Dining Room Curtains Open"
+when
+	Item DiningRoomCurtains received command ON
+then
+        executeCommandLine('curl -X POST https://maker.ifttt.com/trigger/open_curtains/with/key/' + kIFTTTCurtainKey.label, 5000)
+        logWarn("Bigboxer23", aName + " curtains opening")
+end
+
+
+rule "Dining Room Curtains Close"
+when
+	Item DiningRoomCurtains received command OFF
+then
+        executeCommandLine('curl -X POST https://maker.ifttt.com/trigger/close_curtains/with/key/' + kIFTTTCurtainKey.label, 5000)
+        logWarn("Bigboxer23", aName + " curtains closing")
+end

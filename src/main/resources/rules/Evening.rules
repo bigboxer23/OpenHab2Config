@@ -23,6 +23,7 @@ then
             Hallway.sendCommand(20)
         }
 	}
+	DiningRoomCurtains.sendCommand(OFF)
 end
 
 rule "Evening Off First Call"

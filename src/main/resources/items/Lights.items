@@ -138,3 +138,4 @@ Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom) ["Switchable"] {channel
 //Switch TestSwitch "TestSwitch"
 Switch VacationMode "Vacation Mode" (Scenes)
 Switch LitterRobot "Litter Robot"
+Switch DiningRoomCurtains "Dining Room Curtains"

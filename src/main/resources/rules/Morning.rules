@@ -22,6 +22,7 @@ then
 	if (VacationMode.state != ON && IsPTO.state != ON)//Trigger even on weekend
 	{
 		SunRoomCeilingFan.sendCommand(ON)
+		DiningRoomCurtains.sendCommand(ON)
 		if (now.getMonthOfYear == 12)
         {
             ChristmasLights.sendCommand(ON)
