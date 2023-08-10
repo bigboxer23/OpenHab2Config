@@ -10,7 +10,7 @@ then
 	{
 		if (IsNight.state == ON)
 		{
-			PoopCloset.sendCommand(15)
+			PoopCloset.sendCommand(25)
 		} else
 		{
 			MasterBathMain.sendCommand(100)
