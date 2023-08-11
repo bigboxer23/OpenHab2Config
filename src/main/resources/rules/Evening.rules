@@ -64,7 +64,15 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off Second " + VacationMode.state)
 	SmartLivingRoom.sendCommand(OFF)
-	HotTub.sendCommand(OFF)
 	OverheadDeck.sendCommand(OFF)
 	//TODO:use the darn motion sensor
+end
+
+rule "hot tub off"
+when
+	Item Evening received command OFF or
+	Time cron "0 30 0 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "hot tub off " + VacationMode.state)
+	HotTub.sendCommand(OFF)
 end
