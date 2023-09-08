@@ -4,6 +4,7 @@ when
 Time cron "0 0 0/3 * * ?" or
 	Item LitterRobot received command ON
 then
-        executeCommandLine('curl -X POST https://maker.ifttt.com/trigger/triggerLitterRobot/with/key/' + kIFTTTKey.label, 5000)
         logWarn("Bigboxer23", aName + " executing")
+        var response = executeCommandLine('/home/pi/pylitterbot/clean.sh', 45000)
+        logWarn("Bigboxer23", aName + " done executing " + response)
 end
