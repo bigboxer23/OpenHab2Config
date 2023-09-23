@@ -6,11 +6,19 @@ then
 		var Number aCommand = receivedCommand;
 		if (aCommand == ON)
         {
-            aCommand = 100
+            //aCommand = 100
+            aCommand = WARM_LIGHT_HSB
         } else if (aCommand == OFF)
         {
             aCommand = 0;
         }
         logWarn("Bigboxer23", aName + ": " + aCommand)
-        FrontPorchLights.sendCommand(aCommand)
+        //FrontPorchSwitch.sendCommand(aCommand)
+        FrontPorch1.sendCommand(aCommand)
+        FrontPorch2.sendCommand(aCommand)
+        FrontPorch3.sendCommand(aCommand)
+        FrontPorch4.sendCommand(aCommand)
+        FrontPorch5.sendCommand(aCommand)
+        FrontPorch6.sendCommand(aCommand)
+        FrontPorch7.sendCommand(aCommand)
 end

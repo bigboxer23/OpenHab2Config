@@ -7,7 +7,7 @@ then
 	if (VacationMode.state != ON)
 	{
 		EveningOnOn.sendCommand(100)
-		FrontPorchLights.sendCommand(45)
+		SmartFrontPorch.sendCommand(55)
 		UnderCabinets.sendCommand(50)
 		Sink.sendCommand(50)
 		MaureensOverheadAccent.sendCommand(50)
@@ -33,6 +33,7 @@ when
 then
 	logWarn("Bigboxer23", "Evening Off " + VacationMode.state + " " + LivingRoomBack.state)
 	EveningOffOff.sendCommand(0)
+	SmartFrontPorch.sendCommand(0)
 	SunRoomCeilingFan.sendCommand(OFF)
 	if (VacationMode.state != ON)
 	{

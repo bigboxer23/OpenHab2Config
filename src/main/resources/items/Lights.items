@@ -51,7 +51,15 @@ Dimmer DiningRoomAccy "Dining Room Accessory" (DiningRoom) ["ignore"] {channel =
 Switch DiningRoomOutlet "Dining Room Outlet" (DiningRoom) {channel = "zwave:device:c98ae6a6:node100:switch_binary"}
 
 //Front Porch
-Dimmer FrontPorchLights "Front Porch Lights" (FrontPorch, EveningOffOff) {channel = "zwave:device:c98ae6a6:node56:switch_dimmer"}
+Dimmer FrontPorchSwitch "Front Porch Switch" {channel = "zwave:device:c98ae6a6:node56:switch_dimmer"}
+Color  FrontPorch1 "Front Porch 1" (FrontPorch) {channel = "hue:0210:ecb5faa0d486:21:color"}
+Color  FrontPorch2 "Front Porch 2" (FrontPorch) {channel = "hue:0210:ecb5faa0d486:22:color"}
+Color  FrontPorch3 "Front Porch 3" (FrontPorch) {channel = "hue:0210:ecb5faa0d486:25:color"}
+Dimmer  FrontPorch4 "Front Porch 4" (FrontPorch) {channel = "hue:0220:ecb5faa0d486:23:brightness"}
+Color  FrontPorch5 "Front Porch 5" (FrontPorch) {channel = "hue:0210:ecb5faa0d486:24:color"}
+Color  FrontPorch6 "Front Porch 6" (FrontPorch) {channel = "hue:0210:ecb5faa0d486:27:color"}
+Color  FrontPorch7 "Front Porch 7" (FrontPorch) {channel = "hue:0210:ecb5faa0d486:26:color"}
+
 Switch SecurityCamOutlet "Security Cam Outlet" (FrontPorch) {channel = "zwave:device:c98ae6a6:node71:switch_binary"}
 Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch, ChristmasLights) {channel = "zwave:device:c98ae6a6:node99:switch_binary"}
 
