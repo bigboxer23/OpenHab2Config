@@ -1,1 +1,0 @@
-String WARM_LIGHT_HSB = new HSBType(new DecimalType(328), new PercentType(61), new PercentType(1));
