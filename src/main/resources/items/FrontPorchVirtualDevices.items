@@ -1,10 +1,7 @@
-Switch FrontPorchEventReset
+Switch FrontPorchEventReset "Normal" (FrontPorchColors)
 
-Switch   FrontPorchRetro           "Retro"
-Switch IsRetro
+Switch FrontPorchRetro "Retro" (FrontPorchColors)
 
-Switch   FrontPorchRainbow           "Rainbow"
-Switch IsRainbow
+Switch FrontPorchRainbow "Rainbow" (FrontPorchColors)
 
-Switch   FrontPorchThanksgiving           "Thanksgiving"
-Switch IsThanksgiving
+Switch FrontPorchThanksgiving "Thanksgiving" (FrontPorchColors)

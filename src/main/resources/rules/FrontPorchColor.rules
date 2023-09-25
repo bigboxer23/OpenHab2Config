@@ -1,18 +1,22 @@
 rule "Front Porch Event Reset"
 when
-	Item FrontPorchEventReset received command OFF
+	Item FrontPorchEventReset received command ON
 then
         logWarn("Bigboxer23", "Front Porch Event Reset")
-		IsRetro.sendCommand(OFF)
+		FrontPorchRetro.sendCommand(OFF)
+		FrontPorchRainbow.sendCommand(OFF)
+		FrontPorchThanksgiving.sendCommand(OFF)
 end
 
 rule "Front Porch Retro"
 when
 	Item FrontPorchRetro received command ON
 then
-		FrontPorchEventReset.sendCommand(OFF)
 		logWarn("Bigboxer23", "Retro")
-		IsRetro.sendCommand(receivedCommand)
+		FrontPorchEventReset.sendCommand(OFF)
+        FrontPorchRainbow.sendCommand(OFF)
+        FrontPorchThanksgiving.sendCommand(OFF)
+		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
 
@@ -20,8 +24,23 @@ rule "Front Porch Rainbow"
 when
 	Item FrontPorchRainbow received command ON
 then
-		FrontPorchEventReset.sendCommand(OFF)
 		logWarn("Bigboxer23", "Rainbow")
-		IsRainbow.sendCommand(receivedCommand)
+		FrontPorchEventReset.sendCommand(OFF)
+		FrontPorchRetro.sendCommand(OFF)
+        FrontPorchThanksgiving.sendCommand(OFF)
+		Thread::sleep(1000)
+		logWarn("Bigboxer23", "Rainbow " + FrontPorchRainbow.state)
+		SmartFrontPorch.sendCommand(receivedCommand)
+end
+
+rule "Front Porch Thanksgiving"
+when
+	Item FrontPorchThanksgiving received command ON
+then
+		logWarn("Bigboxer23", "Thanksgiving")
+		FrontPorchEventReset.sendCommand(OFF)
+		FrontPorchRetro.sendCommand(OFF)
+        FrontPorchRainbow.sendCommand(OFF)
+		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
