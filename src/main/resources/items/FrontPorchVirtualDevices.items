@@ -1,3 +1,7 @@
-Switch   FrontPorchRetro           "Retro"
 Switch FrontPorchEventReset
+
+Switch   FrontPorchRetro           "Retro"
 Switch IsRetro "Is Retro"
+
+Switch   FrontPorchRainbow           "Retro"
+Switch IsRainbow "Is Rainbow"
