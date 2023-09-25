@@ -1,0 +1,3 @@
+Switch   FrontPorchRetro           "Retro"
+Switch FrontPorchEventReset
+Switch IsRetro "Is Retro"

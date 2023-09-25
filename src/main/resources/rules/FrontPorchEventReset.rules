@@ -1,0 +1,9 @@
+val aName = "Front Porch Event Reset"
+rule "Front Porch Event Reset"
+when
+	Item FrontPorchEventReset received command OFF
+then
+        logWarn("Bigboxer23", "Reset front porch colors")
+		IsRetro.sendCommand(OFF)
+
+end

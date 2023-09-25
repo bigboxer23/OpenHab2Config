@@ -3,24 +3,9 @@ rule "Smart Front Porch"
 when
 	Item SmartFrontPorch received command
 then
-		var Number brightness = receivedCommand;
-		var Number overheadCommand = 100
-		if (brightness == ON)
-        {
-            brightness = 100
-        } else if (brightness == OFF || brightness == 0)
-        {
-            brightness = 0;
-            overheadCommand = 0
-        }
-        logWarn("Bigboxer23", aName + ": " + brightness + " overhead:" + overheadCommand)
-        var HSBType WARM_LIGHT_HSB = new HSBType(new DecimalType(42), new PercentType(65), new PercentType(brightness.intValue()));
-        //FrontPorchSwitch.sendCommand(WARM_LIGHT_HSB)
-        FrontPorch1.sendCommand(WARM_LIGHT_HSB)
-        FrontPorch2.sendCommand(WARM_LIGHT_HSB)
-        FrontPorch3.sendCommand(WARM_LIGHT_HSB)
-        FrontPorch4.sendCommand(overheadCommand)
-        FrontPorch5.sendCommand(WARM_LIGHT_HSB)
-        FrontPorch6.sendCommand(WARM_LIGHT_HSB)
-        FrontPorch7.sendCommand(WARM_LIGHT_HSB)
+		var Number brightness = if(receivedCommand == ON) 100 else receivedCommand
+		brightness = if(brightness == OFF || brightness == 0) 0 else brightness
+        logWarn("Bigboxer23", aName + ": " + brightness)
+        FrontPorchOverhead.sendCommand(brightness)
+        FrontPorch4.sendCommand(if(brightness == 55) 100 else brightness)
 end
