@@ -1,9 +1,0 @@
-val aName = "Retro Front Porch"
-rule "Retro Front Porch2"
-when
-	Item FrontPorchRetro received command ON
-then
-		FrontPorchEventReset.sendCommand(OFF)
-		IsRetro.sendCommand(receivedCommand)
-		SmartFrontPorch.sendCommand(receivedCommand)
-end
