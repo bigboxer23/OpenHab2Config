@@ -1,7 +1,10 @@
 Switch FrontPorchEventReset
 
 Switch   FrontPorchRetro           "Retro"
-Switch IsRetro "Is Retro"
+Switch IsRetro
 
-Switch   FrontPorchRainbow           "Retro"
-Switch IsRainbow "Is Rainbow"
+Switch   FrontPorchRainbow           "Rainbow"
+Switch IsRainbow
+
+Switch   FrontPorchThanksgiving           "Thanksgiving"
+Switch IsThanksgiving

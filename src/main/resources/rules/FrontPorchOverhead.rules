@@ -21,7 +21,14 @@ then
 	        FrontPorch5.sendCommand(new HSBType(new DecimalType(155), new PercentType(100), new PercentType((brightness.floatValue() * (92f / 100f)).intValue())))
 	        FrontPorch6.sendCommand(new HSBType(new DecimalType(212), new PercentType(92), new PercentType((brightness.floatValue() * (92f / 100f)).intValue())))
 	        FrontPorch7.sendCommand(new HSBType(new DecimalType(284), new PercentType(96), new PercentType((brightness.floatValue()).intValue())))
-        }else {
+        } else if(FrontPorchThanksgiving.state == ON) {
+            FrontPorch1.sendCommand(new HSBType(new DecimalType(10), new PercentType(55), new PercentType((brightness.floatValue() * (75f / 100f)).intValue())))
+            FrontPorch2.sendCommand(new HSBType(new DecimalType(24), new PercentType(91), new PercentType((brightness.floatValue() * (97f / 100f)).intValue())))
+            FrontPorch3.sendCommand(new HSBType(new DecimalType(36), new PercentType(95), new PercentType((brightness.floatValue() * (97f / 100f)).intValue())))
+            FrontPorch5.sendCommand(new HSBType(new DecimalType(50), new PercentType(90), new PercentType((brightness.floatValue() * (98f / 100f)).intValue())))
+            FrontPorch6.sendCommand(new HSBType(new DecimalType(73), new PercentType(50), new PercentType((brightness.floatValue() * (97f / 100f)).intValue())))
+            FrontPorch7.sendCommand(new HSBType(new DecimalType(112), new PercentType(11), new PercentType((brightness.floatValue() * (84f / 100f)).intValue())))
+        } else {
 	        var HSBType WARM_LIGHT_HSB = new HSBType(new DecimalType(44), new PercentType(65), new PercentType(brightness.intValue()));
 	        FrontPorch1.sendCommand(WARM_LIGHT_HSB)
 	        FrontPorch2.sendCommand(WARM_LIGHT_HSB)
