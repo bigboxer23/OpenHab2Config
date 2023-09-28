@@ -1,8 +1,9 @@
 Switch FrontPorchEventReset "Normal" (FrontPorchColors)
 
 Switch FrontPorchRetro "Retro" (FrontPorchColors)
-Switch FrontPorchRainbow "Rainbow" (FrontPorchColors)
+//Switch FrontPorchRainbow "Rainbow" (FrontPorchColors)
 Switch FrontPorchThanksgiving "Thanksgiving" (FrontPorchColors)
 Switch FrontPorchHalloween "Halloween" (FrontPorchColors)
 Switch FrontPorchChristmas "Christmas" (FrontPorchColors)
 Switch FrontPorchPride "Pride" (FrontPorchColors)
+Switch FrontPorchValentines "Valentines" (FrontPorchColors)

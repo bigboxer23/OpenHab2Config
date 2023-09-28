@@ -16,7 +16,7 @@ then
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
 
-rule "Front Porch Rainbow"
+/*rule "Front Porch Rainbow"
 when
 	Item FrontPorchRainbow received command ON
 then
@@ -25,7 +25,7 @@ then
 		Thread::sleep(1000)
 		logWarn("Bigboxer23", "Rainbow " + FrontPorchRainbow.state)
 		SmartFrontPorch.sendCommand(receivedCommand)
-end
+end*/
 
 rule "Front Porch Thanksgiving"
 when
@@ -63,6 +63,16 @@ when
 then
 		logWarn("Bigboxer23", "Pride")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchPride")].forEach[sendCommand(OFF)]
+		Thread::sleep(1000)
+		SmartFrontPorch.sendCommand(receivedCommand)
+end
+
+rule "Front Porch Valentines"
+when
+	Item FrontPorchValentines received command ON
+then
+		logWarn("Bigboxer23", "Valentines")
+		FrontPorchColors.members.filter[!name.equals("FrontPorchValentines")].forEach[sendCommand(OFF)]
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
