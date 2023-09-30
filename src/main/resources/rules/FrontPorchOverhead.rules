@@ -62,6 +62,14 @@ then
 	        FrontPorch5.sendCommand(new HSBType(new DecimalType(341), new PercentType(64), new PercentType((brightness.floatValue() * (100f / 100f)).intValue())))
 	        FrontPorch6.sendCommand(new HSBType(new DecimalType(342), new PercentType(33), new PercentType((brightness.floatValue() * (100f / 100f)).intValue())))
 	        FrontPorch7.sendCommand(new HSBType(new DecimalType(342), new PercentType(33), new PercentType((brightness.floatValue() * (100f / 100f)).intValue())))
+         } else if(FrontPorchEaster.state == ON) {
+            logWarn("Bigboxer23", aName + ": Easter")
+	        FrontPorch1.sendCommand(new HSBType(new DecimalType(144), new PercentType(15), new PercentType((brightness.floatValue() * (97f / 100f)).intValue())))
+	        FrontPorch2.sendCommand(new HSBType(new DecimalType(278), new PercentType(22), new PercentType((brightness.floatValue() * (98f / 100f)).intValue())))
+	        FrontPorch3.sendCommand(new HSBType(new DecimalType(332), new PercentType(40), new PercentType((brightness.floatValue() * (96f / 100f)).intValue())))
+	        FrontPorch5.sendCommand(new HSBType(new DecimalType(54), new PercentType(25), new PercentType((brightness.floatValue() * (93f / 100f)).intValue())))
+	        FrontPorch6.sendCommand(new HSBType(new DecimalType(200), new PercentType(32), new PercentType((brightness.floatValue() * (98f / 100f)).intValue())))
+	        FrontPorch7.sendCommand(new HSBType(new DecimalType(144), new PercentType(15), new PercentType((brightness.floatValue() * (97f / 100f)).intValue())))
          } else {
             logWarn("Bigboxer23", aName + ": Normal")
           var HSBType WARM_LIGHT_HSB = new HSBType(new DecimalType(44), new PercentType(65), new PercentType(brightness.intValue()));

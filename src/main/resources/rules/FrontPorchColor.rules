@@ -76,3 +76,13 @@ then
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
+
+rule "Front Porch Easter"
+when
+	Item FrontPorchEaster received command ON
+then
+		logWarn("Bigboxer23", "Valentines")
+		FrontPorchColors.members.filter[!name.equals("FrontPorchEaster")].forEach[sendCommand(OFF)]
+		Thread::sleep(1000)
+		SmartFrontPorch.sendCommand(receivedCommand)
+end
