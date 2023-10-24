@@ -33,12 +33,12 @@ then
             colors.add(newArrayList(24,91,100))
         } else if(FrontPorchHalloween.state == ON) {
           logWarn("Bigboxer23", aName + ": Halloween")
-          colors.add(newArrayList(31,100,100))
-          colors.add(newArrayList(273,65,87))
-          colors.add(newArrayList(37,100,100))
-          colors.add(newArrayList(271,85,23))
-          colors.add(newArrayList(26,100,100))
-          colors.add(newArrayList(272,77,75))
+          colors.add(newArrayList(19,100,100))
+          colors.add(newArrayList(273,65,90))
+          colors.add(newArrayList(19,100,100))
+          colors.add(newArrayList(271,85,90))
+          colors.add(newArrayList(19,100,100))
+          colors.add(newArrayList(272,77,90))
         } else if(FrontPorchChristmas.state == ON) {
           logWarn("Bigboxer23", aName + ": Christmas")
             colors.add(newArrayList(353,85,100))
