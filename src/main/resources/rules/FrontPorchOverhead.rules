@@ -41,12 +41,12 @@ then
           colors.add(newArrayList(272,77,90))
         } else if(FrontPorchChristmas.state == ON) {
           logWarn("Bigboxer23", aName + ": Christmas")
-            colors.add(newArrayList(353,85,100))
-            colors.add(newArrayList(167,100,22))
-            colors.add(newArrayList(49,100,100))
-            colors.add(newArrayList(0,1,100))
-            colors.add(newArrayList(165,74,52))
-            colors.add(newArrayList(355,89,90))
+            colors.add(newArrayList(225,20,52))
+            colors.add(newArrayList(120,100,100))
+            colors.add(newArrayList(0,100,100))
+            colors.add(newArrayList(120,100,100))
+            colors.add(newArrayList(0,100,100))
+            colors.add(newArrayList(225,20,52))
         } else if(FrontPorchPride.state == ON) {
             logWarn("Bigboxer23", aName + ": Pride")
             colors.add(newArrayList(0,100,100))
