@@ -16,7 +16,7 @@ then
         BackBarAccent.sendCommand(aCommand)
         BarLamp.sendCommand(aCommand)
         ArtAccent.sendCommand(aCommand)
-        MiddleOverhead.sendCommand(aCommand)
+        MiddleOverhead.sendCommand(Math.min((aCommand).intValue, 95).floatValue())
         BackOverhead.sendCommand(aCommand)
         ScreenAccent.sendCommand(aCommand)
         ScreenOverhead.sendCommand(aCommand)
