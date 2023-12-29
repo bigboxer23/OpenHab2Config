@@ -41,9 +41,9 @@ then
           colors.add(newArrayList(272,77,90))
         } else if(FrontPorchChristmas.state == ON) {
           logWarn("Bigboxer23", aName + ": Christmas")
-            colors.add(newArrayList(0,100,100))
             colors.add(newArrayList(120,100,100))
             colors.add(newArrayList(0,100,100))
+            colors.add(newArrayList(120,100,100))
             colors.add(newArrayList(120,100,100))
             colors.add(newArrayList(0,100,100))
             colors.add(newArrayList(120,100,100))
