@@ -62,7 +62,7 @@ Color  FrontPorch7 "Front Porch 7" {channel = "hue:0210:ecb5faa0d486:26:color"}
 Color  FrontPorchOverhead "Front Porch Overhead" (FrontPorch)
 
 Switch SecurityCamOutlet "Security Cam Outlet" (FrontPorch) {channel = "zwave:device:c98ae6a6:node71:switch_binary"}
-Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch, ChristmasLights) {channel = "zwave:device:c98ae6a6:node99:switch_binary"}
+Switch FrontPorchOutlet "Front Porch Outlet" (FrontPorch) {channel = "zwave:device:c98ae6a6:node99:switch_binary"}
 
 //Great Room
 Dimmer EntryWayAccessory "Entry Way Accessory" (GreatRoom) ["ignore"] {channel = "zwave:device:c98ae6a6:node75:switch_dimmer"}

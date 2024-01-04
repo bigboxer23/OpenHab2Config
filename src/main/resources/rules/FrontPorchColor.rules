@@ -9,12 +9,14 @@ end
 
 rule "Front Porch Hue"
 when
-	Item FrontPorchHueScene received command ON
+	Item FrontPorchHueScene received command
 then
-        logWarn("Bigboxer23", "Front Porch Hue")
-        FrontPorchColors.members.filter[!name.equals("FrontPorchHueScene")].forEach[sendCommand(OFF)]
-        Thread::sleep(1000)
-        SmartFrontPorch.sendCommand(receivedCommand)
+        logWarn("Bigboxer23", "Front Porch Hue " + receivedCommand)
+        if (receivedCommand != '' && receivedCommand != OFF) {
+	        FrontPorchColors.members.filter[!name.equals("FrontPorchHueScene")].forEach[sendCommand(OFF)]
+	        Thread::sleep(1000)
+	        SmartFrontPorch.sendCommand(ON)
+        }
 end
 
 rule "Front Porch Retro"

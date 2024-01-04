@@ -7,7 +7,7 @@ then
 	if (VacationMode.state != ON)
 	{
 		EveningOnOn.sendCommand(100)
-		SmartFrontPorch.sendCommand(55)
+		SmartFrontPorch.sendCommand(100)
 		UnderCabinets.sendCommand(50)
 		Sink.sendCommand(50)
 		MaureensOverheadAccent.sendCommand(50)
@@ -15,6 +15,7 @@ then
 		if (now.getMonthOfYear == 12)
 		{
 			ChristmasLights.sendCommand(ON)
+			SunRoomOutlet.sendCommand(ON)
 		}
 		if (NatalieFan.state == OFF)
         {
@@ -47,6 +48,7 @@ then
 		if (now.getMonthOfYear == 12)
 		{
 			ChristmasLights.sendCommand(OFF)
+			SunRoomOutlet.sendCommand(OFF)
 		}
 		NatalieDot.sendCommand(PAUSE)
 		if (MasterBedroomFan.state == OFF)
