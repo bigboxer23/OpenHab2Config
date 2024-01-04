@@ -22,27 +22,21 @@
 						</goals>
 						<configuration>
 							<target>
-								<scp
-								     todir="pi@openhab:/etc/openhab2/items"
-								     keyfile="${user.home}/.ssh/id_rsa"
-								     passphrase=""
-								     trust="true">
-									<fileset dir="${project.basedir}/src/main/resources/items"/>
-								</scp>
-								<scp
-										todir="pi@openhab:/etc/openhab2/rules"
-										keyfile="${user.home}/.ssh/id_rsa"
-										passphrase=""
-										trust="true">
-									<fileset dir="${project.basedir}/src/main/resources/rules"/>
-								</scp>
-								<scp
-										todir="pi@openhab:/etc/openhab2/things"
-										keyfile="${user.home}/.ssh/id_rsa"
-										passphrase=""
-										trust="true">
-									<fileset dir="${project.basedir}/src/main/resources/things"/>
-								</scp>
+								<exec executable="scp">
+									<arg value="-r" />
+									<arg value="src/main/resources/items" />
+									<arg value="pi@192.168.0.55:/etc/openhab2" />
+								</exec>
+								<exec executable="scp">
+									<arg value="-r" />
+									<arg value="src/main/resources/rules" />
+									<arg value="pi@192.168.0.55:/etc/openhab2" />
+								</exec>
+								<exec executable="scp">
+									<arg value="-r" />
+									<arg value="src/main/resources/things" />
+									<arg value="pi@192.168.0.55:/etc/openhab2" />
+								</exec>
 							</target>
 						</configuration>
 					</execution>

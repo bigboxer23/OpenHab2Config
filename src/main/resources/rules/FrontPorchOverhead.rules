@@ -15,15 +15,7 @@ then
             colors.add(newArrayList(155,18,67))
             colors.add(newArrayList(183,43,53))
             colors.add(newArrayList(227,53,34))
-        } /*else if(FrontPorchRainbow.state == ON) {
-            logWarn("Bigboxer23", aName + ": Rainbow")
-            colors.add(newArrayList(0,100,80))
-            colors.add(newArrayList(32,100,80))
-            colors.add(newArrayList(68,100,92))
-            colors.add(newArrayList(155,100,92))
-            colors.add(newArrayList(212,92,92))
-            colors.add(newArrayList(284,96,100))
-        } */ else if(FrontPorchThanksgiving.state == ON) {
+        } else if(FrontPorchThanksgiving.state == ON) {
             logWarn("Bigboxer23", aName + ": Thanksgiving")
             colors.add(newArrayList(26,100,100))
             colors.add(newArrayList(37,64,52))
@@ -88,11 +80,20 @@ then
             colors.add(newArrayList(44,65,100))
             colors.add(newArrayList(44,65,100))
         }
-        FrontPorch1.sendCommand(new HSBType(new DecimalType(colors.get(0).get(0)), new PercentType(colors.get(0).get(1)), new PercentType((brightness.floatValue() * (colors.get(0).get(2) / 100f)).intValue())))
-        FrontPorch2.sendCommand(new HSBType(new DecimalType(colors.get(1).get(0)), new PercentType(colors.get(1).get(1)), new PercentType((brightness.floatValue() * (colors.get(1).get(2) / 100f)).intValue())))
-        FrontPorch3.sendCommand(new HSBType(new DecimalType(colors.get(2).get(0)), new PercentType(colors.get(2).get(1)), new PercentType((brightness.floatValue() * (colors.get(2).get(2) / 100f)).intValue())))
-        FrontPorch5.sendCommand(new HSBType(new DecimalType(colors.get(3).get(0)), new PercentType(colors.get(3).get(1)), new PercentType((brightness.floatValue() * (colors.get(3).get(2) / 100f)).intValue())))
-        FrontPorch6.sendCommand(new HSBType(new DecimalType(colors.get(4).get(0)), new PercentType(colors.get(4).get(1)), new PercentType((brightness.floatValue() * (colors.get(4).get(2) / 100f)).intValue())))
-        FrontPorch7.sendCommand(new HSBType(new DecimalType(colors.get(5).get(0)), new PercentType(colors.get(5).get(1)), new PercentType((brightness.floatValue() * (colors.get(5).get(2) / 100f)).intValue())))
+        if (FrontPorchHueScene.state == '') {
+            logWarn("Bigboxer23", "Not Hue state " + FrontPorchHueScene.state);
+            FrontPorch1.sendCommand(new HSBType(new DecimalType(colors.get(0).get(0)), new PercentType(colors.get(0).get(1)), new PercentType((brightness.floatValue() * (colors.get(0).get(2) / 100f)).intValue())))
+            FrontPorch2.sendCommand(new HSBType(new DecimalType(colors.get(1).get(0)), new PercentType(colors.get(1).get(1)), new PercentType((brightness.floatValue() * (colors.get(1).get(2) / 100f)).intValue())))
+            FrontPorch3.sendCommand(new HSBType(new DecimalType(colors.get(2).get(0)), new PercentType(colors.get(2).get(1)), new PercentType((brightness.floatValue() * (colors.get(2).get(2) / 100f)).intValue())))
+            FrontPorch5.sendCommand(new HSBType(new DecimalType(colors.get(3).get(0)), new PercentType(colors.get(3).get(1)), new PercentType((brightness.floatValue() * (colors.get(3).get(2) / 100f)).intValue())))
+            FrontPorch6.sendCommand(new HSBType(new DecimalType(colors.get(4).get(0)), new PercentType(colors.get(4).get(1)), new PercentType((brightness.floatValue() * (colors.get(4).get(2) / 100f)).intValue())))
+            FrontPorch7.sendCommand(new HSBType(new DecimalType(colors.get(5).get(0)), new PercentType(colors.get(5).get(1)), new PercentType((brightness.floatValue() * (colors.get(5).get(2) / 100f)).intValue())))
+        } else
+        {
+	        logWarn("Bigboxer23", "Hue state " + FrontPorchHueScene.state);
+	        //TODO: add call to set scene/brightness
+        }
+
+
 
 end

@@ -4,6 +4,17 @@ when
 then
         logWarn("Bigboxer23", "Front Porch Event Reset")
         FrontPorchColors.members.filter[!name.equals("FrontPorchEventReset")].forEach[sendCommand(OFF)]
+        FrontPorchHueScene.sendCommand('')
+end
+
+rule "Front Porch Hue"
+when
+	Item FrontPorchHueScene received command ON
+then
+        logWarn("Bigboxer23", "Front Porch Hue")
+        FrontPorchColors.members.filter[!name.equals("FrontPorchHueScene")].forEach[sendCommand(OFF)]
+        Thread::sleep(1000)
+        SmartFrontPorch.sendCommand(receivedCommand)
 end
 
 rule "Front Porch Retro"
@@ -12,20 +23,10 @@ when
 then
 		logWarn("Bigboxer23", "Retro")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchRetro")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
-
-/*rule "Front Porch Rainbow"
-when
-	Item FrontPorchRainbow received command ON
-then
-		logWarn("Bigboxer23", "Rainbow")
-		FrontPorchColors.members.filter[!name.equals("FrontPorchRainbow")].forEach[sendCommand(OFF)]
-		Thread::sleep(1000)
-		logWarn("Bigboxer23", "Rainbow " + FrontPorchRainbow.state)
-		SmartFrontPorch.sendCommand(receivedCommand)
-end*/
 
 rule "Front Porch Thanksgiving"
 when
@@ -33,6 +34,7 @@ when
 then
 		logWarn("Bigboxer23", "Thanksgiving")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchThanksgiving")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
@@ -43,6 +45,7 @@ when
 then
 		logWarn("Bigboxer23", "Halloween")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchHalloween")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
@@ -53,6 +56,7 @@ when
 then
 		logWarn("Bigboxer23", "Christmas")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchChristmas")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
@@ -63,6 +67,7 @@ when
 then
 		logWarn("Bigboxer23", "Pride")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchPride")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
@@ -73,6 +78,7 @@ when
 then
 		logWarn("Bigboxer23", "Valentines")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchValentines")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
@@ -83,6 +89,7 @@ when
 then
 		logWarn("Bigboxer23", "Valentines")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchEaster")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end
@@ -93,6 +100,7 @@ when
 then
 		logWarn("Bigboxer23", "Valentines")
 		FrontPorchColors.members.filter[!name.equals("FrontPorchFourth")].forEach[sendCommand(OFF)]
+		FrontPorchHueScene.sendCommand('')
 		Thread::sleep(1000)
 		SmartFrontPorch.sendCommand(receivedCommand)
 end

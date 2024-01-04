@@ -9,3 +9,5 @@ Switch FrontPorchPride "Pride" (FrontPorchColors)
 Switch FrontPorchValentines "Valentines" (FrontPorchColors)
 Switch FrontPorchEaster "Easter" (FrontPorchColors)
 Switch FrontPorchFourth "4th of July" (FrontPorchColors)
+
+String FrontPorchHueScene "HueScene" (FrontPorchColors)
