@@ -3,10 +3,18 @@ rule "Front Porch Overhead"
 when
   Item FrontPorchOverhead received command
 then
-    if (FrontPorchHueScene.state != '') {
+    if (FrontPorchHueScene.state != '' && receivedCommand != 0) {
         logWarn("Bigboxer23", "Hue state " + FrontPorchHueScene.state);
-        executeCommandLine('curl -k https://bigboxer23.loclx.io/S/hue/scene/' + FrontPorchHueScene.state + '/ON?t=' + kInternalToken.label, 5000)
-        //TODO: add call to set brightness
+        if (receivedCommand == 100) {
+            executeCommandLine('curl -k https://bigboxer23.loclx.io/S/hue/scene/' + FrontPorchHueScene.state + '/ON?t=' + kInternalToken.label, 5000)
+        } else {
+            FrontPorch1.sendCommand(receivedCommand)
+	        FrontPorch2.sendCommand(receivedCommand)
+	        FrontPorch3.sendCommand(receivedCommand)
+	        FrontPorch5.sendCommand(receivedCommand)
+	        FrontPorch6.sendCommand(receivedCommand)
+	        FrontPorch7.sendCommand(receivedCommand)
+        }
     } else
     {
         var Number brightness = receivedCommand;
