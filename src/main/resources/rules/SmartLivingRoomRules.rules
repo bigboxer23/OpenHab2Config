@@ -14,13 +14,13 @@ then
 			logWarn("Bigboxer23", "SmartLivingRoom: " + aCommand + " " + LivingRoomBack.state + " " + IsNight.state + " " + IsEvening.state)
 			if (aCommand == ON || aCommand == 100)
 			{
-				aCommand = 70
+				aCommand = 100
 				aCornerCommand = 100
 			}
 			if (IsNight.state == ON)
 			{
-				aCommand = 50
-				aCornerCommand = 50
+				aCommand = 100
+				aCornerCommand = 100
 			}
 			LivingRoomBack.sendCommand(aCommand as Number)
 			LivingRoomAccent.sendCommand(aCornerCommand as Number)
