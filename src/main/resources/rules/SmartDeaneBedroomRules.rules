@@ -17,8 +17,8 @@ then
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
 			LaundryRoom.sendCommand(receivedCommand)
-			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
-			DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
+			DeanesAccent.sendCommand(new HSBType(new DecimalType(120), new PercentType(100), new PercentType(1)))
+			DeaneLamp.sendCommand(new HSBType(new DecimalType(120), new PercentType(100), new PercentType(1)))
 		}
 	} else
 	{
