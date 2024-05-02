@@ -1,0 +1,21 @@
+val aName = "Basement Humidifier"
+rule "Basement Humidifier"
+when
+	Item BasementHumidifier received command ON
+then
+        logWarn("Bigboxer23", aName + " executing")
+        var response = executeCommandLine('curl -k https://bigboxer23.loclx.io/S/humidifier/' + kBasementHumidifier.label + '?t=' + kInternalToken.label, 5000)
+        logWarn("Bigboxer23", aName + " done executing " + response)
+        BasementHumidifier.sendCommand(OFF);
+end
+
+val aName = "Sun Room Humidifier"
+rule "Sun Room Humidifier"
+when
+	Item SunroomHumidifier received command ON
+then
+        logWarn("Bigboxer23", aName + " executing")
+        var response = executeCommandLine('curl -k https://bigboxer23.loclx.io/S/humidifier/' + kSunRoomHumidifier.label + '?t=' + kInternalToken.label, 5000)
+        logWarn("Bigboxer23", aName + " done executing " + response)
+        SunroomHumidifier.sendCommand(OFF);
+end

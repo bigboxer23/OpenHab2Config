@@ -148,3 +148,6 @@ Switch  PoopClosetFan "Poop Closet Fan" (MasterBathroom) ["Switchable"] {channel
 Switch VacationMode "Vacation Mode" (Scenes)
 Switch LitterRobot "Litter Robot"
 Switch DiningRoomCurtains "Dining Room Curtains"
+
+Switch BasementHumidifier "Basement Humidifier" (Basement)
+Switch SunroomHumidifier "Sun Room Humidifier" (SunRoom)
