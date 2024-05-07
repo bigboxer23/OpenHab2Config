@@ -17,7 +17,7 @@ then
 			ChristmasLights.sendCommand(ON)
 			SunRoomOutlet.sendCommand(ON)
 		}
-		if (NatalieFan.state == OFF)
+		if (DeaneFan.state == OFF)
         {
             EntryWay.sendCommand(100)
             Upstairs.sendCommand(45)

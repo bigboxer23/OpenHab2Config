@@ -9,13 +9,12 @@ then
         BasementHumidifier.sendCommand(OFF);
 end
 
-val aName = "Sun Room Humidifier"
 rule "Sun Room Humidifier"
 when
 	Item SunroomHumidifier received command ON
 then
-        logWarn("Bigboxer23", aName + " executing")
+        logWarn("Bigboxer23", "Sun Room Humidifier executing")
         var response = executeCommandLine('curl -k https://bigboxer23.loclx.io/S/humidifier/' + kSunRoomHumidifier.label + '?t=' + kInternalToken.label, 5000)
-        logWarn("Bigboxer23", aName + " done executing " + response)
+        logWarn("Bigboxer23", "Sun Room Humidifier done executing " + response)
         SunroomHumidifier.sendCommand(OFF);
 end
