@@ -7,7 +7,6 @@ then
 	if (VacationMode.state != ON)
 	{
 		EveningOnOn.sendCommand(100)
-		SmartFrontPorch.sendCommand(100)
 		UnderCabinets.sendCommand(50)
 		Sink.sendCommand(50)
 		MaureensOverheadAccent.sendCommand(50)
@@ -24,6 +23,7 @@ then
             Hallway.sendCommand(20)
         }
 	}
+	SmartFrontPorch.sendCommand(100)
 	DiningRoomCurtains.sendCommand(OFF)
 end
 

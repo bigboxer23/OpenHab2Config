@@ -19,15 +19,15 @@ then
 	{
 		logWarn("Bigboxer23", "Vacation, PTO or Weekend Mode Enabled, not triggering")
 	}
-	if (VacationMode.state != ON && IsPTO.state != ON)//Trigger even on weekend
-	{
+	//if (VacationMode.state != ON && IsPTO.state != ON)//Trigger even on weekend
+	//{
 		SunRoomCeilingFan.sendCommand(ON)
 		DiningRoomCurtains.sendCommand(ON)
 		if (now.getMonthOfYear == 12)
         {
             ChristmasLights.sendCommand(ON)
         }
-	}
+	//}
 end
 
 rule "Morning Fans Off Rule"
