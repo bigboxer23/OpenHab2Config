@@ -3,7 +3,7 @@ when
 	Time cron "0 0 */2 * * ?"
 then
         executeCommandLine('curl -k https://bigboxer23.loclx.io/S/switchbot/plugmini/6055F93379FE/ON?t=' + kInternalToken.label, 5000)
-        logWarn("Bigboxer23", aName + " tank stirring commencing")
+        logWarn("Bigboxer23", "tank stirring commencing")
 end
 
 rule "Tank Stirrer Off"
@@ -11,5 +11,5 @@ when
 	Time cron "0 15 */2 * * ?"
 then
         executeCommandLine('curl -k https://bigboxer23.loclx.io/S/switchbot/plugmini/6055F93379FE/OFF?t=' + kInternalToken.label, 5000)
-        logWarn("Bigboxer23", aName + " tank stirring stopping")
+        logWarn("Bigboxer23", "tank stirring stopping")
 end
