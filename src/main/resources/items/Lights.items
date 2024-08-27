@@ -130,7 +130,7 @@ Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel
 Dimmer  MainAccent "Main Accent" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node26:switch_dimmer"}
 Dimmer  Hallway "Hallway" (MasterBedroom) {channel = "zwave:device:c98ae6a6:node36:switch_dimmer"}
 Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel = "zwave:device:c98ae6a6:node23:switch_dimmer"}
-Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node25:switch_binary"}
+Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node123:switch_binary"}
 Dimmer MattsOverheadAccent "Matt's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node28:switch_dimmer"}
 Dimmer MaureensOverheadAccent "Maureen's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node27:switch_dimmer"}
 Color MasterBedroomCornerLamp "Master Bedroom Corner Lamp" (MasterBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:8:color"}
