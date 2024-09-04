@@ -62,7 +62,8 @@ then
 			NatalieFan.sendCommand(OFF);
 		} else
 		{
-            NataliesAccent.sendCommand(aPurple)
+			NataliesAccent.sendCommand(ON)
+            NataliesAccent.sendCommand(new HSBType(new DecimalType(261),new PercentType(100),new PercentType(1)))
             Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
@@ -91,6 +92,7 @@ then
 		} else
 		{
 		   // NatalieLamp.sendCommand(aPurple)
+		    NataliesAccent.sendCommand(ON)
             NataliesAccent.sendCommand(aPurple)
 			if (receivedCommand == ON)
 			{

@@ -126,11 +126,11 @@ Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff) {channel = "
 Color  MattsBedside "Matt's Bedside" (MasterBedroom, MorningOff) ["Notify"] {channel = "hue:0210:ecb5faa0d486:6:color"}
 Color  MaureensBedside "Maureen's Bedside" (MasterBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:7:color"}
 Dimmer  MasterCloset "Master Closet" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node21:switch_dimmer", expire="9m, command=0"}
-Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel = "zwave:device:c98ae6a6:node24:switch_dimmer"}
+Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel = "zwave:device:c98ae6a6:node127:switch_dimmer"}
 Dimmer  MainAccent "Main Accent" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node26:switch_dimmer"}
 Dimmer  Hallway "Hallway" (MasterBedroom) {channel = "zwave:device:c98ae6a6:node36:switch_dimmer"}
 Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel = "zwave:device:c98ae6a6:node23:switch_dimmer"}
-Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node123:switch_binary"}
+Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node127:switch_binary1"}
 Dimmer MattsOverheadAccent "Matt's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node28:switch_dimmer"}
 Dimmer MaureensOverheadAccent "Maureen's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node27:switch_dimmer"}
 Color MasterBedroomCornerLamp "Master Bedroom Corner Lamp" (MasterBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:8:color"}
