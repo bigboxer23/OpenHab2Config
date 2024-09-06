@@ -8,7 +8,7 @@ then
 	{
 		MorningOn.sendCommand(100)
 		MorningOn.sendCommand(ON)
-		UnderCabinets.sendCommand(35)
+		UnderCabinets.sendCommand(50)
 		StairsAccent.sendCommand(35)
 		if (now.getMonthOfYear < 3 || now.getMonthOfYear > 10)
 		{

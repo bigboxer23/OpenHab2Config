@@ -106,7 +106,7 @@ Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom, Eveni
 Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node34:switch_dimmer"}
 Color  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0210:ecb5faa0d486:10:color"}
 Color  DeanesAccent "Deane Accent" (DeaneBedroom, MorningOff) {channel = "hue:0200:ecb5faa0d486:11:color"}
-Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node104:switch_binary"}
+Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node128:switch_binary"}
 
 
 
