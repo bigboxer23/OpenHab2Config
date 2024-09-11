@@ -53,6 +53,7 @@ then
 	if (VacationMode.state != ON)
 	{
 		NatalieReadingLamp.sendCommand(0)
+		DeaneReadingLamp.sendCommand(0)
 	}
 end
 
