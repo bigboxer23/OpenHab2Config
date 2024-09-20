@@ -32,9 +32,11 @@ when
 	Item Evening received command OFF or
 	Item IsNight received command ON
 then
-	logWarn("Bigboxer23", "Evening Off " + VacationMode.state + " " + LivingRoomBack.state)
+	logWarn("Bigboxer23", "Evening Off " + VacationMode.state + " " + LivingRoomBack.state + " " + IsExtendedEvening.state)
 	EveningOffOff.sendCommand(0)
-	SmartFrontPorch.sendCommand(0)
+	if (IsExtendedEvening.state != ON) {
+		SmartFrontPorch.sendCommand(0)
+	}
 	SunRoomCeilingFan.sendCommand(OFF)
 	if (VacationMode.state != ON)
 	{

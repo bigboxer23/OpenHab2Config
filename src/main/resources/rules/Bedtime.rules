@@ -45,18 +45,27 @@ then
 	}
 end
 
-rule "Nat Reading Light Off"
+rule "Girls Reading Light Off"
 when
 	Time cron "0 30 21 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
-	logWarn("Bigboxer23", "Nat Reading Lamp off " + VacationMode.state)
+	logWarn("Bigboxer23", "Girls Reading Lamp off " + VacationMode.state)
 	if (VacationMode.state != ON)
 	{
 		NatalieReadingLamp.sendCommand(0)
-		DeaneReadingLamp.sendCommand(0)
 	}
 end
 
+rule "Deane Reading Light Off"
+when
+	Time cron "0 45 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Deane Reading Lamp off " + VacationMode.state)
+	if (VacationMode.state != ON)
+	{
+		SmartDeaneBedroom.sendCommand(0)
+	}
+end
 
 rule "Alexa Off"
 when

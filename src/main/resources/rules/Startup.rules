@@ -6,6 +6,7 @@ then
     VacationMode.sendCommand(OFF)
     IsPTO.sendCommand(OFF)
     FrontPorchEventReset.sendCommand(OFF)
+    IsExtendedEvening.sendCommand(OFF)
 
     executeCommandLine('curl -k https://192.168.0.46/climate/forceUpdate', 5000)
     executeCommandLine('curl -k https://192.168.0.24/climate/forceUpdate', 5000)

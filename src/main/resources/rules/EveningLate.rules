@@ -11,6 +11,8 @@ then
 		StairsAccent.sendCommand(0)
 		MotionOverrides.sendCommand(OFF)
 		SmartLivingRoom.sendCommand(0)
+		IsExtendedEvening.sendCommand(OFF)
+		SmartFrontPorch.sendCommand(0)
 		//HeatingSetpoint.sendCommand(68|°F)
 		//CoolingSetpoint.sendCommand(75|°F)
 	}

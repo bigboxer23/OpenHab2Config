@@ -5,11 +5,11 @@ then
 	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand + " " + now.getHourOfDay)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
-		DeaneRoomOverhead.sendCommand(receivedCommand);
 		if (DeaneRoomOverhead.state == 0)
         {
             DeaneReadingLamp.sendCommand(receivedCommand);
         }
+        DeaneRoomOverhead.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
 			DeaneFan.sendCommand(receivedCommand);
@@ -21,6 +21,7 @@ then
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
 			LaundryRoom.sendCommand(receivedCommand)
+			DeanesAccent.sendCommand(ON)
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(120), new PercentType(100), new PercentType(1)))
 			DeaneLamp.sendCommand(new HSBType(new DecimalType(120), new PercentType(100), new PercentType(1)))
 		}
@@ -29,6 +30,7 @@ then
 		if (now.getHourOfDay >= 18 || now.getHourOfDay <= 6)
 		{
 			logWarn("Bigboxer23", "Smart Deane Accent")
+			DeanesAccent.sendCommand(ON)
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 			DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 		}
@@ -42,11 +44,11 @@ then
 			if (receivedCommand == ON)
 			{
 				DeaneReadingLamp.sendCommand(40)
-				DeaneLamp.sendCommand(25);
+				DeaneLamp.sendCommand(1);
 			} else
 			{
-				DeaneLamp.sendCommand(receivedCommand);
 				DeaneReadingLamp.sendCommand(receivedCommand);
+				DeaneRoomOverhead.sendCommand(OFF);
 			}
 		}
 	}
