@@ -107,7 +107,7 @@ Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {c
 Color  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0210:ecb5faa0d486:10:color"}
 Color  DeanesAccent "Deane Accent" (DeaneBedroom, MorningOff) {channel = "hue:0200:ecb5faa0d486:11:color"}
 Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node128:switch_binary"}
-Dimmer  DeaneReadingLamp "Deane Reading Lamp" (Playroom, EveningOffOff) {channel = "hue:0100:ecb5faa0d486:9:brightness"}
+Dimmer  DeaneReadingLamp "Deane Reading Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0100:ecb5faa0d486:9:brightness"}
 
 
 
