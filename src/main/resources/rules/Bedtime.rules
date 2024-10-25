@@ -1,6 +1,6 @@
 rule "Deane Bedtime On"
 when
-	Time cron "0 40 18 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+	Time cron "0 40 19 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Deane Bedtime On " + now.getDayOfWeek + " " + VacationMode.state)
 	if (VacationMode.state != ON)
