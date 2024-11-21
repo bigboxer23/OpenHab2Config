@@ -2,14 +2,14 @@ val aName = "Home Office"
 
 rule "Home Office On"
 when
-	Time cron "0 0 8 ? * MON,TUE,WED,THU,FRI *" or
+	Time cron "0 0 9 ? * MON,TUE,WED,THU,FRI *" or
 	Item Morning received command OFF
 then
 	logWarn("Bigboxer23", aName + " On")
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
-		//MasterBedroomOverhead.sendCommand(100)
-		//MasterBedroomCornerLamp.sendCommand(100)
+		MasterBedroomOverhead.sendCommand(100)
+		MasterBedroomCornerLamp.sendCommand(100)
 	}
 end
 
@@ -20,7 +20,7 @@ when
 then
 	logWarn("Bigboxer23", aName + " Off")
 	MasterBedroomOverhead.sendCommand(0)
-	//MasterBedroomCornerLamp.sendCommand(0)
+	MasterBedroomCornerLamp.sendCommand(0)
 end
 
 rule "Home Office Cool Down 66"
