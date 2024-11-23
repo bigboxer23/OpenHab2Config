@@ -6,6 +6,7 @@ then
 	if (VacationMode.state != ON)
 	{
 		SmartDeaneBedroom.sendCommand(ON)
+		DeaneRoomOverhead.sendCommand(40)
 	}
 end
 
