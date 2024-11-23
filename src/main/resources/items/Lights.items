@@ -86,9 +86,9 @@ Switch SunRoomOutlet "Sun Room Outlet" (SunRoom, ChristmasLights) {channel = "zw
 
 
 //Guest Bathroom
-Switch GuestFan "Guest Fan" (GuestBathroom, EveningOffOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node8:switch_binary"}
-Dimmer GuestBathroomAccent "Guest Bathroom Accent" (GuestBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node9:switch_dimmer"}
-Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node7:switch_dimmer"}
+Switch GuestFan "Guest Fan" (GuestBathroom) ["Switchable"] {channel = "zwave:device:c98ae6a6:node8:switch_binary"}
+Dimmer GuestBathroomAccent "Guest Bathroom Accent" (GuestBathroom) {channel = "zwave:device:c98ae6a6:node9:switch_dimmer"}
+Dimmer GuestBathroomOverhead "Guest Bathroom Overhead" (GuestBathroom) {channel = "zwave:device:c98ae6a6:node7:switch_dimmer"}
 
 //Upstairs Common
 Dimmer  Upstairs "Upstairs" (UpstairsCommon, EveningOffOff) {channel = "zwave:device:c98ae6a6:node37:switch_dimmer"}
