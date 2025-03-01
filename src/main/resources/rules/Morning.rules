@@ -10,7 +10,7 @@ then
 		MorningOn.sendCommand(ON)
 		UnderCabinets.sendCommand(50)
 		StairsAccent.sendCommand(35)
-		if (now.getMonthOfYear < 3 || now.getMonthOfYear > 10)
+		if (now.getMonthOfYear < 4 || now.getMonthOfYear > 10)
 		{
 			WinterMorningOn.sendCommand(100)
 			LivingRoomBack.sendCommand(100)
@@ -22,12 +22,22 @@ then
 	//if (VacationMode.state != ON && IsPTO.state != ON)//Trigger even on weekend
 	//{
 		SunRoomCeilingFan.sendCommand(ON)
-		DiningRoomCurtains.sendCommand(ON)
 		if (now.getMonthOfYear == 12)
         {
             ChristmasLights.sendCommand(ON)
         }
 	//}
+end
+
+rule "Curtains Open Rule"
+when
+	Time cron "0 45 07 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+then
+	logWarn("Bigboxer23", "Curtains Open " + IsPTO.state)
+	if (IsPTO.state != ON)
+	{
+		DiningRoomCurtains.sendCommand(ON)
+	}
 end
 
 rule "Morning Fans Off Rule"

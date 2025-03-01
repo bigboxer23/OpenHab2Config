@@ -8,7 +8,7 @@ then
 	logWarn("Bigboxer23", aName + " On")
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
-		MasterBedroomOverhead.sendCommand(100)
+		MasterBedroomOverhead.sendCommand(94)
 		MasterBedroomCornerLamp.sendCommand(100)
 	}
 end
@@ -25,7 +25,7 @@ end
 
 rule "Home Office Cool Down 66"
 when
-	Time cron "0 30 16 ? * MON,TUE,WED,THU,FRI *"
+	Time cron "0 45 16 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", aName + " Off 66 " + MasterBedroomOverhead.state)
 	if (VacationMode.state != ON && IsPTO.state != ON)
@@ -33,7 +33,7 @@ then
         MasterBedroomFan.sendCommand(OFF)
         if (MasterBedroomOverhead.state != 0)
         {
-			MasterBedroomOverhead.sendCommand(66)
+			MasterBedroomOverhead.sendCommand(80)
 		}
 		if (MasterBedroomCornerLamp.state != 0)
 		{
@@ -44,14 +44,14 @@ end
 
 rule "Home Office Cool Down 45"
 when
-	Time cron "0 45 16 ? * MON,TUE,WED,THU,FRI *"
+	Time cron "0 55 16 ? * MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", aName + " Off 45 " + MasterBedroomOverhead.state)
 	if (VacationMode.state != ON && IsPTO.state != ON)
     {
 		if (MasterBedroomOverhead.state != 0)
         {
-            MasterBedroomOverhead.sendCommand(45)
+            MasterBedroomOverhead.sendCommand(60)
         }
         if (MasterBedroomCornerLamp.state != 0)
         {
