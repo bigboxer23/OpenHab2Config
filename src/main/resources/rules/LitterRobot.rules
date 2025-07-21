@@ -1,7 +1,7 @@
 val aName = "LitterRobot"
 rule "LitterRobot Cron"
 when
-Time cron "0 0 0/3 * * ?" or
+// Time cron "0 0 0/3 * * ?" or
 	Item LitterRobot received command ON
 then
         logWarn("Bigboxer23", aName + " executing")
