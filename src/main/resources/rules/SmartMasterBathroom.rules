@@ -17,7 +17,7 @@ then
             if (IsMorning.state == ON)
             {
                 MasterBathShower.sendCommand(100)
-                if (now.getHourOfDay <= 7 && IsWeekend.state == OFF)
+                if (now.getHourOfDay <= 7 || (now.getHourOfDay <= 8 && now.getMinuteOfHour < 15) && IsWeekend.state == OFF)
                 {
                     MasterBathFan.sendCommand(ON)
                 }

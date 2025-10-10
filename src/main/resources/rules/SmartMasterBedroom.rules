@@ -85,11 +85,11 @@ end
 
 rule "Shades Open For Moon"
 when
-    Time cron "0 00 07 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+    Time cron "0 30 07 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	val fullMoonTime = new DateTime(FullMoonTime.state.toString)
-    val DateTime threeDaysBefore = fullMoonTime.minusDays(3)
-    val DateTime threeDaysAfter  = fullMoonTime.plusDays(3)
+    val DateTime threeDaysBefore = fullMoonTime.minusDays(2)
+    val DateTime threeDaysAfter  = fullMoonTime.plusDays(4)
     val DateTime nowTime = now
     val within3Days = nowTime.isAfter(threeDaysBefore) && nowTime.isBefore(threeDaysAfter)
    	logWarn("Bigboxer23", "Shades Closed For Moon " + within3Days + " " + fullMoonTime)
