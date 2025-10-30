@@ -59,7 +59,7 @@ end
 
 rule "Deane Reading Light Off"
 when
-	Time cron "0 45 20 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+	Time cron "0 00 21 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Deane Reading Lamp off " + VacationMode.state)
 	if (VacationMode.state != ON)
