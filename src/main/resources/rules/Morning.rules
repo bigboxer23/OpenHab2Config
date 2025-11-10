@@ -31,7 +31,8 @@ end
 
 rule "Curtains Open Rule"
 when
-	Time cron "0 45 07 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+    Time cron "0 20 07 ? 10-12,1-4 SUN,MON,TUE,WED,THU,FRI,SAT *" or
+    Time cron "0 45 07 ? 5-9 SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Curtains Open " + IsPTO.state)
 	if (IsPTO.state != ON)
@@ -42,7 +43,8 @@ end
 
 rule "Morning Fans Off Rule"
 when
-	Time cron "0 45 07 ? * MON,TUE,WED,THU,FRI *"
+    Time cron "0 20 07 ? 10-12,1-4 MON,TUE,WED,THU,FRI *" or
+    Time cron "0 45 07 ? 5-9 MON,TUE,WED,THU,FRI *"
 then
 	logWarn("Bigboxer23", "Fans off")
 	if (IsPTO.state != ON)
