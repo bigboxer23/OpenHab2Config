@@ -88,11 +88,11 @@ when
     Time cron "0 30 07 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	val fullMoonTime = new DateTime(FullMoonTime.state.toString)
-    val DateTime threeDaysBefore = fullMoonTime.minusDays(2)
+    val DateTime threeDaysBefore = fullMoonTime.minusDays(3)
     val DateTime threeDaysAfter  = fullMoonTime.plusDays(4)
     val DateTime nowTime = now
     val within3Days = nowTime.isAfter(threeDaysBefore) && nowTime.isBefore(threeDaysAfter)
-   	logWarn("Bigboxer23", "Shades Closed For Moon " + within3Days + " " + fullMoonTime)
+   	logWarn("Bigboxer23", "Shades Open For Moon " + within3Days + " " + fullMoonTime)
     if (within3Days)
     {
         executeCommandLine('curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/0?t=' + kInternalToken.label, 5000)
