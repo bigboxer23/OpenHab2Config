@@ -53,7 +53,6 @@ then
 		NatalieFan.sendCommand(OFF)
 		MasterBedroomFan.sendCommand(OFF)
 	}
-	SmartFrontPorch.sendCommand(OFF)
 end
 
 rule "Morning Off"
@@ -72,4 +71,12 @@ then
 	{
 		ChristmasLights.sendCommand(OFF)
 	}
+end
+
+rule "Sunrise"
+when
+	Channel 'astro:sun:local:rise#event' triggered START
+then
+	logWarn("Bigboxer23", "Sunrise " + VacationMode.state + " " + now.getMonthOfYear)
+	SmartFrontPorch.sendCommand(OFF)
 end
