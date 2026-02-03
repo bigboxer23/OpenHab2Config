@@ -35,10 +35,10 @@ when
     Time cron "0 45 07 ? 5-9 SUN,MON,TUE,WED,THU,FRI,SAT *"
 then
 	logWarn("Bigboxer23", "Curtains Open " + IsPTO.state)
-	if (IsPTO.state != ON)
-	{
+	//if (IsPTO.state != ON)
+	//{
 		DiningRoomCurtains.sendCommand(ON)
-	}
+	//}
 end
 
 rule "Morning Fans Off Rule"

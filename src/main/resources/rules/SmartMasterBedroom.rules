@@ -69,48 +69,66 @@ end
 
 rule "Shades Closed For Moon"
 when
-    Time cron "0 00 21 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+    Time cron "0 00 21 ? * * *"
 then
-	val fullMoonTime = new DateTime(FullMoonTime.state.toString)
-    val DateTime threeDaysBefore = fullMoonTime.minusDays(3)
-    val DateTime threeDaysAfter  = fullMoonTime.plusDays(3)
-    val DateTime nowTime = now
-    val within3Days = nowTime.isAfter(threeDaysBefore) && nowTime.isBefore(threeDaysAfter)
-   	logWarn("Bigboxer23", "Shades Closed For Moon " + within3Days + " " + fullMoonTime)
-    if (within3Days)
-    {
-        executeCommandLine('curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/100?t=' + kInternalToken.label, 5000)
+    val nowTime  = now
+    val nextFull = new DateTime(FullMoonTime.state.toString)
+    val prevFull = nextFull.minusDays(29) // approx previous full moon
+
+    val withinWindow = [ DateTime target |
+        val before = target.minusDays(3)
+        val after  = target.plusDays(3)
+        nowTime.isAfter(before) && nowTime.isBefore(after)
+    ]
+
+    val target = if (withinWindow.apply(prevFull)) prevFull else nextFull
+    val within = withinWindow.apply(target)
+
+    logWarn("Bigboxer23",
+        "Shades Closed For Moon within=" + within +
+        " target=" + target +
+        " next=" + nextFull +
+        " prev~=" + prevFull)
+
+    if (within) {
+        executeCommandLine(
+            "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/100?t=" + kInternalToken.label,
+            5000
+        )
     }
 end
 
-rule "Shades Open For Moon Weekday"
-when
-    Time cron "0 30 07 ? * MON,TUE,WED,THU,FRI *"
-then
-	val fullMoonTime = new DateTime(FullMoonTime.state.toString)
-    val DateTime threeDaysBefore = fullMoonTime.minusDays(3)
-    val DateTime threeDaysAfter  = fullMoonTime.plusDays(4)
-    val DateTime nowTime = now
-    val within3Days = nowTime.isAfter(threeDaysBefore) && nowTime.isBefore(threeDaysAfter)
-   	logWarn("Bigboxer23", "Shades Open For Moon " + within3Days + " " + fullMoonTime)
-    if (within3Days)
-    {
-        executeCommandLine('curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/0?t=' + kInternalToken.label, 5000)
-    }
-end
 
-rule "Shades Open For Moon Weekend"
+rule "Shades Open For Moon"
 when
-    Time cron "0 00 09 ? * SUN,SAT *"
+    Time cron "0 00 09 ? * SUN,SAT *" or
+     Time cron "0 10 07 ? * MON,TUE,WED,THU,FRI *"
 then
-	val fullMoonTime = new DateTime(FullMoonTime.state.toString)
-    val DateTime threeDaysBefore = fullMoonTime.minusDays(3)
-    val DateTime threeDaysAfter  = fullMoonTime.plusDays(4)
-    val DateTime nowTime = now
-    val within3Days = nowTime.isAfter(threeDaysBefore) && nowTime.isBefore(threeDaysAfter)
-   	logWarn("Bigboxer23", "Shades Open For Moon " + within3Days + " " + fullMoonTime)
-    if (within3Days)
-    {
-        executeCommandLine('curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/0?t=' + kInternalToken.label, 5000)
+    val nowTime  = now
+    val nextFull = new DateTime(FullMoonTime.state.toString)
+
+    // Approx previous full moon (good enough for a +/- few day window)
+    val prevFull = nextFull.minusDays(29)
+
+    val withinWindow = [ DateTime target |
+        val before = target.minusDays(3)
+        val after  = target.plusDays(4)
+        nowTime.isAfter(before) && nowTime.isBefore(after)
+    ]
+
+    val target = if (withinWindow.apply(prevFull)) prevFull else nextFull
+    val within = withinWindow.apply(target)
+
+    logWarn("Bigboxer23",
+        "Shades Open For Moon within=" + within +
+        " target=" + target +
+        " next=" + nextFull +
+        " prev=" + prevFull)
+
+    if (within) {
+        executeCommandLine(
+            "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/0?t=" + kInternalToken.label,
+            5000
+        )
     }
 end

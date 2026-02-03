@@ -14,7 +14,8 @@ end
 
 rule "Morning"
 when
-	Time cron "0 0 7 ? * SUN,MON,TUE,WED,THU,FRI,SAT *"
+	Time cron "0 45 6 ? * MON,TUE,WED,THU,FRI *" or
+	Time cron "0 15 7 ? * SUN,SAT *"
 then
 	logWarn("Bigboxer23", "Morning " + VacationMode.state + " " + now.getMonthOfYear)
 	IsNight.sendCommand(OFF)
