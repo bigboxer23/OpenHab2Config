@@ -95,6 +95,14 @@ then
             "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/100?t=" + kInternalToken.label,
             5000
         )
+        executeCommandLine(
+                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FED6910F/100?t=" + kInternalToken.label,
+                    5000
+                )
+        executeCommandLine(
+                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEEBEA2B/100?t=" + kInternalToken.label,
+                    5000
+                )
     }
 end
 
@@ -130,5 +138,13 @@ then
             "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/0?t=" + kInternalToken.label,
             5000
         )
+        executeCommandLine(
+                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FED6910F/0?t=" + kInternalToken.label,
+                    5000
+                )
+        executeCommandLine(
+                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEEBEA2B/0?t=" + kInternalToken.label,
+                    5000
+                )
     }
 end
