@@ -6,3 +6,6 @@ Group:Dimmer   MorningOff
 Group:Dimmer    EveningOnOn
 Group:Dimmer    GarageOpen
 Group:Dimmer   ChristmasLights
+
+Group gHueDimmers
+Group gHueColors

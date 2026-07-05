@@ -1,7 +1,7 @@
 //Basement
-Color BackBar "Back Bar" (Basement, EveningOffOff) ["Notify","Internal"] {channel = "hue:0210:ecb5faa0d486:15:color"}
-Color BackBarAccent "Back Bar Accent" (Basement, EveningOffOff) ["Notify","Internal"] {channel = "hue:0210:ecb5faa0d486:16:color"}
-Dimmer  BarLamp "Bar Lamp" (Basement, EveningOffOff) {channel = "hue:0220:ecb5faa0d486:20:brightness"}
+Color BackBar "Back Bar" (Basement, EveningOffOff, gHueColors) ["Notify","Internal"] { autoupdate="false" }
+Color BackBarAccent "Back Bar Accent" (Basement, EveningOffOff, gHueColors) ["Notify","Internal"] { autoupdate="false" }
+Dimmer  BarLamp "Bar Lamp" (Basement, EveningOffOff, gHueDimmers) { autoupdate="false" }
 Dimmer ArtAccent "Art Accent" (Basement, EveningOffOff) {channel = "zwave:device:c98ae6a6:node59:switch_dimmer"}
 Dimmer MiddleOverhead "Middle Overhead" (Basement, EveningOffOff) {channel = "zwave:device:c98ae6a6:node61:switch_dimmer"}
 Dimmer BackOverhead "Back Overhead" (Basement, EveningOffOff) {channel = "zwave:device:c98ae6a6:node60:switch_dimmer"}
@@ -25,14 +25,13 @@ Number FloodSensorBattery "Flood Sensor Battery" (Basement) ["ignore"] {channel 
 
 //Garage
 Dimmer GarageLights "Garage Lights" (Garage, EveningOffOff, GarageOpen) {channel = "zwave:device:c98ae6a6:node32:switch_dimmer", expire="45m, command=0"}
-Dimmer GarageCenterLightHue "Garage Center Light 1" (Garage, EveningOffOff, GarageOpen) {channel = "hue:0100:ecb5faa0d486:18:brightness", expire="45m, command=0"}
-Dimmer GarageCenterLightGe "Garage Center Light 2" (Garage, EveningOffOff, GarageOpen) {channel = "hue:0100:ecb5faa0d486:19:brightness", expire="45m, command=0"}
-
+Dimmer GarageCenterLightHue "Garage Center Light 1" (Garage, EveningOffOff, GarageOpen, gHueDimmers) {autoupdate="false", expire="45m, command=0"}
+Dimmer GarageCenterLightGe "Garage Center Light 2" (Garage, EveningOffOff, GarageOpen, gHueDimmers) {autoupdate="false", expire="45m, command=0"}
 
 //Living Room
 Dimmer LivingRoomFront "Living Room Front" (LivingRoom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node29:switch_dimmer"}
 Dimmer LivingRoomBack "Living Room Back" (LivingRoom, EveningOnOn) ["Notify"] {channel = "zwave:device:c98ae6a6:node31:switch_dimmer"}
-Color  LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, WinterMorningOn) {channel = "hue:0200:ecb5faa0d486:5:color"}
+Color LivingRoomAccent "Living Room Accent" (LivingRoom, EveningOnOn, WinterMorningOn, gHueColors) { autoupdate="false" }
 
 
 //Kitchen
@@ -52,13 +51,13 @@ Switch DiningRoomOutlet "Dining Room Outlet" (DiningRoom) {channel = "zwave:devi
 
 //Front Porch
 Dimmer FrontPorchSwitch "Front Porch Switch" {channel = "zwave:device:c98ae6a6:node56:switch_dimmer"}
-Color  FrontPorch1 "Front Porch 1" {channel = "hue:0210:ecb5faa0d486:21:color"}
-Color  FrontPorch2 "Front Porch 2" {channel = "hue:0210:ecb5faa0d486:22:color"}
-Color  FrontPorch3 "Front Porch 3" {channel = "hue:0210:ecb5faa0d486:25:color"}
-Dimmer  FrontPorch4 "Front Porch Entry Way" (FrontPorch) {channel = "hue:0220:ecb5faa0d486:23:brightness"}
-Color  FrontPorch5 "Front Porch 5" {channel = "hue:0210:ecb5faa0d486:24:color"}
-Color  FrontPorch6 "Front Porch 6" {channel = "hue:0210:ecb5faa0d486:27:color"}
-Color  FrontPorch7 "Front Porch 7" {channel = "hue:0210:ecb5faa0d486:26:color"}
+Color  FrontPorch1 "Front Porch 1" (gHueColors) { autoupdate="false" }
+Color  FrontPorch2 "Front Porch 2" (gHueColors) { autoupdate="false" }
+Color  FrontPorch3 "Front Porch 3" (gHueColors) { autoupdate="false" }
+Dimmer  FrontPorch4 "Front Porch Entry Way" (FrontPorch, gHueDimmers) { autoupdate="false" }
+Color  FrontPorch5 "Front Porch 5" (gHueColors) { autoupdate="false" }
+Color  FrontPorch6 "Front Porch 6" (gHueColors) { autoupdate="false" }
+Color  FrontPorch7 "Front Porch 7" (gHueColors) { autoupdate="false" }
 Color  FrontPorchOverhead "Front Porch Overhead" (FrontPorch)
 
 Switch SecurityCamOutlet "Security Cam Outlet" (FrontPorch) {channel = "zwave:device:c98ae6a6:node71:switch_binary"}
@@ -104,10 +103,10 @@ Dimmer  UpstairsBathroomLight "Upstairs Bathroom Light" (UpstairsBathroom) {chan
 
 //Deane
 Dimmer  DeaneRoomOverhead "Deane Room Overhead" (DeaneBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node34:switch_dimmer"}
-Color  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0210:ecb5faa0d486:10:color"}
-Color  DeanesAccent "Deane Accent" (DeaneBedroom, MorningOff) {channel = "hue:0200:ecb5faa0d486:11:color"}
+Color  DeaneLamp "Deane Lamp" (DeaneBedroom, EveningOffOff, gHueColors) { autoupdate="false" }
+Color  DeanesAccent "Deane Accent" (DeaneBedroom, MorningOff, gHueColors) { autoupdate="false" }
 Switch  DeaneFan "Deane Fan" (DeaneBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node128:switch_binary"}
-Dimmer  DeaneReadingLamp "Deane Reading Lamp" (DeaneBedroom, EveningOffOff) {channel = "hue:0100:ecb5faa0d486:9:brightness"}
+Dimmer  DeaneReadingLamp "Deane Reading Lamp" (DeaneBedroom, EveningOffOff, gHueDimmers) { autoupdate="false" }
 
 
 
@@ -115,16 +114,16 @@ Dimmer  DeaneReadingLamp "Deane Reading Lamp" (DeaneBedroom, EveningOffOff) {cha
 Dimmer PlayroomLight  "Playroom Light" (Playroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node20:switch_dimmer"}
 
 //Natalie
-Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff) {channel = "hue:0100:ecb5faa0d486:13:brightness"}
+Dimmer NatalieReadingLamp  "Natalie Reading Lamp" (NatalieBedroom, EveningOffOff, gHueDimmers) { autoupdate="false" }
 Dimmer NatalieRoomWindow  "Natalie Room Window" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node19:switch_dimmer"}
 Dimmer NatalieRoomLight  "Natalie Room Light" (NatalieBedroom, EveningOffOff) {channel = "zwave:device:c98ae6a6:node109:switch_dimmer"}
 Switch NatalieFan  "Natalie Fan" (NatalieBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node109:switch_binary1"}
-Color NatalieLamp "Natalie Lamp" (NatalieBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:14:color"}
-Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff) {channel = "hue:0200:ecb5faa0d486:12:color"}
+Color NatalieLamp "Natalie Lamp" (NatalieBedroom, MorningOff, gHueColors) { autoupdate="false" }
+Color  NataliesAccent "Natalie Accent" (NatalieBedroom, MorningOff, gHueColors) { autoupdate="false" }
 
 //Master Bedroom
-Color  MattsBedside "Matt's Bedside" (MasterBedroom, MorningOff) ["Notify"] {channel = "hue:0210:ecb5faa0d486:6:color"}
-Color  MaureensBedside "Maureen's Bedside" (MasterBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:7:color"}
+Color  MattsBedside "Matt's Bedside" (MasterBedroom, MorningOff, gHueColors) ["Notify"] { autoupdate="false" }
+Color  MaureensBedside "Maureen's Bedside" (MasterBedroom, MorningOff, gHueColors) { autoupdate="false" }
 Dimmer  MasterCloset "Master Closet" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node21:switch_dimmer", expire="9m, command=0"}
 Dimmer  MasterBedroomOverhead "Master Bedroom Overhead" (MasterBedroom) {channel = "zwave:device:c98ae6a6:node127:switch_dimmer"}
 Dimmer  MainAccent "Main Accent" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node26:switch_dimmer"}
@@ -133,7 +132,7 @@ Dimmer  HallwayAccessory "Hallway Accessory" (MasterBedroom) ["ignore"] {channel
 Switch  MasterBedroomFan "Master Bedroom Fan" (MasterBedroom, MorningOff) ["Switchable"] {channel = "zwave:device:c98ae6a6:node127:switch_binary1"}
 Dimmer MattsOverheadAccent "Matt's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node28:switch_dimmer"}
 Dimmer MaureensOverheadAccent "Maureen's Overhead" (MasterBedroom, MorningOff) {channel = "zwave:device:c98ae6a6:node27:switch_dimmer"}
-Color MasterBedroomCornerLamp "Master Bedroom Corner Lamp" (MasterBedroom, MorningOff) {channel = "hue:0210:ecb5faa0d486:8:color"}
+Color MasterBedroomCornerLamp "Master Bedroom Corner Lamp" (MasterBedroom, MorningOff, gHueColors) { autoupdate="false" }
 
 //Master Bathroom
 Dimmer  MasterBathMain "Master Bath Main" (MasterBathroom) {channel = "zwave:device:c98ae6a6:node105:switch_dimmer"}

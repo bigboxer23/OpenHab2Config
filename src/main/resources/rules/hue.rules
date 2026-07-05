@@ -1,0 +1,235 @@
+import java.net.HttpURLConnection
+import java.net.URL
+import java.io.DataOutputStream
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import java.io.StringWriter
+import java.io.PrintWriter
+import java.util.Map
+import org.eclipse.smarthome.core.library.types.HSBType
+
+val String HA_BASE = "http://192.168.0.57:8123"
+
+val Map<String, String> hueDimmerEntities = newHashMap(
+    "BarLamp" -> "light.house_bar_lamp_2",
+    "GarageCenterLightHue" -> "light.house_garage_center_1",
+    "GarageCenterLightGe" -> "light.hue_ambiance_lamp_1",
+    "DeaneReadingLamp" -> "light.house_playroom_lamp",
+    "NatalieReadingLamp" -> "light.house_nat_reading_lamp",
+    "FrontPorch4" -> "light.house_front_porch_4"
+)
+
+val Map<String, String> hueColorEntities = newHashMap(
+    "BackBar" -> "light.house_back_bar",
+    "BackBarAccent" -> "light.house_bar_lamp",
+    "DeaneLamp" -> "light.deane_bedroom_deane_lamp",
+    "DeanesAccent" -> "light.deane_bedroom_deane_accent",
+    "NatalieLamp" -> "light.house_nat_lamp",
+    "NataliesAccent" -> "light.house_girls_accent",
+    "MattsBedside" -> "light.house_matt_bedside",
+    "MaureensBedside" -> "light.house_maureen_bedside",
+    "MasterBedroomCornerLamp" -> "light.house_master_bedroom_corner_lamp",
+    "LivingRoomAccent" -> "light.house_living_room_corner",
+    "FrontPorch1" -> "light.house_front_porch_1",
+    "FrontPorch2" -> "light.house_front_porch_2",
+    "FrontPorch3" -> "light.house_front_porch_3",
+    "FrontPorch5" -> "light.house_front_porch_5",
+    "FrontPorch6" -> "light.house_front_porch_6",
+    "FrontPorch7" -> "light.house_front_porch_7"
+)
+
+rule "Hue Dimmer - Send Command"
+when
+    Member of gHueDimmers received command
+then
+    val String itemName = triggeringItem.name
+    val String entityId = hueDimmerEntities.get(itemName)
+    if (entityId === null) {
+        logError("HueBridge", "No HA entity mapping for " + itemName)
+        return
+    }
+
+    var String urlStr
+    var String body
+
+    if (receivedCommand == ON) {
+        urlStr = HA_BASE + "/api/services/light/turn_on"
+        body = '{"entity_id": "' + entityId + '"}'
+    } else if (receivedCommand == OFF) {
+        urlStr = HA_BASE + "/api/services/light/turn_off"
+        body = '{"entity_id": "' + entityId + '"}'
+    } else if (receivedCommand instanceof Number) {
+        val int pct = (receivedCommand as Number).intValue()
+        val int brightness255 = Math.round((pct / 100.0) * 255) as int
+        urlStr = HA_BASE + "/api/services/light/turn_on"
+        body = '{"entity_id": "' + entityId + '", "brightness": ' + brightness255 + '}'
+    } else {
+        return
+    }
+
+    try {
+        val URL url = new URL(urlStr)
+        val HttpURLConnection conn = url.openConnection() as HttpURLConnection
+        conn.setRequestMethod("POST")
+        conn.setRequestProperty("Authorization", HA_TOKEN.label)
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setDoOutput(true)
+        conn.setConnectTimeout(5000)
+        conn.setReadTimeout(5000)
+        val DataOutputStream dos = new DataOutputStream(conn.getOutputStream())
+        dos.writeBytes(body)
+        dos.flush()
+        dos.close()
+        val int responseCode = conn.getResponseCode()
+        logInfo("HueBridge", itemName + " -> " + responseCode)
+        conn.disconnect()
+    } catch (Throwable t) {
+        val StringWriter sw = new StringWriter()
+        val PrintWriter pw = new PrintWriter(sw)
+        t.printStackTrace(pw)
+        logError("HueBridge", "Failed " + itemName + ": " + sw.toString())
+    }
+end
+
+rule "Hue Color - Send Command"
+when
+    Member of gHueColors received command
+then
+    val String itemName = triggeringItem.name
+    val String entityId = hueColorEntities.get(itemName)
+    if (entityId === null) {
+        logError("HueBridge", "No HA entity mapping for " + itemName)
+        return
+    }
+
+    var String urlStr = HA_BASE + "/api/services/light/turn_on"
+    var String body
+
+    if (receivedCommand == OFF) {
+        urlStr = HA_BASE + "/api/services/light/turn_off"
+        body = '{"entity_id": "' + entityId + '"}'
+    } else if (receivedCommand instanceof HSBType) {
+        val HSBType hsb = receivedCommand as HSBType
+        val int hue = hsb.hue.intValue
+        val int sat = hsb.saturation.intValue
+        val int brightness255 = Math.round((hsb.brightness.intValue / 100.0) * 255) as int
+        body = '{"entity_id": "' + entityId + '", "hs_color": [' + hue + ', ' + sat + '], "brightness": ' + brightness255 + '}'
+    } else if (receivedCommand instanceof Number) {
+        val int pct = (receivedCommand as Number).intValue()
+        val int brightness255 = Math.round((pct / 100.0) * 255) as int
+        body = '{"entity_id": "' + entityId + '", "brightness": ' + brightness255 + '}'
+    } else if (receivedCommand == ON) {
+        body = '{"entity_id": "' + entityId + '"}'
+    } else {
+        return
+    }
+
+    try {
+        val URL url = new URL(urlStr)
+        val HttpURLConnection conn = url.openConnection() as HttpURLConnection
+        conn.setRequestMethod("POST")
+        conn.setRequestProperty("Authorization", HA_TOKEN.label)
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setDoOutput(true)
+        conn.setConnectTimeout(5000)
+        conn.setReadTimeout(5000)
+        val DataOutputStream dos = new DataOutputStream(conn.getOutputStream())
+        dos.writeBytes(body)
+        dos.flush()
+        dos.close()
+        val int responseCode = conn.getResponseCode()
+        logInfo("HueBridge", itemName + " -> " + responseCode)
+        conn.disconnect()
+    } catch (Throwable t) {
+        val StringWriter sw = new StringWriter()
+        val PrintWriter pw = new PrintWriter(sw)
+        t.printStackTrace(pw)
+        logError("HueBridge", "Failed " + itemName + ": " + sw.toString())
+    }
+end
+
+rule "Hue Dimmers - Poll State"
+when
+    Time cron "0/30 * * * * ?"
+then
+    for (entry : hueDimmerEntities.entrySet) {
+        val String itemName = entry.key
+        val String entityId = entry.value
+        try {
+            val URL url = new URL(HA_BASE + "/api/states/" + entityId)
+            val HttpURLConnection conn = url.openConnection() as HttpURLConnection
+            conn.setRequestMethod("GET")
+            conn.setRequestProperty("Authorization", HA_TOKEN.label)
+            conn.setConnectTimeout(5000)
+            conn.setReadTimeout(5000)
+            val BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))
+            var String line
+            var String response = ""
+            while ((line = reader.readLine()) !== null) {
+                response = response + line
+            }
+            reader.close()
+            conn.disconnect()
+
+            val String state = transform("JSONPATH", "$.state", response)
+            if (state == "off") {
+                postUpdate(itemName, "0")
+            } else {
+                val String brightnessRaw = transform("JSONPATH", "$.attributes.brightness", response)
+                if (brightnessRaw !== null && brightnessRaw != "" && brightnessRaw != "null") {
+                    val int brightness255 = Integer.parseInt(brightnessRaw)
+                    val int pct = Math.round((brightness255 / 255.0) * 100) as int
+                    postUpdate(itemName, pct.toString())
+                } else {
+                    postUpdate(itemName, "100")
+                }
+            }
+        } catch (Exception e) {
+            logError("HueBridge", "Poll failed for " + itemName + ": " + e.getMessage())
+        }
+    }
+end
+
+rule "Hue Colors - Poll State"
+when
+    Time cron "10/30 * * * * ?"
+then
+    for (entry : hueColorEntities.entrySet) {
+        val String itemName = entry.key
+        val String entityId = entry.value
+        try {
+            val URL url = new URL(HA_BASE + "/api/states/" + entityId)
+            val HttpURLConnection conn = url.openConnection() as HttpURLConnection
+            conn.setRequestMethod("GET")
+            conn.setRequestProperty("Authorization", HA_TOKEN.label)
+            conn.setConnectTimeout(5000)
+            conn.setReadTimeout(5000)
+            val BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))
+            var String line
+            var String response = ""
+            while ((line = reader.readLine()) !== null) {
+                response = response + line
+            }
+            reader.close()
+            conn.disconnect()
+
+            val String state = transform("JSONPATH", "$.state", response)
+            if (state == "off") {
+                postUpdate(itemName, "0,0,0")
+            } else {
+                val String hueRaw = transform("JSONPATH", "$.attributes.hs_color[0]", response)
+                val String satRaw = transform("JSONPATH", "$.attributes.hs_color[1]", response)
+                val String brightnessRaw = transform("JSONPATH", "$.attributes.brightness", response)
+
+                val int hue = if (hueRaw !== null && hueRaw != "" && hueRaw != "null") Float.parseFloat(hueRaw).intValue else 0
+                val int sat = if (satRaw !== null && satRaw != "" && satRaw != "null") Float.parseFloat(satRaw).intValue else 0
+                val int brightness255 = if (brightnessRaw !== null && brightnessRaw != "" && brightnessRaw != "null") Integer.parseInt(brightnessRaw) else 255
+                val int pct = Math.round((brightness255 / 255.0) * 100) as int
+
+                postUpdate(itemName, hue + "," + sat + "," + pct)
+            }
+        } catch (Exception e) {
+            logError("HueBridge", "Poll failed for " + itemName + ": " + e.getMessage())
+        }
+    }
+end

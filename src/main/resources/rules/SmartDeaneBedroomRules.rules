@@ -2,13 +2,15 @@ rule "Smart Deane Room Rule"
 when
 	Item SmartDeaneBedroom received command
 then
-	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand + " " + now.getHourOfDay)
+	logWarn("Bigboxer23", "Smart Deane: " + receivedCommand + " " + now.getHourOfDay + " " + DeaneRoomOverhead.state)
 	if (receivedCommand == OFF || receivedCommand == 0)
 	{
+	logWarn("Bigboxer23", "Smart Deane: 2")
 		if (DeaneRoomOverhead.state == 0)
         {
             DeaneReadingLamp.sendCommand(receivedCommand);
         }
+        logWarn("Bigboxer23", "Smart Deane: 3")
         DeaneRoomOverhead.sendCommand(receivedCommand);
 		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
 		{
@@ -20,27 +22,26 @@ then
 			Hallway.sendCommand(receivedCommand);
 			Upstairs.sendCommand(receivedCommand);
 			EntryWay.sendCommand(receivedCommand);
-			LaundryRoom.sendCommand(receivedCommand)
+            SmartPlayroom.sendCommand(receivedCommand)
+            LaundryRoom.sendCommand(receivedCommand)
 			DeanesAccent.sendCommand(ON)
 			DeanesAccent.sendCommand(new HSBType(new DecimalType(120), new PercentType(100), new PercentType(1)))
 			DeaneLamp.sendCommand(new HSBType(new DecimalType(120), new PercentType(100), new PercentType(1)))
 		}
+		logWarn("Bigboxer23", "Smart Deane: 4")
 	} else
 	{
-		if (now.getHourOfDay >= 18 || now.getHourOfDay <= 6)
-		{
-			logWarn("Bigboxer23", "Smart Deane Accent")
-			DeanesAccent.sendCommand(ON)
-			DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
-			DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
-		}
-		if (now.getHourOfDay >= 7 && now.getHourOfDay < 18)
+		if (now.getHourOfDay >= 7 && now.getHourOfDay < 19)
 		{
 			DeaneRoomOverhead.sendCommand(receivedCommand);
 			DeaneFan.sendCommand(OFF);
 		} else
 		{
+			logWarn("Bigboxer23", "Smart Deane Accent")
 			DeaneFan.sendCommand(ON);
+            DeanesAccent.sendCommand(ON)
+            DeanesAccent.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
+            DeaneLamp.sendCommand(new HSBType(new DecimalType(221), new PercentType(99), new PercentType(1)))
 			if (receivedCommand == ON)
 			{
 				DeaneReadingLamp.sendCommand(40)
