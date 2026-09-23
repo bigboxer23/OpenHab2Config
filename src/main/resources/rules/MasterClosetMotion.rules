@@ -19,7 +19,7 @@ then
     MasterClosetMotionTimer.sendCommand(ON)
 end
 
-rule "Basement Motion Timer OFF"
+rule "Master Closet Motion Timer OFF"
 when
     Item MasterClosetMotionTimer received update OFF
 then

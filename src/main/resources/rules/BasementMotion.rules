@@ -18,16 +18,19 @@ end
 
 rule "Basement Motion OFF"
 when
-    Item BasementScreenMotionSensor received update OFF or
-    Item ArtAreaMotionSensor received update OFF or
-    Item BasementStairsMotionSensor received update OFF
+    Item BasementScreenMotionSensor changed to OFF or
+    Item ArtAreaMotionSensor changed to OFF or
+    Item BasementStairsMotionSensor changed to OFF
 then
 	logWarn("Bigboxer23", aName + " sensor Off, maybe timer cancel ")
 	logWarn("Bigboxer23", aName + " " + BasementScreenMotionSensor.state + " " + ArtAreaMotionSensor.state + " " + BasementStairsMotionSensor.state)
 	logWarn("Bigboxer23", aName + " " + (BasementScreenMotionSensor.state === OFF) + " " + (ArtAreaMotionSensor.state === OFF) + " " + (BasementStairsMotionSensor.state === OFF))
-	if ((BasementScreenMotionSensor.state === OFF || BasementScreenMotionSensor.state === NULL)
-	&& (ArtAreaMotionSensor.state === OFF || ArtAreaMotionSensor.state === NULL)
-	&& (BasementStairsMotionSensor.state === OFF || BasementStairsMotionSensor.state === NULL)
+	if (BasementMotionTimer.state === ON)
+	{
+		logWarn("Bigboxer23", aName + " timer already running, not restarting it")
+	} else if ((BasementScreenMotionSensor.state === OFF || BasementScreenMotionSensor.state === NULL || BasementScreenMotionSensor.state === UNDEF)
+	&& (ArtAreaMotionSensor.state === OFF || ArtAreaMotionSensor.state === NULL || ArtAreaMotionSensor.state === UNDEF)
+	&& (BasementStairsMotionSensor.state === OFF || BasementStairsMotionSensor.state === NULL || BasementStairsMotionSensor.state === UNDEF)
 	&& BasementMotionOverride.state != ON)
 	{
 		logWarn("Bigboxer23", aName + " setting Timer")
@@ -39,7 +42,10 @@ rule "Basement Motion Timer OFF"
 when
     Item BasementMotionTimer received update OFF
 then
-	if (BasementScreenMotionSensor.state === OFF && ArtAreaMotionSensor.state === OFF && BasementStairsMotionSensor.state === OFF && BasementMotionOverride.state != ON)
+	if ((BasementScreenMotionSensor.state === OFF || BasementScreenMotionSensor.state === NULL || BasementScreenMotionSensor.state === UNDEF)
+	&& (ArtAreaMotionSensor.state === OFF || ArtAreaMotionSensor.state === NULL || ArtAreaMotionSensor.state === UNDEF)
+	&& (BasementStairsMotionSensor.state === OFF || BasementStairsMotionSensor.state === NULL || BasementStairsMotionSensor.state === UNDEF)
+	&& BasementMotionOverride.state != ON)
 	{
 	    logWarn("Bigboxer23", aName + " Timer Off, Sensor Off, shutting off lights")
 	    SmartBasement.sendCommand(0)

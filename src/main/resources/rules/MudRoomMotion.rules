@@ -19,7 +19,7 @@ then
     MudRoomMotionTimer.sendCommand(ON)
 end
 
-rule "Mud Motion OFF"
+rule "Mud Motion Timer OFF"
 when
     Item MudRoomMotionTimer received update OFF
 then

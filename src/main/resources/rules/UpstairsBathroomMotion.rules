@@ -22,8 +22,8 @@ then
 logWarn("Bigboxer23", aName + " sensor Off, maybe timer cancel ")
 	logWarn("Bigboxer23", aName + " " + LaundryRoomMotionSensor.state + " " + UpstairsBathroomMotionSensor.state)
 	logWarn("Bigboxer23", aName + " " + (LaundryRoomMotionSensor.state === OFF) + " " + (UpstairsBathroomMotionSensor.state === OFF))
-	if ((LaundryRoomMotionSensor.state === OFF || LaundryRoomMotionSensor.state === NULL)
-	 && (UpstairsBathroomMotionSensor.state === OFF || UpstairsBathroomMotionSensor.state === NULL))
+	if ((LaundryRoomMotionSensor.state === OFF || LaundryRoomMotionSensor.state === NULL || LaundryRoomMotionSensor.state === UNDEF)
+	 && (UpstairsBathroomMotionSensor.state === OFF || UpstairsBathroomMotionSensor.state === NULL || UpstairsBathroomMotionSensor.state === UNDEF))
     {
         logWarn("Bigboxer23", aName + " setting Timer")
         UpstairsBathroomMotionTimer.sendCommand(ON)
@@ -34,7 +34,8 @@ rule "Upstairs Bathroom Timer OFF"
 when
     Item UpstairsBathroomMotionTimer received update OFF
 then
-        if (LaundryRoomMotionSensor.state === OFF && UpstairsBathroomMotionSensor.state === OFF)
+        if ((LaundryRoomMotionSensor.state === OFF || LaundryRoomMotionSensor.state === NULL || LaundryRoomMotionSensor.state === UNDEF)
+	 && (UpstairsBathroomMotionSensor.state === OFF || UpstairsBathroomMotionSensor.state === NULL || UpstairsBathroomMotionSensor.state === UNDEF))
     	{
     	    logWarn("Bigboxer23", aName + " Timer Off, Sensor Off, shutting off lights")
 			SmartUpstairsBathroom.sendCommand(OFF)
