@@ -1,3 +1,31 @@
+import java.net.HttpURLConnection
+import java.net.URL
+import java.io.DataOutputStream
+
+// Master bedroom roller shades, via Home Assistant's local bluetooth SwitchBot integration
+// (not SwitchBot Cloud). In HA, open = position 100, closed = position 0.
+val masterShades = [ String service |
+    val String body = '{"entity_id": ["cover.roller_shade_1a08", "cover.roller_shade_910f", "cover.roller_shade_ea2b"]}'
+    try {
+        val HttpURLConnection conn = new URL("http://192.168.0.57:8123/api/services/cover/" + service).openConnection() as HttpURLConnection
+        conn.setRequestMethod("POST")
+        conn.setRequestProperty("Authorization", HA_TOKEN.label)
+        conn.setRequestProperty("Content-Type", "application/json")
+        conn.setDoOutput(true)
+        conn.setConnectTimeout(5000)
+        conn.setReadTimeout(30000)
+        val DataOutputStream dos = new DataOutputStream(conn.getOutputStream())
+        dos.writeBytes(body)
+        dos.flush()
+        dos.close()
+        logWarn("Bigboxer23", "Master shades " + service + " -> " + conn.getResponseCode())
+        conn.disconnect()
+    } catch (Throwable t) {
+        logError("Bigboxer23", "Master shades " + service + " failed: " + t.toString())
+    }
+    true
+]
+
 rule "Smart Master Bedroom Rule"
 when
 	Item SmartMasterBedroom received command
@@ -91,18 +119,7 @@ then
         " prev~=" + prevFull)
 
     if (within) {
-        executeCommandLine(
-            "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/100?t=" + kInternalToken.label,
-            5000
-        )
-        executeCommandLine(
-                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FED6910F/100?t=" + kInternalToken.label,
-                    5000
-                )
-        executeCommandLine(
-                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEEBEA2B/100?t=" + kInternalToken.label,
-                    5000
-                )
+        masterShades.apply("close_cover")
     }
 end
 
@@ -134,17 +151,6 @@ then
         " prev=" + prevFull)
 
     if (within) {
-        executeCommandLine(
-            "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEE11A08/0?t=" + kInternalToken.label,
-            5000
-        )
-        executeCommandLine(
-                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FED6910F/0?t=" + kInternalToken.label,
-                    5000
-                )
-        executeCommandLine(
-                    "curl -k https://bigboxer23.loclx.io/S/switchbot/setPosition/B0E9FEEBEA2B/0?t=" + kInternalToken.label,
-                    5000
-                )
+        masterShades.apply("open_cover")
     }
 end
